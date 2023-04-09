@@ -5,4 +5,4 @@ Facundo Pougy: Soy de Argentino, 18 años y estudiante de Economía.
 
 jeison Andres Jimenez Valenzuela,tengo 23 años y soy Colombiano.
 
-Carlos Alberto Ortiz Arias, 18 años, estudiante de ingenieria en sistemas
+Carlos Alberto Ortiz Arias, 18 años, estudiante de ingenieria en sistemas.
