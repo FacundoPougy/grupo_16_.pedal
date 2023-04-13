@@ -3,5 +3,6 @@ Buscamos ofrecer todo tipo de prendas de ropa, apuntando a un publico que este i
 
 Integrantes:
 Facundo Pougy: Soy de Argentino, 18 años y estudiante de Economía.
-jeison Andres Jimenez Valenzuela,tengo 23 años y soy Colombiano.
+Jeison Andres Jimenez Valenzuela,tengo 23 años y soy Colombiano.
 Carlos Alberto Ortiz Arias, 18 años, estudiante de ingenieria en sistemas.
+Tomás González Mongelós, 23 años, argentino, estudiante de ingenieria informática y programador en PwC.
