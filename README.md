@@ -19,3 +19,4 @@ Integrantes
 *   Jeison Andres Jimenez Valenzuela, tengo 23 años y soy Colombiano.
 *   Carlos Alberto Ortiz Arias, 18 años, estudiante de ingeniería en sistemas.
 *   Tomás González Mongelós, 23 años, argentino, estudiante de ingeniería informática y programador en PwC.
+*   Jaider España Paternina, 20 años, colombiano, estudiante de ingeniería física.
