@@ -20,4 +20,4 @@ Integrantes
 *   Carlos Alberto Ortiz Arias, 18 años, estudiante de ingeniería en sistemas.
 *   Tomás González Mongelós, 23 años, argentino, estudiante de ingeniería informática y programador en PwC.
 *   Jaider España Paternina, 20 años, colombiano, estudiante de ingeniería física.
-*  Juan David Marin, 21 años soy de Medellín me dedico a estudiar ingeniería Civil en la universidad Nacional
+*   Juan David Marin, 21 años soy de Medellín me dedico a estudiar ingeniería Civil en la universidad Nacional
