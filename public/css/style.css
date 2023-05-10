@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@100;300&display=swap');
+
+:root {
+  --blanquito: #f1f0ec;
+  --violeta-oscuro: #402054;
+  --violeta-claro: #782d44;
+  --marronsito: #b03a35;
+  --naranja: #e94726;
+  --texto: Comfortaa;
+  --titulos: Poppins;
+}
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: var(--texto);
+}
+
+p {
+  font-size: 12px;
+}
+
+a {
+  font-size: 12px;
+}
+
+span {
+  font-size: 12px;
+}
+
+body{
+  width: 100vw;
+  color: var(--violeta-oscuro);
+  background-color: var(--blanquito);
+}
+
+/*End of basic declaration*/
+
+/*Header*/
+
+header {
+  background-color: var(--blanquito);
+}
+
+.main-header-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.logo {
+  width: 45vw;
+}
+
+.search {
+  width: 45vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.search input {
+  width: 80%;
+  padding: 3% 2.5%;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.search button {
+  background-color: var(--blanco);
+  border: none;
+  /*Lo agregué yo porque me gusta como queda*/
+  width: 10%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.search-bar{
+  display: flex;
+  align-items: center;
+}
+
+.burger-menu {
+  display: flex;
+  justify-content: center;
+}
+
+.burger-menu button {
+  border: none;
+  border-radius: 5px;
+  color: var(--gris-claro);
+  background-color: var(--celeste);
+  padding: 3% 2.5%;
+  margin-top: 5vw;
+}
+
+.main-nav-bar {
+  display: none;
+}
+
+.main-nav-bar ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 32vw;
+}
+
+.main-nav-bar a {
+  text-decoration: none;
+  color: var(--gris-oscuro);
+}
+
+
+/*Banner*/
+#banner {
+  width: 100vw;
+}
+
+/*Main*/
+main {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.product {
+  border-top: 1px solid var(--gris-claro);
+  background-color: var(--blanco);
+  padding: 15px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  width: 90%;
+}
+
+
+.icon-container {
+  display: block;
+  font-size: 16px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--verde);
+  background-color: var(--blanco);
+  border-radius: 50%;
+  right: 20px;
+  top: -15px;
+  align-self: flex-end;
+  margin-right: 3vw;
+}
+
+.fa-truck {
+  color: var(--verde);
+  transition: transform 0.3s ease;
+}
+
+.titulares {
+  font-size: 24px;
+  margin-top: 3vw;
+  margin-bottom: 1vh;
+  margin-left: 5vw;
+}
+
+.product img {
+  width: 100%;
+}
+
+.precios {
+  font-size: 18px;
+  width: 30%;
+}
+
+.descuentos {
+  font-size: 16px;
+  color: var(--verde);
+  width: 70%;
+  margin-left: 10%;
+}
+
+.precio-descuento {
+  display: flex;
+}
+
+.descripciones {
+  font-size: 16px;
+  display: none;
+}
+
+#ultima-visita,
+#ofertas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 5%;
+}
+
+
+/*
+Footer Style
+*/
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+.footerElement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40vw;
+}
+
+.footerElement h3 {
+  margin-top: 2vw;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.footerElement p {
+  margin: 0;
+  text-align: center;
+}
+
+.footerElement i {
+  color: var(--celeste);
+  margin-top: 3vw;
+  padding: 3.5vw 0vw;
+}
+
+.footer-row {
+  display: flex;
+  width: 100vw;
+  padding: 2vw;
+}
+
+/*
+Hover animation
+*/
+
+.product:hover {
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+.product:hover .descripciones {
+  display: block;
+}
+
+.fa-truck:hover {
+  transform: rotate(-90deg);
+}
+
+.footerElement i:hover {
+  color: #000;
+}
+
+/*Lo agregué yo porque me gusta como queda*/
+.search button:hover {
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+/*Media queries*/
+@media only screen and (min-width: 361px) {
+
+  .product {
+    width: 90%;
+  }
+
+}
+
+@media only screen and (min-width: 769px) {
+
+  .main-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3vw;
+  }
+
+  .product {
+    width: 40%;
+  }
+
+  .burger-menu button {
+    display: none;
+  }
+
+  .search {
+    width: 30vw;
+  }
+
+  .logo {
+    width: 30vw;
+  }
+
+  .cuotas {
+    width: 30vw;
+  }
+
+  .footerElement i {
+    margin-top: 2vw;
+    padding: 2vw 0vw;
+  }
+
+}
+
+
+@media only screen and (min-width: 1279px) {
+
+  .product {
+    width: 20%;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-bottom: 3vw;
+  }
+
+  .footerElement i {
+    padding: 0.5vw 0vw;
+  }
+
+  .footerElement p {
+    width: 75%;
+  }
+
+  .titulares {
+    margin-left: 2.5vw;
+  }
+
+}

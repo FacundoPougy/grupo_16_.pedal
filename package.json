@@ -1,10 +1,11 @@
 {
-  "name": "grupo-16",
+  "name": ".pedal",
   "version": "1.0.0",
-  "description": "Oferta de productos y audiencia\r ===============================",
-  "main": "index.js",
+  "description": "Página para una tienda de bicicletas.",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "npx nodemon app.js"
   },
   "keywords": [],
   "author": "",
