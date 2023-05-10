@@ -1,11 +1,11 @@
 {
-  "name": ".pedal",
+  "name": "mercadoliebre",
   "version": "1.0.0",
-  "description": "Página para una tienda de bicicletas.",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "npx nodemon app.js"
+    "test": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
