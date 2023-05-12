@@ -10,6 +10,9 @@
   --titulos: Poppins;
 }
 
+html {
+  font-size: 10xp;
+}
 
 * {
   margin: 0px;
@@ -142,7 +145,8 @@ main {
   justify-content: space-around;
 }
 
-.customers,.bikes-sold{
+.customers,
+.bikes-sold {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -198,7 +202,38 @@ main {
 }
 
 
+/* Services */
 
+.services {
+  padding: 5vw;
+  height: 90vw;
+}
+
+.services-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  width: 100%;
+}
+
+
+.service-image {
+  width: 30vw;
+}
+
+.service-header {
+  text-align: center;
+  padding: 3vw;
+}
+
+.service-header h3 {
+  font-size: 1.2rem;
+}
+
+.service-header p {
+  font-size: 0.8rem;
+}
 
 /*Media queries*/
 @media only screen and (min-width: 361px) {
@@ -255,6 +290,23 @@ main {
   .see-more {
     font-size: 12px;
   }
+
+  .services {
+    height: 50vw;
+  }
+
+  .service-image {
+    width: 27vw;
+  }
+
+  .service-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .service-header p {
+    font-size: 1rem;
+  }
+
 }
 
 @media only screen and (min-width: 1279px) {
@@ -285,5 +337,13 @@ main {
 
   .tres {
     display: block;
+  }
+
+  .service-header h3 {
+    font-size: 2rem;
+  }
+  
+  .service-header p {
+    font-size: 1.5rem;
   }
 }
