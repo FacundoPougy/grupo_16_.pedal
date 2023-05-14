@@ -43,13 +43,19 @@ body {
 
 /*Header*/
 header {
-  padding: 1vw 4.5vw;
+  width: 90%;
+  height: 10vw;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-header-top-bar {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 100%;
 }
 
 .logo {
@@ -84,28 +90,34 @@ header {
   width: 10vw;
 }
 
-.fa-solid.fa-user,
-.fa-solid.fa-cart-shopping {
+.top-right-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 4vw;
+}
+
+.top-right-menu span {
+  font-size: 4vw;
+}
+
+.icon-big {
   display: none;
 }
 
-
-
 /*Main*/
-main {
-  padding: 0vw 4.5vw;
-}
 
 /*Dream bike*/
 
 .dream-bike {
-  width: 100%;
+  width: 90%;
   height: 35vw;
   border-radius: 20px;
   background-color: var(--blanquito);
   border: 2vw solid var(--naranja);
   display: flex;
   justify-content: space-between;
+  margin: auto;
 }
 
 .forma-logo-container {
@@ -119,7 +131,6 @@ main {
   margin: -2vw;
   display: flex;
   align-items: center;
-  align-self: flex-end;
 }
 
 .logo-bici {
@@ -162,7 +173,7 @@ main {
 .best-selling-products {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 4vw;
   flex-wrap: nowrap;
 }
@@ -205,7 +216,7 @@ main {
 /* Services */
 
 .services {
-  padding: 5vw;
+  padding: 6vw;
   height: 90vw;
 }
 
@@ -235,6 +246,98 @@ main {
   font-size: 0.8rem;
 }
 
+/*Categories*/
+
+.categories {
+  height: 60vw;
+  background: linear-gradient(to bottom, var(--blanquito) 13%, var(--violeta-claro) 13%);
+}
+
+.categories-title{
+  text-align: center;
+}
+
+.categories-container {
+  display: flex;
+  justify-content: space-around;
+  height: 65%;
+}
+
+.image-category {
+  width: 25%;
+  height: 70%;
+  padding: 0.5vw;
+  border-radius: 10px;
+  background-color: var(--blanquito);
+}
+
+.image-category img {
+  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mid {
+  align-self: center;
+}
+
+.image-category p {
+  margin-top: 2vw;
+  font-size: 2vw;
+  color: var(--blanquito);
+  text-align: center;
+}
+
+.buttom-container {
+  display: flex;
+  justify-content: center;
+  padding: 5vw;
+}
+
+
+.buttom-container button {
+  width: 15vw;
+  height: 5vw;
+  background-color: var(--violeta-oscuro);
+  color: var(--blanquito);
+  border-radius: 5px;
+  font-size: 1.8vw;
+}
+
+
+/*Customer opinion*/
+
+.customer-opinion {
+  height: 45vw;
+  padding: 5vw;
+}
+
+.customer-opinion h3 {
+  font-weight: 400;
+  font-size: 3vw;
+}
+
+.customer-opinion span {
+  font-size: 3vw;
+  font-weight: 800;
+}
+
+.customer-text {
+  background-color: var(--violeta-oscuro);
+  color: var(--blanquito);
+  border-radius: 10px;
+  margin: 3vw;
+  padding: 1vw;
+  height: 70%;
+}
+
+.customer-text p {
+  font-size: 1vw;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
 /*Media queries*/
 @media only screen and (min-width: 361px) {
   .main-nav-bar a {
@@ -277,9 +380,12 @@ main {
     width: 20vw;
   }
 
-  .fa-solid.fa-user,
-  .fa-solid.fa-cart-shopping {
+  .icon-big {
     display: block;
+  }
+
+  .icon-small {
+    display: none;
   }
 
   .best-products-title {
@@ -302,7 +408,7 @@ main {
   .service-header h3 {
     font-size: 1.5rem;
   }
-  
+
   .service-header p {
     font-size: 1rem;
   }
@@ -342,7 +448,7 @@ main {
   .service-header h3 {
     font-size: 2rem;
   }
-  
+
   .service-header p {
     font-size: 1.5rem;
   }

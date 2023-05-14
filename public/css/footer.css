@@ -67,7 +67,7 @@ footer {
   font-size: 1vw;
 }
 
-.fa-2xl{
+.icon-mobile{
   display: none;
 }
 
@@ -83,11 +83,11 @@ footer {
     padding: 1vw;
   }
 
-  .fa-2xl{
+  .icon-desktop{
     display: block;
   }
 
-  .fa-sm{
+  .icon-mobile{
     display: none;
   }
 
