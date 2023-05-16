@@ -19,6 +19,10 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'login.html'));
 });
 
+app.get("/", function (req, res) {
+  res.sendFile(path.resolve(__dirname, "./views/product-detail.html"));
+});
+
 // Inicio del servidor
 app.listen(PORT, () => {
   console.log('Servidor en el puerto '+PORT);
