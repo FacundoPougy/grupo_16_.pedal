@@ -118,6 +118,7 @@ header {
   display: flex;
   justify-content: space-between;
   margin: auto;
+  align-items: flex-end;
 }
 
 .forma-logo-container {
@@ -249,12 +250,9 @@ header {
 /*Categories*/
 
 .categories {
+  margin-top: 8vw;
   height: 60vw;
-  background: linear-gradient(to bottom, var(--blanquito) 13%, var(--violeta-claro) 13%);
-}
-
-.categories-title{
-  text-align: center;
+  background: linear-gradient(to bottom, var(--blanquito) 17%, var(--violeta-claro) 17%);
 }
 
 .categories-container {
@@ -269,6 +267,8 @@ header {
   padding: 0.5vw;
   border-radius: 10px;
   background-color: var(--blanquito);
+  position: relative;
+  top: -2vw;
 }
 
 .image-category img {
@@ -276,10 +276,13 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .mid {
   align-self: center;
+  position: relative;
+  top: 1vw;
 }
 
 .image-category p {
@@ -305,9 +308,22 @@ header {
   font-size: 1.8vw;
 }
 
+.categories-title {
+  text-align: center;
+}
+
+
+.categories-title h2 {
+  font-size: 3.5vw;
+  font-weight: 800;
+}
+
+.categories-title h3 {
+  font-size: 2vw;
+}
 
 /*Customer opinion*/
-
+/* 
 .customer-opinion {
   height: 45vw;
   padding: 5vw;
@@ -316,6 +332,7 @@ header {
 .customer-opinion h3 {
   font-weight: 400;
   font-size: 3vw;
+  text-align: center;
 }
 
 .customer-opinion span {
@@ -333,8 +350,9 @@ header {
 }
 
 .customer-text p {
-  font-size: 1vw;
-}
+  padding: 2vw;
+  font-size: 1.9vw;
+} */
 
 
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
@@ -411,6 +429,10 @@ header {
 
   .service-header p {
     font-size: 1rem;
+  }
+
+  .categories {
+    background: linear-gradient(to bottom, var(--blanquito) 13%, var(--violeta-claro) 13%);
   }
 
 }
