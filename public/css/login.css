@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Poppins:wght@300&display=swap');
+
+
+.login-main {
+    background-color: var(--blanquito);
+    color: var(--violeta-oscuro);
+}
+
+.titulo {
+    font-family: Poppins;
+    font-size: 5vw;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    justify-content: space-evenly;
+    height: 50vw;
+}
+
+.input-login{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-login input{
+    border:none;
+    border-bottom: 2px solid var(--marronsito);
+    background-color: var(--blanquito);
+    outline: none;
+}
+
+.propiedad{
+    display: flex;
+}

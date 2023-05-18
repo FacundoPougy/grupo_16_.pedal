@@ -10,27 +10,12 @@
   --titulos: Poppins;
 }
 
-html {
-  font-size: 10xp;
-}
 
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: var(--texto);
-}
-
-p {
-  font-size: 12px;
-}
-
-a {
-  font-size: 12px;
-}
-
-span {
-  font-size: 12px;
 }
 
 body {

@@ -1,237 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Detalle de producto</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="images/pedal.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="images/pedal.ico" type="image/x-icon">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="/css/product-detail.css " />
-  </head>
-  <body>
-    <header></header>
-    <main>
-      <div class="parte-superior">
-        <div class="main-top">
-          <div class="imagenes">
-            <img
-              class="img-producto"
-              src="/images/bicicleta-volta1.jpg"
-              alt="Logo"
-            />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Detalle de producto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="images/pedal.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/pedal.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/product-detail.css " />
+</head>
+
+<body>
+  <header></header>
+  <main>
+    <div class="parte-superior">
+      <div class="main-top">
+        <div class="imagenes">
+          <img class="img-producto" src="/images/bicicleta-volta1.jpg" alt="Logo" />
+        </div>
+      </div>
+      <div class="datos-container">
+        <div class="nombre-rating">
+          <h3>Bicicleta Volta Mtb Avian R29</h3>
+          <div class="rating">
+            <div class="estrellitas">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+            <p class="cant-reseñas">(402)</p>
           </div>
         </div>
-        <div class="datos-container">
-          <div class="nombre-rating">
-            <h3>Bicicleta Volta Mtb Avian R29</h3>
-            <div class="rating">
-              <div class="estrellitas">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
+        <div class="producto-container">
+          <div class="producto-container-top">
+            <div class="precio-envio">
+              <h3>$ 435.499</h3>
+              <p>Ver medios de pago</p>
+            </div>
+            <p class="envio">Envío gratis</p>
+          </div>
+          <div class="producto-container-mid">
+            <div class="producto-left">
+              <label class="talle">Selecciona talle</label>
+              <div class="buttons">
+                <button type="button" class="active">M</button>
+                <button type="button" class="buttonl">L</button>
               </div>
-              <p class="cant-reseñas">(402)</p>
+              <div class="cantidad">
+                <label for="unidades">Cantidad:</label>
+                <select id="unidades" name="unidades">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+            </div>
+            <div class="producto-right">
+              <label class="color">Color</label>
+              <div class="buttons">
+                <button type="button" class="active">Blanco</button>
+                <button type="button" class="buttonl">Negro</button>
+              </div>
             </div>
           </div>
-          <div class="producto-container">
-            <div class="producto-container-top">
-              <div class="precio-envio">
-                <h3>$ 435.499</h3>
-                <p>Ver medios de pago</p>
-              </div>
-              <p class="envio">Envío gratis</p>
-            </div>
-            <div class="producto-container-mid">
-              <div class="producto-left">
-                <label class="talle">Selecciona talle</label>
-                <div class="buttons">
-                  <button type="button" class="active">M</button>
-                  <button type="button" class="buttonl">L</button>
-                </div>
-                <div class="cantidad">
-                  <label for="unidades">Cantidad:</label>
-                  <select id="unidades" name="unidades">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                </div>
-              </div>
-              <div class="producto-right">
-                <label class="color">Color</label>
-                <div class="buttons">
-                  <button type="button" class="active">Blanco</button>
-                  <button type="button" class="buttonl">Negro</button>
-                </div>
-              </div>
-            </div>
-            <div class="producto-container-bot">
-              <div class="comprar">
-                <button type="button" class="carrito">Añadir al carrito</button>
-                <button type="button" class="comprar-ahora">
-                  Comprar ahora
-                </button>
-              </div>
+          <div class="producto-container-bot">
+            <div class="comprar">
+              <button type="button" class="carrito">Añadir al carrito</button>
+              <button type="button" class="comprar-ahora">
+                Comprar ahora
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <div class="main-low">
-        <div class="desc-carac">
-          <div class="descripcion1">
-            <div class="titulos">Descripción</div>
-            <div>
-              <p class="titulos-elements">
-                Esta increíble bicicleta Zykel by Gadnic ofrece un equipamiento
-                único en el mercado de ALTA GAMA. El cuadro de aluminio y la
-                homologación por IRAM la hacen la más elegida del mercado.
-                Cuenta con soldaduras super resistentes y ensayadas con los
-                estándares mas altos de calidad. Cuenta con frenos a discos con
-                ventilación, equipamiento completo Shimano (Palancas de cambios,
-                platos y sistema de cambios de 21 velocidades). Sus llantas de
-                aluminio doble pared hacen que el confort y la seguridad tanto
-                en ciudad como en montaña sean excelentes. Muy fácil de armar
-              </p>
-            </div>
-          </div>
-          <div class="caracteristicas">
-            <div class="titulos">Características</div>
-            <div>
-              <table class="titulos-elements">
-                <tr>
-                  <td>Deporte</td>
-                  <td>MTB</td>
-                </tr>
-                <tr>
-                  <td>Silueta</td>
-                  <td>BICICLETAS MOUNTAIN BIKE</td>
-                </tr>
-                <tr>
-                  <td>Género</td>
-                  <td>UNISEX</td>
-                </tr>
-                <tr>
-                  <td>Color</td>
-                  <td>BLANCO</td>
-                </tr>
-                <tr>
-                  <td>Rodado</td>
-                  <td>29</td>
-                </tr>
-                <tr>
-                  <td>Material</td>
-                  <td>ALUMINIO</td>
-                </tr>
-              </table>
-              <p class="todas-caracteristicas">Ver todas las características</p>
-            </div>
+    </div>
+    <div class="main-low">
+      <div class="desc-carac">
+        <div class="descripcion1">
+          <div class="titulos">Descripción</div>
+          <div>
+            <p class="titulos-elements">
+              Esta increíble bicicleta Zykel by Gadnic ofrece un equipamiento
+              único en el mercado de ALTA GAMA. El cuadro de aluminio y la
+              homologación por IRAM la hacen la más elegida del mercado.
+              Cuenta con soldaduras super resistentes y ensayadas con los
+              estándares mas altos de calidad. Cuenta con frenos a discos con
+              ventilación, equipamiento completo Shimano (Palancas de cambios,
+              platos y sistema de cambios de 21 velocidades). Sus llantas de
+              aluminio doble pared hacen que el confort y la seguridad tanto
+              en ciudad como en montaña sean excelentes. Muy fácil de armar
+            </p>
           </div>
         </div>
-        <div class="op-res">
-          <div class="opiniones">
-            <h2>Opiniones del producto</h2>
-            <div class="num-star">
-              <h1>4.0</h1>
-              <div class="stars2">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-              </div>
-            </div>
-            <div class="escribe2">
-              <input
-                class="input-reseña2"
-                type="text"
-                placeholder="Escribe tu reseña"
-              />
-            </div>
-          </div>
-          <div class="reseñas">
-            <div class="titulos">Reseñas</div>
-            <div class="elements-reseñas">
-              <div class="elemento">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-                quas
-              </div>
-              <div class="elemento">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-                quas
-              </div>
-              <div class="elemento">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-                quas
-              </div>
-              <div class="elemento">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-                quas
-              </div>
-              <div class="elemento">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-                quas
-              </div>
-              <div class="elemento">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-                quas
-              </div>
-              <div class="elemento">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-                quas
-              </div>
-            </div>
-            <div class="escribe">
-              <input
-                class="input-reseña"
-                type="text"
-                placeholder="Escribe tu reseña"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="tambien-te-puede-interesar">
-          <div class="interesar-titulo">También te puede interesar</div>
-          <div class="interesar">
-            <div class="interesar-element">
-              <img src="/images/bicicleta-volta1.jpg" alt="" />
-              <p>$148.000</p>
-              <p class="descripcion">Biclcleta x</p>
-            </div>
-            <div class="interesar-element">
-              <img src="/images/bicicleta-volta1.jpg" alt="" />
-              <p>$148.000</p>
-              <p class="descripcion">Biclcleta x</p>
-            </div>
-            <div class="interesar-element">
-              <img src="/images/bicicleta-volta1.jpg" alt="" />
-              <p>$148.000</p>
-              <p class="descripcion">Biclcleta x</p>
-            </div>
-            <div class="interesar-element">
-              <img src="/images/bicicleta-volta1.jpg" alt="" />
-              <p>$148.000</p>
-              <p class="descripcion">Biclcleta x</p>
-            </div>
-            <div class="interesar-element">
-              <img src="/images/bicicleta-volta1.jpg" alt="" />
-              <p>$148.000</p>
-              <p class="descripcion">Biclcleta x</p>
-            </div>
+        <div class="caracteristicas">
+          <div class="titulos">Características</div>
+          <div>
+            <table class="titulos-elements">
+              <tr>
+                <td>Deporte</td>
+                <td>MTB</td>
+              </tr>
+              <tr>
+                <td>Silueta</td>
+                <td>BICICLETAS MOUNTAIN BIKE</td>
+              </tr>
+              <tr>
+                <td>Género</td>
+                <td>UNISEX</td>
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td>BLANCO</td>
+              </tr>
+              <tr>
+                <td>Rodado</td>
+                <td>29</td>
+              </tr>
+              <tr>
+                <td>Material</td>
+                <td>ALUMINIO</td>
+              </tr>
+            </table>
+            <p class="todas-caracteristicas">Ver todas las características</p>
           </div>
         </div>
       </div>
-    </main>
-  </body>
+      <div class="op-res">
+        <div class="opiniones">
+          <h2>Opiniones del producto</h2>
+          <div class="num-star">
+            <h1>4.0</h1>
+            <div class="stars2">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+          </div>
+          <div class="escribe2">
+            <input class="input-reseña2" type="text" placeholder="Escribe tu reseña" />
+          </div>
+        </div>
+        <div class="reseñas">
+          <div class="titulos">Reseñas</div>
+          <div class="elements-reseñas">
+            <div class="elemento">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+              quas
+            </div>
+            <div class="elemento">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+              quas
+            </div>
+            <div class="elemento">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+              quas
+            </div>
+            <div class="elemento">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+              quas
+            </div>
+            <div class="elemento">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+              quas
+            </div>
+            <div class="elemento">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+              quas
+            </div>
+            <div class="elemento">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+              quas
+            </div>
+          </div>
+          <div class="escribe">
+            <input class="input-reseña" type="text" placeholder="Escribe tu reseña" />
+          </div>
+        </div>
+      </div>
+      <div class="tambien-te-puede-interesar">
+        <div class="interesar-titulo">También te puede interesar</div>
+        <div class="interesar">
+          <div class="interesar-element">
+            <img src="/images/bicicleta-volta1.jpg" alt="" />
+            <p>$148.000</p>
+            <p class="descripcion">Biclcleta x</p>
+          </div>
+          <div class="interesar-element">
+            <img src="/images/bicicleta-volta1.jpg" alt="" />
+            <p>$148.000</p>
+            <p class="descripcion">Biclcleta x</p>
+          </div>
+          <div class="interesar-element">
+            <img src="/images/bicicleta-volta1.jpg" alt="" />
+            <p>$148.000</p>
+            <p class="descripcion">Biclcleta x</p>
+          </div>
+          <div class="interesar-element">
+            <img src="/images/bicicleta-volta1.jpg" alt="" />
+            <p>$148.000</p>
+            <p class="descripcion">Biclcleta x</p>
+          </div>
+          <div class="interesar-element">
+            <img src="/images/bicicleta-volta1.jpg" alt="" />
+            <p>$148.000</p>
+            <p class="descripcion">Biclcleta x</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
 </html>

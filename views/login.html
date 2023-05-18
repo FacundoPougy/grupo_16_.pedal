@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/pedal.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/pedal.ico" type="image/x-icon">
+    <title>Login</title>
+</head>
+
+<body class="login-body">
+
+    <header>
+        <h1 class="titulo">INICIA SESIÓN O CREA TU CUENTA</h1>
+    </header>
+
+    <main class="login-main">
+
+        <div class="main-container">
+            <form class="login-form" action="GET">
+                <div class="input-login">
+                    <label for="correo">Ingresa tu correo electrónico</label>
+                    <input placeholder="Ej: tomasgonzalezm99@gmail.com" type="email" name="correo" id="correo" required>
+                </div>
+                <div class="input-login">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" name="contraseña" id="contraseña" required>
+                </div>
+                <input type="submit" name="iniciar" id="iniciar" value="INICIAR SESIÓN">
+
+            </form>
+
+            <h2 class="titulo">¿NO TIENES CUENTA? REGÍSTRATE</h2>
+            <div class="propiedad">
+                <i class="fa-solid fa-truck"></i>
+                <p>Haz el seguimiento de tus pedidos</p>
+            </div>
+
+            <div class="propiedad">
+                <i class="fa-solid fa-house"></i>
+                <p>Guarda tus datos de envío y de pago para ahorrar tiempo en tus compras siguientes</p>
+            </div>
+
+            <div class="propiedad">
+                <i class="fa-solid fa-arrows-rotate fa-flip-horizontal"></i>
+                <p>Podrás realizar devoluciones online</p>
+            </div>
+
+            <button>CREAR CUENTA</button>
+        </div>
+    </main>
+
+
+</body>
+
+</html>
