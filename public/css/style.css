@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@100;300&display=swap');
+
+:root {
+  --blanquito: #f1f0ec;
+  --violeta-oscuro: #402054;
+  --violeta-claro: #782d44;
+  --marronsito: #b03a35;
+  --naranja: #e94726;
+  --texto: Comfortaa;
+  --titulos: Poppins;
+}
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: var(--texto);
+}
+
+body {
+  width: 100vw;
+  color: var(--violeta-oscuro);
+  background-color: var(--blanquito);
+}
+
+/*End of basic declaration*/
+
+/*Header*/
+header {
+  width: 90%;
+  height: 10vw;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-header-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  width: 20%;
+}
+
+.main-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+}
+
+.main-nav-bar ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 100%;
+}
+
+.main-nav-bar a {
+  text-decoration: none;
+  font-size: 24px;
+  font-family: var(--texto);
+  font-weight: 700;
+}
+
+.left-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 10vw;
+}
+
+.top-right-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 4vw;
+}
+
+.top-right-menu span {
+  font-size: 4vw;
+}
+
+.icon-big {
+  display: none;
+}
+
+/*Main*/
+
+/*Dream bike*/
+
+.dream-bike {
+  width: 90%;
+  height: 35vw;
+  border-radius: 20px;
+  background-color: var(--blanquito);
+  border: 2vw solid var(--naranja);
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  align-items: flex-end;
+}
+
+.forma-logo-container {
+  width: 40%;
+  height: 95%;
+  background: var(--blanquito);
+  border-top-left-radius: 45%;
+  border-top-right-radius: 45%;
+  border-bottom-left-radius: 45%;
+  border: 2vw solid var(--naranja);
+  margin: -2vw;
+  display: flex;
+  align-items: center;
+}
+
+.logo-bici {
+  transform: translateY(1vh) scaleX(-1) rotate(-25deg);
+  width: 100%;
+}
+
+.get-dream-bike {
+  padding: 1% 5%;
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.get-dream-bike .dream-bike-title {
+  font-weight: 400;
+}
+
+.bikes-customers {
+  display: flex;
+  justify-content: space-around;
+}
+
+.customers,
+.bikes-sold {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.vertical-line {
+  border-left: 1px solid var(--violeta-oscuro);
+  height: 8vw;
+  margin: 1vw;
+}
+
+/*Best selling products*/
+.best-selling-products {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4vw;
+  flex-wrap: nowrap;
+}
+
+.best-products {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  padding: 2vw;
+}
+
+.best-products-phrase {
+  margin: 1.5vw 0vw;
+}
+
+.example {
+  border: 0.2vw;
+  border-color: var(--naranja);
+  border-style: solid;
+  border-top-style: none;
+}
+
+.tres {
+  display: none;
+}
+
+.example img {
+  width: 25vw;
+}
+
+.see-more {
+  background-color: var(--violeta-oscuro);
+  color: var(--blanquito);
+  border-style: none;
+  border-radius: 4px;
+  padding: 1.5vw 2vw;
+}
+
+
+/* Services */
+
+.services {
+  padding: 6vw;
+  height: 90vw;
+}
+
+.services-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  width: 100%;
+}
+
+
+.service-image {
+  width: 30vw;
+}
+
+.service-header {
+  text-align: center;
+  padding: 3vw;
+}
+
+.service-header h3 {
+  font-size: 1.2rem;
+}
+
+.service-header p {
+  font-size: 0.8rem;
+}
+
+/*Categories*/
+
+.categories {
+  margin-top: 8vw;
+  height: 60vw;
+  background: linear-gradient(to bottom, var(--blanquito) 17%, var(--violeta-claro) 17%);
+}
+
+.categories-container {
+  display: flex;
+  justify-content: space-around;
+  height: 65%;
+}
+
+.image-category {
+  width: 25%;
+  height: 70%;
+  padding: 0.5vw;
+  border-radius: 10px;
+  background-color: var(--blanquito);
+  position: relative;
+  top: -2vw;
+}
+
+.image-category img {
+  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.mid {
+  align-self: center;
+  position: relative;
+  top: 1vw;
+}
+
+.image-category p {
+  margin-top: 2vw;
+  font-size: 2vw;
+  color: var(--blanquito);
+  text-align: center;
+}
+
+.buttom-container {
+  display: flex;
+  justify-content: center;
+  padding: 5vw;
+}
+
+
+.buttom-container button {
+  width: 15vw;
+  height: 5vw;
+  background-color: var(--violeta-oscuro);
+  color: var(--blanquito);
+  border-radius: 5px;
+  font-size: 1.8vw;
+}
+
+.categories-title {
+  text-align: center;
+}
+
+
+.categories-title h2 {
+  font-size: 3.5vw;
+  font-weight: 800;
+}
+
+.categories-title h3 {
+  font-size: 2vw;
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------*/
+/*Media queries*/
+@media only screen and (min-width: 361px) {
+  .main-nav-bar a {
+    font-size: 10px;
+    padding: 2px;
+  }
+
+  .dream-bike-title {
+    font-size: 15px;
+  }
+
+  .text-after-title {
+    font-size: 12px;
+  }
+
+  .best-products-title {
+    font-size: 12px;
+  }
+
+  .best-products-phrase,
+  .see-more {
+    font-size: 8px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .main-nav-bar a {
+    font-size: 16px;
+  }
+
+  .dream-bike-title {
+    font-size: 40px;
+  }
+
+  .text-after-title {
+    font-size: 20px;
+  }
+
+  .left-menu {
+    width: 20vw;
+  }
+
+  .icon-big {
+    display: block;
+  }
+
+  .icon-small {
+    display: none;
+  }
+
+  .best-products-title {
+    font-size: 24px;
+  }
+
+  .best-products-phrase,
+  .see-more {
+    font-size: 12px;
+  }
+
+  .services {
+    height: 50vw;
+  }
+
+  .service-image {
+    width: 27vw;
+  }
+
+  .service-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .service-header p {
+    font-size: 1rem;
+  }
+
+  .categories {
+    background: linear-gradient(to bottom, var(--blanquito) 13%, var(--violeta-claro) 13%);
+  }
+
+}
+
+@media only screen and (min-width: 1279px) {
+  .main-nav-bar a {
+    font-size: 24px;
+  }
+
+  .dream-bike-title {
+    font-size: 60px;
+  }
+
+  .text-after-title {
+    font-size: 40px;
+  }
+
+  .best-products-title {
+    font-size: 30px;
+  }
+
+  .best-products-phrase,
+  .see-more {
+    font-size: 15px;
+  }
+
+  .example img {
+    width: 20vw;
+  }
+
+  .tres {
+    display: block;
+  }
+
+  .service-header h3 {
+    font-size: 2rem;
+  }
+
+  .service-header p {
+    font-size: 1.5rem;
+  }
+}

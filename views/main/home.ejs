@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('../partials/head') %>
+</head>
+
+<body class="body-home">
+
+  <header>
+    <%- include('../partials/header') %>
+  </header>
+
+  <main>
+    <section class="dream-bike">
+      <div class="get-dream-bike">
+        <h2 class="dream-bike-title">Haz realidad tu bicicleta ideal</h2>
+        <div class="bikes-customers">
+          <div class="bikes-sold">
+            <h3 class="text-after-title">+500</h3>
+            <h3 class="text-after-title">Bicis ideales</h3>
+          </div>
+          <div class="vertical-line"></div>
+          <div class="customers">
+            <h3 class="text-after-title">+1000</h3>
+            <h3 class="text-after-title">clientes</h3>
+          </div>
+        </div>
+        <form class="search-bar" action="/" method="GET">
+          <div class="search">
+            <input type="text" placeholder="Buscar productos, marcas..." />
+            <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </form>
+      </div>
+      <div class="forma-logo-container">
+        <img class="logo-bici" src="images/Bike_2.png" alt="Bicicleta soñada" />
+      </div>
+    </section>
+
+    <section class="best-selling-products">
+      <div class="best-products">
+        <h3 class="best-products-title">Productos más vendidos</h3>
+        <p class="best-products-phrase">Las mejores marcas en el mercado al mejor precio.</p>
+        <button class="see-more">Ver más</button>
+      </div>
+      <div class="example">
+        <img src="images/Bike_1.png" alt="bici para ver">
+      </div>
+      <div class="example">
+        <img src="images/Bike_3.png" alt="bici para ver">
+      </div>
+      <div class="example tres">
+        <img src="images/Bike_4.png" alt="bici para ver">
+      </div>
+    </section>
+
+    <section class="categories">
+      <div class="categories-title">
+        <h2>Categorias</h2>
+        <h3>Encontrá lo que buscás.</h3>
+      </div>
+      <div class="categories-container">
+        <div class="image-category">
+          <img src="images/mountain.jpg" alt="">
+          <p>Mountain bike</p>
+        </div>
+
+        <div class="image-category mid">
+          <img src="images/accesorios.jpg" alt="">
+          <p>Accesorios</p>
+        </div>
+
+        <div class="image-category">
+          <img src="images/bmx.jpg" alt="">
+          <p>BMX</p>
+        </div>
+
+      </div>
+      <div class="buttom-container">
+        <button>Explorar <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="service-header">
+        <h3>Nuestros servicios</h3>
+        <p>Solicitá el servicio que necesitás.</p>
+      </div>
+      <div class="services-container">
+        <img class="service-image" src="images/FixesLogo.png" alt="">
+        <img class="service-image" src="images/RentalLogo.png" alt="">
+        <img class="service-image" src="images/ParkingLogo.png" alt="">
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <%- include('../partials/footer') %>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Roboto&display=swap");
+
+* {
+  font-family: "Comfortaa";
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 15px;
+  background-color: whitesmoke;
+}
+.main-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.nombre-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rating {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+.estrellitas {
+  margin: auto;
+  color: #ebeb0c;
+}
+.cant-reseñas {
+  margin: auto;
+}
+.img-producto {
+  width: 100%;
+  height: auto;
+}
+
+.producto-container-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 15px 0px;
+}
+.envio {
+  color: #e94726;
+}
+.buttons {
+  display: flex;
+}
+button {
+  padding: 8px 16px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+button.active {
+  background-color: #402054;
+}
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.talle {
+  text-decoration: underline;
+}
+.producto-container-mid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.producto-left {
+  width: 45%;
+}
+.producto-right {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+.borde {
+  border-right: 1px black solid;
+}
+.unidades {
+  margin-top: 5px;
+}
+.color {
+  text-decoration: underline;
+  margin-top: 2vh;
+}
+.comprar {
+  display: flex;
+  flex-direction: column;
+  margin: 3vh 0;
+}
+.carrito {
+  margin-bottom: 2vh;
+  background-color: #b03a35;
+}
+.comprar-ahora {
+  background-color: #402054;
+}
+.titulos {
+  background-color: #e94726;
+  width: fit-content;
+  border-radius: 6px;
+  padding: 1vw;
+  margin-bottom: 2vh;
+  color: white;
+}
+.titulos-elements {
+  margin-bottom: 2vh;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+td {
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+.todas-caracteristicas {
+  margin-top: -1.5vh;
+  font-size: small;
+  color: #e94726;
+}
+.elements-reseñas {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+.elemento {
+  flex: 1 0 auto;
+  margin-right: 25px;
+  background-color: #f1f0ec;
+  width: 200px;
+  height: 250px;
+  padding: 5px;
+  border-radius: 6px;
+}
+.reseñas {
+  margin-top: 2vh;
+}
+.escribe {
+  background-color: #f1f0ec;
+  border-radius: 6px;
+  width: fit-content;
+  padding: 2vh;
+  margin: 2vh 0;
+}
+.input-reseña {
+  border: none;
+  background-color: #f1f0ec;
+}
+.input-reseña:focus {
+  outline: none;
+}
+.interesar {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  margin-bottom: 3vh;
+}
+.interesar-element img {
+  width: 100%;
+  margin-right: 20px;
+  margin-bottom: 1vh;
+  border-bottom: 1px #dbdbdb solid;
+}
+.interesar-element {
+  flex: 01 0 auto;
+  margin-right: 25px;
+  border: black 1px solid;
+  height: max-content;
+  width: max-content;
+  max-width: 200px;
+  max-height: 250px;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: white;
+}
+.interesar-element:hover {
+  box-shadow: 0px 0px 10px #402054;
+}
+.interesar-titulo {
+  background-color: #402054;
+  width: fit-content;
+  border-radius: 6px;
+  padding: 1vw;
+  margin-bottom: 2vh;
+  color: white;
+}
+.interesar-element p {
+  text-align: left;
+  font-weight: 600;
+}
+.descripcion {
+  display: none;
+}
+.interesar-element:hover .descripcion {
+  display: block;
+}
+.interesar::-webkit-scrollbar {
+  display: none;
+}
+.elements-reseñas::-webkit-scrollbar {
+  display: none;
+}
+.imagenes {
+  display: flex;
+  max-height: fit-content;
+}
+.imagenes::-webkit-scrollbar {
+  display: none;
+}
+.cantidad {
+  display: flex;
+  margin-top: 1vh;
+}
+.estrellitas {
+  display: flex;
+  margin: 0 10px;
+}
+.cantidad label {
+  margin-right: 1vw;
+}
+.cantidad select {
+  border-radius: 8px;
+}
+.img-producto {
+  border: white 1px solid;
+  border-radius: 12px;
+  margin-bottom: 1vh;
+}
+.opiniones {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .producto-container-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px 0px;
+  }
+  .producto-container-mid {
+    flex-direction: row;
+  }
+  .main-top {
+    display: block;
+    max-width: 38vw;
+  }
+  .datos-container {
+    float: right;
+    width: 53vw;
+  }
+  .color {
+    margin: 0;
+    margin-bottom: 1vh;
+  }
+  .parte-superior {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .cantidad {
+    display: flex;
+    margin-top: 1vh;
+  }
+  .desc-carac {
+    margin-top: 1vh;
+  }
+}
+@media (min-width: 1200px) {
+  .datos-container {
+    width: 40vw;
+  }
+  .img-producto {
+    width: 40vw;
+  }
+  .desc-carac {
+    display: flex;
+    justify-content: space-between;
+  }
+  .titulos-elements {
+    border: 1px #402054 solid;
+    max-width: 45vw;
+    border-radius: 6px;
+    padding: 1vh;
+  }
+  .img-producto {
+    border: white 1px solid;
+    border-radius: 30px;
+    margin-bottom: 0;
+  }
+  .op-res {
+    display: flex;
+  }
+  .opiniones {
+    display: block;
+    width: 30vw;
+  }
+  .opiniones h2 {
+    margin-top: 7.5%;
+    margin-bottom: 7.5%;
+  }
+  .reseñas {
+    width: 60vw;
+  }
+  .num-star {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-bottom: 7.5%;
+  }
+  .stars2 {
+    margin: auto;
+    color: #ebeb0c;
+    display: flex;
+    margin: 0 10px;
+    font-size: xx-large;
+  }
+  .escribe {
+    display: none;
+  }
+  .escribe2 {
+    background-color: #f1f0ec;
+    border-radius: 6px;
+    width: 80%;
+    padding: 2.5vh;
+    margin: 2vh 0;
+  }
+  .input-reseña2 {
+    border: none;
+    background-color: #f1f0ec;
+  }
+  .input-reseña2:focus {
+    outline: none;
+  }
+  .caracteristicas {
+    width: 40%;
+  }
+}

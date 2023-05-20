@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/register.css">
+    <script src="https://kit.fontawesome.com/34a219943a.js" crossorigin="anonymous"></script>
+    <title>Register</title>
+    <link rel="icon" href="images/pedal.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/pedal.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- LOGO Y ICONO DE BACK ARROW -->
+    <div class=".pedalHEADER">
+        <i class="fa-solid fa-arrow-left fa-lg"></i>
+        <div class="logoPedal">
+            <a href=""><img src="/images/logo.svg" class="imagen"></a>
+        </div>
+    </div>
+
+    <div class="Register-title">¿NO TIENES CUENTA? REGÍSTRATE</div>
+
+
+
+
+
+
+    <!-- CONTENEDOR PRINCIPAÑ -->
+    <div class="container">
+        <!-- SUBCONTENEDOR DEL PRINCIPAL -->
+
+        <div class="subcontainer">
+            <div class="Register-subtitle">INTRODUCE TUS DATOS DE REGISTRO</div>
+
+
+            <form action="/registro" method="post">
+                <!-- CAJA 1 -->
+
+
+                <div class="box1">
+
+                    <div class="subox1">
+                        <label for="nombre" class="labels">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" class="inputs" required>
+                    </div>
+
+                    <div class="subox1">
+                        <label for="apellido" class="labels">Apellidos</label>
+                        <input type="text" name="apellido" id="apellido" class="inputs" required>
+                    </div>
+
+                    <div class="subox1">
+                        <label for="correo" class="labels">Correo electrónico</label>
+                        <input type="email" name="correo" id="correo" class="inputs" required>
+                    </div>
+
+                    <div class="subox1">
+                        <label for="contraseña" class="labels">Contraseña</label>
+                        <input type="password" name="contraseña" id="contraseña" class="inputs" required>
+                    </div>
+                </div>
+
+                <div class="subox2">
+                    <div class="subprefix">
+                        <label for="prefix" class="prefijo">Prefijo</label>
+                        <div class="prefix-container">
+                            <select id="prefix" required>
+                                <option value="+54">+54</option>
+                                <option value="+57">+57</option>
+                                <option value="+598">+598</option>
+                            </select>
+                            <label for="telefono" class="labels">Teléfono</label>
+                            <input type="number" name="telefono" id="telefono" class="inputs" required>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        <!-- CAJA 2 -->
+        <div class="box1">
+
+            <label class="switch" for="novedades" id="inputs2">
+                Quiero recibir novedades y comunicaciones comerciales personalizadas de
+                STRADIVARIUS a través de mi correo electrónico y otros medios
+                <input type="checkbox" name="novedades" required>
+                <span class="slider round"></span>
+            </label>
+
+            <label class="switch" for="terminos" id="inputs2">
+                He podido leer y entiendo la información sobre el uso de mis datos personales explicada en la
+                Política de Privacidad
+                <input type="checkbox" name="terminos" required>
+                <span class="slider round"></span>
+            </label>
+
+            <label class="switch" for="recordatorio" id="inputs2">
+                Recuérdame
+                <input type="checkbox" name="recordatorio" required>
+                <span class="slider round"></span>
+            </label>
+
+            <button>CREAR CUENTA</button>
+
+        </div>
+
+        </form>
+
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>
