@@ -307,37 +307,6 @@ header {
   font-size: 2vw;
 }
 
-/*Customer opinion*/
-/* 
-.customer-opinion {
-  height: 45vw;
-  padding: 5vw;
-}
-
-.customer-opinion h3 {
-  font-weight: 400;
-  font-size: 3vw;
-  text-align: center;
-}
-
-.customer-opinion span {
-  font-size: 3vw;
-  font-weight: 800;
-}
-
-.customer-text {
-  background-color: var(--violeta-oscuro);
-  color: var(--blanquito);
-  border-radius: 10px;
-  margin: 3vw;
-  padding: 1vw;
-  height: 70%;
-}
-
-.customer-text p {
-  padding: 2vw;
-  font-size: 1.9vw;
-} */
 
 
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
