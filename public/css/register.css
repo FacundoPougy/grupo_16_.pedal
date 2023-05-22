@@ -15,157 +15,191 @@
 
 body {
     background-color: var(--blanco);
-}
-
-.Register-title {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: bolder;
-    color: var(--violetaOscuro);
-}
-
-.Register-subtitle {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: bold;
-    color: var(--violetaOscuro);
-}
-
-.labels {
     font-family: Comfortaa;
-    font-style: normal;
-    font-weight: 300;
     color: var(--violetaOscuro);
 }
 
-#inputs2 {
-    font-family: Comfortaa;
-    font-style: normal;
-    font-weight: 300;
+h1,
+h2 {
+    font-family: Poppins;
+}
+
+.fa-solid {
     color: var(--violetaOscuro);
 }
 
+.centerImg{
+    display: flex;
+    justify-content: center;
+}
 
-.inputs {
-    background-color: #f1f0ec;
+.registerMAIN {
+    display: flex;
+    flex-direction: column;
+    width: 94%;
+    margin: auto;
+}
+
+.propiedades {
+    display: flex;
+    flex-direction: column;
+    height: 12vh; 
+}
+
+.registerPROPERTIES {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.propiedades2 {
+    display: flex;
+}
+
+
+/* BOTONES */
+.line,
+.line2 {
+    background-color: var(--blanco);
+    outline: none;
     border: none;
     opacity: 0.75;
-    border-bottom: 2px solid #313131;
+    border-bottom: 2px solid #434343;
+}
+
+/* QUITANDO BOTONES DE INCREMENTO Y DECREMENTO */
+.line2::-webkit-inner-spin-button,
+.line2::-webkit-outer-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.prefixLine {
+    background-color: var(--blanco);
     outline: none;
-}
-
-.prefijo {
-    font-family: Comfortaa;
-    color: var(--violetaOscuro);
-}
-
-button {
-    background-color: var(--violetaOscuro);
     border: none;
-    color: var(--blanco);
+    border-radius: 0;
+    opacity: 0.75;
+    border-bottom: 2px solid #434343;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 
-    border-radius: 12px;
+.registerButton {
+    background-color: var(--violetaOscuro);
+    color: var(--blanco);
+    border: none;
 }
 
 
-/* CREANDO SWITCH */
 
-
-/* The switch - the box around the slider */
-/* The switch - the box around the slider */
-/* The switch - the box around the slider */
 .switch {
     position: relative;
-    display: flex;
-    display: flex;
-    margin-top: 1em;
-    user-select: none;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* The slider */
 .slider {
     position: absolute;
-    left: 0;
-    height: 100%;
-    background-color: #9c9c9c;
-    transition-property: background;
-    transition-duration: .3s;
     cursor: pointer;
-    width: 46px;
-    height: 23px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bebebe;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 22px;
-    width: 22px;
-    background-color: white;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--blanco);
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 input:checked+.slider {
-    background-color: #402054;;
+    background-color: var(--violetaOscuro);
 }
 
 input:focus+.slider {
-    box-shadow: 0 0 0px  #402054;;
+    box-shadow: 0 0 1px #402054;
 }
 
 input:checked+.slider:before {
-    -webkit-transform: translateX(23px);
-    -ms-transform: translateX(23px);
-    transform: translateX(23px);
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
     border-radius: 34px;
-} 
+}
 
 .slider.round:before {
     border-radius: 50%;
-} 
-
-
-
-/* MOVIL Y TABLETS PROMEDIOS*/
-@media(min-width: 375px) {
-
-    .Register-title {
-        font-size: 26px;
-    }
-
-    .Register-subtitle {
-        font-size: 18px;
-    }
-
-    .labels,
-    #inputs2 {
-        font-size: 14px;
-    }
-
-    .prefijo {
-        font-size: 11px;
-    }
-
-    button {
-        width: 330px;
-        height: 50px;
-        font-family: 14px;
-        font-size: 14px;
-    }
-
-
 }
 
-/* TABLET GRANDES Y PC */
-@media(min-width: 995px) {}
+.centerButton{
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-family: Poppins;
+    width: 331px;
+    height: 56px;
+    background: #402054;
+    border-radius: 12px;
+}
+
+
+/* TAMAÑO FUENTES y ESPACIADOS */
+
+.Register-title {
+    font-size: 28px;
+}
+
+.Register-subtitle {
+    font-size: 18px;
+}
+
+.labels {
+    font-size: 14px;
+}
+
+.prefixLabel {
+    font-size: 11px;
+}
+
+.text {
+    font-size: 14px;
+}
+
+.policy{
+    color: var(--naranja);
+}
+
+
+
+/* MEDIA QUERIES */
+@media (min-width: 1024px) {
+
+    .Register-title {
+        text-align: center;
+    }
+
+}
