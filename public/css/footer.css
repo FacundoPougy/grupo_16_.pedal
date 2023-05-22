@@ -14,6 +14,7 @@
 footer {
   height: 35vw;
   background-color: var(--violeta-claro);
+  background-color: #782d44;
   padding: 2vw;
 }
 
@@ -67,7 +68,7 @@ footer {
   font-size: 1vw;
 }
 
-.icon-desktop{
+.icon-desktop {
   display: none;
 }
 
@@ -76,21 +77,19 @@ footer {
 }
 
 @media only screen and (min-width: 769px) {
-
   .info-text {
     font-size: 1.8vw;
     line-height: 2.2vw;
     padding: 1vw;
   }
 
-  .icon-desktop{
+  .icon-desktop {
     display: block;
   }
 
-  .icon-mobile{
+  .icon-mobile {
     display: none;
   }
-
 }
 
 @media only screen and (min-width: 1279px) {
@@ -99,5 +98,4 @@ footer {
     line-height: 3.4vw;
     padding: 1vw;
   }
-
 }
