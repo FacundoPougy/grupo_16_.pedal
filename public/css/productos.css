@@ -1,0 +1,84 @@
+.productos-en-tienda {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  margin-bottom: 3vh;
+}
+.productos-en-tienda-element img {
+  width: 100%;
+  margin-right: 20px;
+  margin-bottom: 1vh;
+  border-bottom: 1px #dbdbdb solid;
+}
+.productos-en-tienda-element {
+  flex: 01 0 auto;
+  margin-right: 25px;
+  border: black 1px solid;
+  height: max-content;
+  width: max-content;
+  max-width: 200px;
+  max-height: 250px;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: white;
+  margin-bottom: 3vh;
+}
+.productos-en-tienda-element:hover {
+  box-shadow: 0px 0px 3px black;
+}
+.ofertas-titulo {
+  background-color: #009933;
+  width: fit-content;
+  border-radius: 6px;
+  padding: 2vw;
+  margin: 2vh 0;
+  color: white;
+  font-weight: 500;
+}
+.nuestros-prductos-titulo {
+  /* background-color: #d2d7cb; */
+  width: fit-content;
+  border-radius: 6px;
+  padding: 2vw;
+  margin: 2vh 0;
+  color: #402054;
+  font-weight: 900;
+}
+.productos-en-tienda-titulo {
+  /* background-color: #402054; */
+  width: fit-content;
+  border-radius: 6px;
+  padding: 2vw;
+  margin: 2vh 0;
+  color: #402054;
+  font-weight: 900;
+}
+.productos-en-tienda-element p {
+  text-align: left;
+  font-weight: 600;
+}
+.descripcion {
+  display: none;
+}
+.productos-en-tienda-element:hover .descripcion {
+  display: block;
+}
+.productos-en-tienda::-webkit-scrollbar {
+  display: none;
+}
+.elements-reseñas::-webkit-scrollbar {
+  display: none;
+}
+.ofertas {
+  margin-left: 2vw;
+}
+.nuestros-productos {
+  margin-left: 2vw;
+}
+.basado-en-tu-ultima-visita {
+  margin-left: 2vw;
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 1200px) {
+}
