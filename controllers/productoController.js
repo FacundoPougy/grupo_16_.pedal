@@ -2,10 +2,10 @@ const path = require("path");
 
 const controller = {
   getDetalleDelProducto: (req, res) => {
-    res.render("product-detail.ejs");
+    res.render("product-detail.ejs",{title: "Detalle"});
   },
   getProductos: (req, res) => {
-    res.render("products");
+    res.render("products",{title: "Tienda"});
   },
 };
 
