@@ -12,12 +12,15 @@ Sitios web de referencia
 *   [Figma Community](https://www.figma.com/community/file/1225304944879923178)
 *   [Stradivarius](https://www.stradivarius.com/co/)
 
+Tablero de Trello ".Pedal"
+-----------
+*   [.Pedal Trello](https://trello.com/b/Pt9Tw7Yj/pedal)
+
+
 Integrantes
 -----------
-
 *   Facundo Pougy, tengo 18 años, argentino y estudiante de Economía.
-*   Jeison Andres Jimenez Valenzuela, tengo 23 años y soy Colombiano.
 *   Carlos Alberto Ortiz Arias, 18 años, estudiante de ingeniería en sistemas.
 *   Tomás González Mongelós, 23 años, argentino, estudiante de ingeniería informática y programador en PwC.
 *   Jaider España Paternina, 20 años, colombiano, estudiante de ingeniería física.
-*   Juan David Marin, 21 años soy de Medellín me dedico a estudiar ingeniería Civil en la universidad Nacional
+
