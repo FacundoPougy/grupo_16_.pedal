@@ -1,122 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="register.css">
-    <script src="https://kit.fontawesome.com/34a219943a.js" crossorigin="anonymous"></script>
-    <title>.Pedal</title>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/register.css" />
 </head>
 
 <body>
+    <header class="register-header">
+        <a href="">
+            <i class="fa-solid fa-arrow-left fa-lg flecha"></i>
+        </a>
+        <div class="logo-header">
+            <a class="center-img" href="">
+                <img src="/images/Logo.svg" alt="Logo de la página" />
+            </a>
+        </div>
+    </header>
 
-    <!-- LOGO Y ICONO DE BACK ARROW -->
-    <div class="registerHEADER">
+    <main class="register-main">
+        <h1 class="register-title">¿NO TIENES CUENTA? REGÍSTRATE</h1>
+        <h2 class="register-subtitle">INTRODUCE TUS DATOS DE REGISTRO</h2>
 
-                <a href=""> <!-- TO LOGIN -->
-                    <i class="fa-solid fa-arrow-left fa-lg"></i>
-                </a>
-        
-               <a href="" class="centerImg">  <!-- TO HOME -->
-                <img src="/images/logo.svg" alt="">
-               </a>
-
-    </div>
-
-
-
-
-    <div class="registerMAIN">
-
-
-        <h1 class="Register-title">¿NO TIENES CUENTA? REGÍSTRATE</h1>
-        <h2 class="Register-subtitle">INTRODUCE TUS DATOS DE REGISTRO</h2>
-
-
-        <form action="/registro" method="post" class="registerFORM">
-
+        <form action="/registro" method="post" class="register-form">
 
             <div class="propiedades">
                 <label for="nombre" class="labels">Nombre</label>
-                <input type="text" name="nombre" id="nombre" class="line" required>
+                <input type="text" name="nombre" id="nombre" class="input-form" required>
             </div>
 
             <div class="propiedades">
                 <label for="apellido" class="labels">Apellidos</label>
-                <input type="text" name="apellido" id="apellido" class="line" required>
+                <input type="text" name="apellido" id="apellido" class="input-form" required>
             </div>
 
             <div class="propiedades">
                 <label for="correo" class="labels">Correo electrónico</label>
-                <input type="email" name="correo" id="correo" class="line" required>
+                <input type="email" name="correo" id="correo" class="input-form" required>
             </div>
 
             <div class="propiedades">
 
                 <label for="contraseña" class="labels">Contraseña</label>
-                <input type="password" name="contraseña" id="contraseña" class="line" required>
+                <input type="password" name="contraseña" id="contraseña" class="input-form" required>
             </div>
 
-            <div class="registerPROPERTIES">
-
+            <div class="register-telefono">
                 <div class="propiedades">
-                    <label for="prefix" class="prefixLabel">Prefijo</label>
-                    <select id="prefix" class="prefixLine" required>
+                    <label for="prefix" class="labels">Prefijo</label>
+                    <select id="prefix" class="prefix-line" required>
                         <option value="+54">+54</option>
                         <option value="+57">+57</option>
                         <option value="+598">+598</option>
                     </select>
                 </div>
 
-                <div class="propiedades">
+                <div class="propiedades telefono">
                     <label for="telefono" class="labels">Teléfono</label>
-                    <input type="number" name="telefono" id="telefono" class="line2" required>
+                    <input type="number" name="telefono" id="telefono" class="input-form" required>
                 </div>
-
             </div>
 
-
-            <div class="text"> Quiero recibir novedades y comunicaciones comerciales personalizadas de
-                STRADIVARIUS a través de mi correo electrónico y otros medios</div>
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-
-
-
-            <div class="text">He podido leer y entiendo la información sobre el uso de mis datos personales explicada en
-                la
-                <span class="policy">Política de Privacidad</span>
-            </div>
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-
-
-            <div class="text">Recuérdame</div>
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-
-
-            <div class="centerButton">
-                <button class="registerButton">CREAR CUENTA</button>
+            <div class="opciones">
+                <div class="text">Quiero recibir novedades y comunicaciones de
+                    .Pedal a través de mi correo electrónico</div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
             </div>
 
+            <div class="opciones">
+                <div class="text">He podido leer y entiendo la información sobre el uso de mis datos personales
+                    explicada en
+                    la
+                    <span class="policy">Política de Privacidad</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
 
+            <div class="opciones">
+                <div class="text">Recuérdame</div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="center-button">
+                <button class="register-button">CREAR CUENTA</button>
+            </div>
 
         </form>
-
-    </div>
-
-
-
-
+    </main>
 </body>
 
 </html>

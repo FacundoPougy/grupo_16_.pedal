@@ -1,98 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Poppins:wght@300&display=swap');
-
-/* PALETA DE COLORES */
-:root {
-    --blanco: #f1f0ec;
-    --violetaOscuro: #402054;
-    --azul: #782d44;
-    --marron: #b03a35;
-    --naranja: #e94726;
+/*HEADER*/
+.register-header {
+    display: flex;
+    height: 30vw;
+    padding: 3vw;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--blanco);
-    font-family: Comfortaa;
-    color: var(--violetaOscuro);
-}
-
-h1,
-h2 {
-    font-family: Poppins;
-}
-
-.fa-solid {
-    color: var(--violetaOscuro);
-}
-
-.centerImg{
+.center-img {
+    width: 60%;
+    height: 100%;
+    margin: auto;
     display: flex;
     justify-content: center;
 }
 
-.registerMAIN {
+.logo-header {
+    width: 100%;
+}
+
+.center-img img {
+    width: 100%;
+}
+
+.flecha {
+    font-size: 6vw;
+}
+
+/*End of HEADER*/
+
+/*Main*/
+.register-main {
     display: flex;
     flex-direction: column;
-    width: 94%;
+    width: 95%;
     margin: auto;
+}
+
+.register-title {
+    font-size: 5vw;
+}
+
+.register-subtitle {
+    font-size: 3vw;
+    margin: 8vw 0vw 12vw 0vw;
 }
 
 .propiedades {
     display: flex;
     flex-direction: column;
-    height: 12vh; 
+    height: 15vw;
 }
 
-.registerPROPERTIES {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.propiedades2 {
+.register-telefono {
     display: flex;
 }
 
-
-/* BOTONES */
-.line,
-.line2 {
-    background-color: var(--blanco);
-    outline: none;
-    border: none;
-    opacity: 0.75;
-    border-bottom: 2px solid #434343;
+.telefono {
+    padding-left: 2vw;
 }
 
-/* QUITANDO BOTONES DE INCREMENTO Y DECREMENTO */
-.line2::-webkit-inner-spin-button,
-.line2::-webkit-outer-spin-button {
-    display: none;
-    -webkit-appearance: none;
-}
-
-.prefixLine {
-    background-color: var(--blanco);
+.prefix-line {
+    background-color: var(--blanquito);
     outline: none;
     border: none;
     border-radius: 0;
     opacity: 0.75;
-    border-bottom: 2px solid #434343;
+    border-bottom: 2px solid var(--marronsito);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 
-.registerButton {
-    background-color: var(--violetaOscuro);
-    color: var(--blanco);
+.input-form {
+    background-color: var(--blanquito);
+    outline: none;
     border: none;
+    opacity: 0.75;
+    border-bottom:  2px solid var(--marronsito);
 }
 
+.labels {
+    font-size: 14px;
+}
 
+.text {
+    font-size: 14px;
+}
+
+.policy {
+    color: var(--naranja);
+}
 
 .switch {
     position: relative;
@@ -119,6 +115,36 @@ h2 {
     transition: .4s;
 }
 
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.opciones{
+    margin: 8vw 0vw;
+}
+
+.center-button{
+    display: flex;
+    height: 20vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-button {
+    background-color: var(--violeta-oscuro);
+    color: var(--blanquito);
+    border: none;
+    height: 55%;
+    width: 60%;
+    border-radius: 1vw;
+}
+
+/*Efectos*/
+
 .slider:before {
     position: absolute;
     content: "";
@@ -126,13 +152,18 @@ h2 {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: var(--blanco);
+    background-color: var(--blanquito);
     -webkit-transition: .4s;
     transition: .4s;
 }
 
+.input-form::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
 input:checked+.slider {
-    background-color: var(--violetaOscuro);
+    background-color: var(--violeta-oscuro);
 }
 
 input:focus+.slider {
@@ -145,61 +176,4 @@ input:checked+.slider:before {
     transform: translateX(26px);
 }
 
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-.centerButton{
-    display: flex;
-    justify-content: center;
-}
-
-button {
-    font-family: Poppins;
-    width: 331px;
-    height: 56px;
-    background: #402054;
-    border-radius: 12px;
-}
-
-
-/* TAMAÑO FUENTES y ESPACIADOS */
-
-.Register-title {
-    font-size: 28px;
-}
-
-.Register-subtitle {
-    font-size: 18px;
-}
-
-.labels {
-    font-size: 14px;
-}
-
-.prefixLabel {
-    font-size: 11px;
-}
-
-.text {
-    font-size: 14px;
-}
-
-.policy{
-    color: var(--naranja);
-}
-
-
-
 /* MEDIA QUERIES */
-@media (min-width: 1024px) {
-
-    .Register-title {
-        text-align: center;
-    }
-
-}

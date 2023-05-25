@@ -27,7 +27,7 @@ body {
 /*End of basic declaration*/
 
 /*Header*/
-header {
+.main-header {
   width: 90%;
   height: 10vw;
   margin: auto;
