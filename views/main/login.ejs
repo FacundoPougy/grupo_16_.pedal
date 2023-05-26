@@ -3,49 +3,70 @@
 
 <head>
     <%- include('../partials/head') %>
-  <link rel="stylesheet" href="/css/login.css" />
+        <link rel="stylesheet" href="/css/login.css" />
 </head>
 
 <body class="login-body">
 
-    <header>
-        <h1 class="titulo">INICIA SESIÓN O CREA TU CUENTA</h1>
+    <header class="login-header">
+        <a class="equis-link" href="">
+            <i class="fa-solid fa-xmark equis"></i>
+        </a>
+        <div class="logo-header">
+            <a class="center-img" href="">
+                <img src="/images/Logo.svg" alt="Logo de la página" />
+            </a>
+        </div>
     </header>
 
     <main class="login-main">
+        <h1 class="login-title">INICIA SESIÓN O CREA TU CUENTA</h1>
 
-        <div class="main-container">
-            <form class="login-form" action="GET">
-                <div class="input-login">
+        <form action="/registro" method="post" class="login-form">
+
+            <div class="propiedades-container">
+
+                <div class="propiedades">
                     <label for="correo">Ingresa tu correo electrónico</label>
-                    <input placeholder="Ej: tomasgonzalezm99@gmail.com" type="email" name="correo" id="correo" required>
-                </div>
-                <div class="input-login">
+                    <input type="email" name="correo" id="correo" class="input-form" required>
+                </div class="propiedades">
+
+                <div class="propiedades">
                     <label for="contraseña">Contraseña</label>
-                    <input type="password" name="contraseña" id="contraseña" required>
+                    <input type="password" name="contraseña" id="contraseña" class="input-form" required>
+                </div class="propiedades">
+
+                <div class="center-button-login">
+                    <button type="submit" class="Log-In" name="iniciar">INICIAR SESIÓN</button>
                 </div>
-                <input type="submit" name="iniciar" id="iniciar" value="INICIAR SESIÓN">
 
-            </form>
-
-            <h2 class="titulo">¿NO TIENES CUENTA? REGÍSTRATE</h2>
-            <div class="propiedad">
-                <i class="fa-solid fa-truck"></i>
-                <p>Haz el seguimiento de tus pedidos</p>
             </div>
 
-            <div class="propiedad">
-                <i class="fa-solid fa-house"></i>
-                <p>Guarda tus datos de envío y de pago para ahorrar tiempo en tus compras siguientes</p>
-            </div>
 
-            <div class="propiedad">
-                <i class="fa-solid fa-arrows-rotate fa-flip-horizontal"></i>
-                <p>Podrás realizar devoluciones online</p>
-            </div>
+            <div class="opciones-container">
+                <h2 class="login-subtitle">¿NO TIENES CUENTA? REGÍSTRATE</h2>
+                <div class="opciones">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <p class="text">Haz el seguimiento de tus pedidos</p>
+                </div>
 
-            <button>CREAR CUENTA</button>
-        </div>
+                <div class="opciones">
+                    <i class="fa-solid fa-house-circle-check"></i>
+                    <p class="text">Guarda tus datos de envío y de pago para ahorrar tiempo en tus compras siguientes
+                    </p>
+                </div>
+
+                <div class="opciones">
+                    <i class="fa-solid fa-rotate"></i>
+                    <p class="text">Podrás realizar devoluciones online</p>
+                </div>
+
+
+                <div class="center-button">
+                    <button type="submit" class="login-button" formnovalidate>CREAR CUENTA</button>
+                </div>
+
+        </form>
     </main>
 
 

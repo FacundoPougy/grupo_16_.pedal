@@ -1,42 +1,197 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Poppins:wght@300&display=swap');
-
-
-.login-main {
-    background-color: var(--blanquito);
-    color: var(--violeta-oscuro);
-}
-
-.titulo {
-    font-family: Poppins;
-    font-size: 5vw;
-}
-
-.main-container{
+/*HEADER*/
+.login-header {
     display: flex;
-    flex-direction: column;
+    height: 30vw;
 }
 
-.login-form{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
+.center-img {
+    width: 60%;
+    height: 100%;
     margin: auto;
-    justify-content: space-evenly;
-    height: 50vw;
+    display: flex;
+    justify-content: center;
 }
 
-.input-login{
+.logo-header {
+    width: 100%;
+}
+
+.center-img img {
+    width: 100%;
+}
+
+.equis {
+    font-size: 6vw;
+    padding: 1vw;
+}
+
+.equis-link {
+    margin: auto;
+    text-decoration: none;
+}
+
+/*End of HEADER*/
+
+/*Main*/
+.login-main {
     display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+}
+
+.login-title {
+    font-size: 5vw;
+    text-align: center;
+}
+
+.login-subtitle {
+    font-size: 3vw;
+}
+
+.Log-In{
+    background-color: var(--violeta-oscuro);
+    color: var(--blanquito);
+    border: none;
+    height: 100%;
+    width: 80%;
+    border-radius: 1vw;
+}
+
+/*Propiedades*/
+
+.propiedades-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vw;
+    justify-content: space-evenly;
+}
+
+.propiedades {
+    display: flex; 
     flex-direction: column;
 }
 
-.input-login input{
-    border:none;
-    border-bottom: 2px solid var(--marronsito);
+.input-form {
     background-color: var(--blanquito);
     outline: none;
+    border: none;
+    opacity: 0.75;
+    border-bottom: 2px solid var(--marronsito);
 }
 
-.propiedad{
+.center-button-login {
     display: flex;
+    height: 10%;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.text {
+    font-size: 3.5vw;
+    width: 65%;
+}
+
+/* Opciones */
+
+.opciones-container {
+    height: 85vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.opciones {
+    display: flex;
+    justify-content: space-around;
+    height: 3vw;
+    align-items: center;
+}
+
+.center-button {
+    display: flex;
+    height: 10%;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.login-button {
+    background-color: var(--naranja);
+    color: var(--blanquito);
+    border: none;
+    height: 100%;
+    width: 80%;
+    border-radius: 1vw;
+}
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (min-width: 769px) {
+
+    .text {
+        font-size: 1.2vw;
+        width: 80%;
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: row;
+        padding: 4vw;
+        justify-content: space-evenly;
+    }
+
+    .propiedades-container {
+        width: 40%;
+        height: 30vw;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .opciones-container {
+        width: 40%;
+        height: 30vw;
+        justify-content: space-between;
+    }
+
+    .login-title {
+        font-size: 2vw;
+        padding-top: 1vw;
+    }
+
+    .login-subtitle {
+        font-size: 1.5vw;
+    }
+
+    .login-button {
+        width: 100%;
+    }
+
+    .login-header {
+        height: 8vw;
+    }
+
+    .flecha {
+        font-size: 4vw;
+    }
+
+    .switch {
+        width: 5.4vw;
+        height: 3vw;
+    }
+
+    .input-form {
+        font-size: 1.5vw;
+    }
+
+
+    .labels {
+        font-size: 1.5vw;
+    }
+
+    .prefix-line {
+        font-size: 1.5vw;
+    }
+
 }
