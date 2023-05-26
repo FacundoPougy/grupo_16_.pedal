@@ -61,7 +61,7 @@
   }
   
   .check-remind input[type="checkbox"] {
-    margin-right: 10vh;
+    margin-right: 6vh;
   }
   
   .forgot-password {
@@ -219,6 +219,11 @@
     .login-header {
         height: 8vw;
     }
+
+    .forgot-password {
+        font-size: 0.9vw; 
+        margin-top: 3vh;
+      }
 
     .equis {
         font-size: 2vw;
