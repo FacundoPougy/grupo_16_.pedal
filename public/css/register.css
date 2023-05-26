@@ -2,7 +2,6 @@
 .register-header {
     display: flex;
     height: 30vw;
-    padding: 3vw;
 }
 
 .center-img {
@@ -23,6 +22,12 @@
 
 .flecha {
     font-size: 6vw;
+    padding: 1vw;
+}
+
+.flecha-link {
+    margin: auto;
+    text-decoration: none;
 }
 
 /*End of HEADER*/
@@ -37,17 +42,25 @@
 
 .register-title {
     font-size: 5vw;
+    text-align: center;
 }
 
 .register-subtitle {
     font-size: 3vw;
-    margin: 8vw 0vw 12vw 0vw;
+}
+
+/*Propiedades*/
+
+.propiedades-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vw;
+    justify-content: space-evenly;
 }
 
 .propiedades {
     display: flex;
     flex-direction: column;
-    height: 15vw;
 }
 
 .register-telefono {
@@ -56,6 +69,7 @@
 
 .telefono {
     padding-left: 2vw;
+    width: 100%;
 }
 
 .prefix-line {
@@ -75,26 +89,41 @@
     outline: none;
     border: none;
     opacity: 0.75;
-    border-bottom:  2px solid var(--marronsito);
+    border-bottom: 2px solid var(--marronsito);
 }
 
+::placeholder {
+    opacity: 0.5;
+    color: var(--marronsito);
+  }
+
 .labels {
-    font-size: 14px;
+    font-size: 2vw;
 }
 
 .text {
-    font-size: 14px;
+    font-size: 3.5vw;
+    width: 65%;
 }
 
 .policy {
     color: var(--naranja);
 }
 
+/*Opciones*/
+
+.opciones-container {
+    height: 85vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 16vw;
+    height: 9vw;
 }
 
 .switch input {
@@ -116,29 +145,32 @@
 }
 
 .slider.round {
-    border-radius: 34px;
+    border-radius: 10vw;
 }
 
 .slider.round:before {
     border-radius: 50%;
 }
 
-.opciones{
-    margin: 8vw 0vw;
+.opciones {
+    display: flex;
+    justify-content: space-around;
+    height: 10vw;
+    align-items: center;
 }
 
-.center-button{
+.center-button {
     display: flex;
-    height: 20vw;
+    height: 10%;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .register-button {
     background-color: var(--violeta-oscuro);
     color: var(--blanquito);
     border: none;
-    height: 55%;
+    height: 100%;
     width: 60%;
     border-radius: 1vw;
 }
@@ -148,10 +180,10 @@
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 80%;
+    width: 45%;
+    left: 10%;
+    bottom: 10%;
     background-color: var(--blanquito);
     -webkit-transition: .4s;
     transition: .4s;
@@ -171,9 +203,76 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    transform: translateX(75%);
 }
 
 /* MEDIA QUERIES */
+
+@media only screen and (min-width: 769px) {
+
+    .text {
+        font-size: 1.2vw;
+        width: 80%;
+    }
+
+    .register-form {
+        display: flex;
+        flex-direction: row;
+        padding: 4vw;
+        justify-content: space-evenly;
+    }
+
+    .propiedades-container {
+        width: 40%;
+        height: 30vw;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .opciones-container {
+        width: 40%;
+        height: 30vw;
+        justify-content: space-between;
+    }
+
+    .register-title {
+        font-size: 2vw;
+        padding-top: 1vw;
+    }
+
+    .register-subtitle {
+        font-size: 1.5vw;
+    }
+
+    .register-button {
+        width: 100%;
+    }
+
+    .register-header {
+        height: 8vw;
+    }
+
+    .flecha {
+        font-size: 4vw;
+    }
+
+    .switch {
+        width: 5.4vw;
+        height: 3vw;
+    }
+
+    .input-form {
+        font-size: 1.5vw;
+    }
+
+
+    .labels {
+        font-size: 1.5vw;
+    }
+
+    .prefix-line {
+        font-size: 1.5vw;
+    }
+
+}

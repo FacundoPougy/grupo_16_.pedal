@@ -8,7 +8,7 @@
 
 <body>
     <header class="register-header">
-        <a href="">
+        <a class="flecha-link" href="">
             <i class="fa-solid fa-arrow-left fa-lg flecha"></i>
         </a>
         <div class="logo-header">
@@ -20,78 +20,82 @@
 
     <main class="register-main">
         <h1 class="register-title">¿NO TIENES CUENTA? REGÍSTRATE</h1>
-        <h2 class="register-subtitle">INTRODUCE TUS DATOS DE REGISTRO</h2>
 
         <form action="/registro" method="post" class="register-form">
 
-            <div class="propiedades">
-                <label for="nombre" class="labels">Nombre</label>
-                <input type="text" name="nombre" id="nombre" class="input-form" required>
-            </div>
-
-            <div class="propiedades">
-                <label for="apellido" class="labels">Apellidos</label>
-                <input type="text" name="apellido" id="apellido" class="input-form" required>
-            </div>
-
-            <div class="propiedades">
-                <label for="correo" class="labels">Correo electrónico</label>
-                <input type="email" name="correo" id="correo" class="input-form" required>
-            </div>
-
-            <div class="propiedades">
-
-                <label for="contraseña" class="labels">Contraseña</label>
-                <input type="password" name="contraseña" id="contraseña" class="input-form" required>
-            </div>
-
-            <div class="register-telefono">
+            <div class="propiedades-container">
+                <h2 class="register-subtitle">INTRODUCE TUS DATOS DE REGISTRO</h2>
                 <div class="propiedades">
-                    <label for="prefix" class="labels">Prefijo</label>
-                    <select id="prefix" class="prefix-line" required>
-                        <option value="+54">+54</option>
-                        <option value="+57">+57</option>
-                        <option value="+598">+598</option>
-                    </select>
+                    <label for="nombre" class="labels">Nombre</label>
+                    <input placeholder="Ejemplo"  type="text" name="nombre" id="nombre" class="input-form" required>
                 </div>
 
-                <div class="propiedades telefono">
-                    <label for="telefono" class="labels">Teléfono</label>
-                    <input type="number" name="telefono" id="telefono" class="input-form" required>
+                <div class="propiedades">
+                    <label for="apellido" class="labels">Apellidos</label>
+                    <input placeholder="Ejemplo" type="text" name="apellido" id="apellido" class="input-form" required>
+                </div>
+
+                <div class="propiedades">
+                    <label for="correo" class="labels">Correo electrónico</label>
+                    <input placeholder="Ejemplo" type="email" name="correo" id="correo" class="input-form" required>
+                </div>
+
+                <div class="propiedades">
+
+                    <label for="contraseña" class="labels">Contraseña</label>
+                    <input placeholder="Ejemplo" type="password" name="contraseña" id="contraseña" class="input-form" required>
+                </div>
+
+                <div class="register-telefono">
+                    <div class="propiedades">
+                        <label for="prefix" class="labels">Prefijo</label>
+                        <select id="prefix" class="prefix-line" required>
+                            <option value="+54">+54</option>
+                            <option value="+57">+57</option>
+                            <option value="+598">+598</option>
+                        </select>
+                    </div>
+
+                    <div class="propiedades telefono">
+                        <label for="telefono" class="labels">Teléfono</label>
+                        <input placeholder="Ejemplo" type="number" name="telefono" id="telefono" class="input-form" required>
+                    </div>
                 </div>
             </div>
 
-            <div class="opciones">
-                <div class="text">Quiero recibir novedades y comunicaciones de
-                    .Pedal a través de mi correo electrónico</div>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
+            <div class="opciones-container">
 
-            <div class="opciones">
-                <div class="text">He podido leer y entiendo la información sobre el uso de mis datos personales
-                    explicada en
-                    la
-                    <span class="policy">Política de Privacidad</span>
+                <div class="opciones">
+                    <p class="text">Quiero recibir novedades y comunicaciones de
+                        .Pedal a través de mi correo electrónico</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
                 </div>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
 
-            <div class="opciones">
-                <div class="text">Recuérdame</div>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
+                <div class="opciones">
+                    <p class="text">He podido leer y entiendo la información sobre el uso de mis datos personales
+                        explicada en
+                        la
+                        <span class="policy">Política de Privacidad</span>
+                    </p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
 
-            <div class="center-button">
-                <button class="register-button">CREAR CUENTA</button>
+                <div class="opciones">
+                    <p class="text">Recuérdame</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="center-button">
+                    <button type="submit" class="register-button">CREAR CUENTA</button>
+                </div>
             </div>
 
         </form>
