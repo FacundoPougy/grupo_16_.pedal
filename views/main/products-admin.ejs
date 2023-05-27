@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/inputs.css" />
+</head>
+
+<body>
+    <h1>Crear/Editar Producto</h1>
+    <form method="POST" action="/productos">
+        <label for="name">Nombre del producto:</label>
+        <input type="text" id="name" name="name" required>
+        
+
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" required></textarea>
+        
+
+        <label for="image">Imagen:</label>
+        <input type="file" id="image" name="image">
+        
+
+        <label for="category">Categoría:</label>
+        <input type="text" id="category" name="category" required>
+        
+
+        <label for="colors">Colores:</label>
+        <input type="text" id="colors" name="colors">
+        
+
+        <label for="price">Precio:</label>
+        <input type="number" id="price" name="price" step="0.01" required>
+        
+
+        <input type="submit" value="Crear">
+    </form>
+</body>
+
+</html>
