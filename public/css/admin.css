@@ -1,0 +1,11 @@
+.form-crear{
+    height: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10vw;
+}
+
+.admin-title{
+    padding: 3vw;
+}
