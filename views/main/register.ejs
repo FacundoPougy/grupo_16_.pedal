@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/head') %>
     <link rel="stylesheet" href="/css/register.css" />
+    <link rel="stylesheet" href="/css/inputs.css" />
 </head>
 
 <body>
@@ -26,30 +27,30 @@
             <div class="propiedades-container">
                 <h2 class="register-subtitle">INTRODUCE TUS DATOS DE REGISTRO</h2>
                 <div class="propiedades">
+                    <input placeholder="Ejemplo" type="text" name="nombre" id="nombre" class="input-form" required>
                     <label for="nombre" class="labels">Nombre</label>
-                    <input placeholder="Ejemplo"  type="text" name="nombre" id="nombre" class="input-form" required>
                 </div>
 
                 <div class="propiedades">
-                    <label for="apellido" class="labels">Apellidos</label>
                     <input placeholder="Ejemplo" type="text" name="apellido" id="apellido" class="input-form" required>
+                    <label for="apellido" class="labels">Apellidos</label>
                 </div>
 
                 <div class="propiedades">
-                    <label for="correo" class="labels">Correo electrónico</label>
                     <input placeholder="Ejemplo" type="email" name="correo" id="correo" class="input-form" required>
+                    <label for="correo" class="labels">Correo electrónico</label>
                 </div>
 
                 <div class="propiedades">
-
+                    <input placeholder="Ejemplo" type="password" name="contraseña" id="contraseña" class="input-form"
+                        required>
                     <label for="contraseña" class="labels">Contraseña</label>
-                    <input placeholder="Ejemplo" type="password" name="contraseña" id="contraseña" class="input-form" required>
                 </div>
 
                 <div class="register-telefono">
                     <div class="propiedades">
-                        <label for="prefix" class="labels">Prefijo</label>
-                        <select id="prefix" class="prefix-line" required>
+                        <!-- <label for="prefix" class="prefix-line">Prefijo</label> -->
+                        <select class="input-form" required>
                             <option value="+54">+54</option>
                             <option value="+57">+57</option>
                             <option value="+598">+598</option>
@@ -57,14 +58,14 @@
                     </div>
 
                     <div class="propiedades telefono">
+                        <input placeholder="Ejemplo" type="number" name="telefono" id="telefono" class="input-form"
+                            required>
                         <label for="telefono" class="labels">Teléfono</label>
-                        <input placeholder="Ejemplo" type="number" name="telefono" id="telefono" class="input-form" required>
                     </div>
                 </div>
             </div>
 
             <div class="opciones-container">
-
                 <div class="opciones">
                     <p class="text">Quiero recibir novedades y comunicaciones de
                         .Pedal a través de mi correo electrónico</p>

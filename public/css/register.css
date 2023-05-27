@@ -58,11 +58,6 @@
     justify-content: space-evenly;
 }
 
-.propiedades {
-    display: flex;
-    flex-direction: column;
-}
-
 .register-telefono {
     display: flex;
 }
@@ -72,34 +67,17 @@
     width: 100%;
 }
 
-.prefix-line {
-    background-color: var(--blanquito);
-    outline: none;
-    border: none;
-    border-radius: 0;
-    opacity: 0.75;
-    border-bottom: 2px solid var(--marronsito);
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+.telefono .labels {
+    padding-left: 2vw;
 }
 
-.input-form {
-    background-color: var(--blanquito);
-    outline: none;
-    border: none;
-    opacity: 0.75;
-    border-bottom: 2px solid var(--marronsito);
-}
+/* .prefix-line {
+    font-size: 3vw;
+    position: relative;
+    top: 1vw;
+    Nota: Para que funcione hay que darle un height al register-telefono y poner el labelsito chiquito arriba.
+} */
 
-::placeholder {
-    opacity: 0.5;
-    color: var(--marronsito);
-  }
-
-.labels {
-    font-size: 2vw;
-}
 
 .text {
     font-size: 3.5vw;
@@ -111,7 +89,6 @@
 }
 
 /*Opciones*/
-
 .opciones-container {
     height: 85vw;
     display: flex;
@@ -189,11 +166,6 @@
     transition: .4s;
 }
 
-.input-form::-webkit-inner-spin-button {
-    display: none;
-    -webkit-appearance: none;
-}
-
 input:checked+.slider {
     background-color: var(--violeta-oscuro);
 }
@@ -262,17 +234,11 @@ input:checked+.slider:before {
         height: 3vw;
     }
 
-    .input-form {
+    /* .prefix-line {
         font-size: 1.5vw;
-    }
-
-
-    .labels {
-        font-size: 1.5vw;
-    }
-
-    .prefix-line {
-        font-size: 1.5vw;
-    }
+    } */
 
 }
+
+
+

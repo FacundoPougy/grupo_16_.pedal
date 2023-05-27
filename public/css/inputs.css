@@ -1,0 +1,54 @@
+.propiedades {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-form {
+    background-color: var(--blanquito);
+    outline: none;
+    border: none;
+    opacity: 0.75;
+    border-bottom: 2px solid var(--marronsito);
+    font-size: 3vw;
+    appearance: none;
+}
+
+.labels {
+    font-size: 3vw;
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+    transition: all 0.4s ease;
+}
+
+.input-form:focus~.labels {
+    top: -3vw;
+    font-size: 2.2vw;
+}
+
+.input-form::placeholder {
+    opacity: 0.5;
+    color: var(--blanquito);
+}
+
+.input-form:focus::placeholder {
+    color: var(--marronsito);
+}
+
+
+@media only screen and (min-width: 769px) {
+    .input-form {
+        font-size: 1.5vw;
+    }
+
+    .labels {
+        font-size: 1.5vw;
+    }
+
+    .input-form:focus~.labels {
+        font-size: 1.2vw;
+        top: -1.8vw;
+
+    }
+}
