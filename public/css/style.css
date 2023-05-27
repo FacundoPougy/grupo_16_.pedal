@@ -47,6 +47,8 @@ body {
   width: 20%;
 }
 
+a{text-decoration: none;}
+
 .main-nav-bar {
   display: flex;
   align-items: center;

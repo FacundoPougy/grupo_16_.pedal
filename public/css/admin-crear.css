@@ -1,11 +1,12 @@
 .form-crear {
-  height: 60vw;
+  height: 50vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding: 10vw;
+  justify-content: space-between;
+  padding: 0vw 10vw 10vw 10vw;
 }
 
 .admin-title {
   padding: 3vw;
+  text-align: center;
 }
