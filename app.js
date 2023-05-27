@@ -20,12 +20,16 @@ const homeRoutes = require("./routes/homeRoutes");
 const registerRoutes = require("./routes/registerRoutes");
 const loginRoutes = require("./routes/loginRoutes");
 const productoRoutes = require("./routes/productoRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const cartRoutes = require("./routes/cartRoutes")
 
 //Uso de las rutas
 app.use(homeRoutes);
 app.use("/register", registerRoutes);
 app.use("/login", loginRoutes);
 app.use("/productos", productoRoutes);
+app.use("/admin", adminRoutes);
+app.use("/cart", cartRoutes)
 
 // Inicio del servidor
 app.listen(PORT, () => {

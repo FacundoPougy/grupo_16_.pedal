@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/head') %>
         <link rel="stylesheet" href="/css/login.css" />
+        <link rel="stylesheet" href="/css/inputs.css" />
 </head>
 
 <body class="login-body">
@@ -28,13 +29,13 @@
                 <h2 class="login-subtitle">¿YA TIENES UNA CUENTA? INICIA SESIÓN</h2>
 
                 <div class="propiedades">
-                    <label for="correo">Ingresa tu correo electrónico</label>
-                    <input type="email" name="correo" id="correo" class="input-form" required>
+                    <input type="email" placeholder="Ejemplo" name="correo" id="correo" class="input-form" required>
+                    <label class="labels" for="correo">Ingresa tu correo electrónico</label>
                 </div>
 
                 <div class="propiedades">
-                    <label for="contraseña">Contraseña</label>
-                    <input type="password" name="contraseña" id="contraseña" class="input-form" required>
+                    <input type="password" placeholder="Ejemplo" name="contraseña" id="contraseña" class="input-form" required>
+                    <label class="labels" for="contraseña">Contraseña</label>
                 </div>
 
                 <div class="check-login">
