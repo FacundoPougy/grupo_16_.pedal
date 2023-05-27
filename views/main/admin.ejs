@@ -1,48 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <%- include('../partials/head') %>
     <link rel="stylesheet" href="/css/inputs.css" />
     <link rel="stylesheet" href="/css/admin.css" />
-</head>
-
-<body>
-    <h1 class="admin-title">Crear/Editar Producto</h1>
-    <form class="form-crear" method="POST" action="/productos">
-        <div class="propiedades">
-            <input type="text" id="name" name="name" class="input-form" placeholder="Ejemplo" required>
-            <label for="name" class="labels">Nombre del producto:</label>
+  </head>
+  <body>
+    <header><%- include('../partials/header') %></header>
+    <main>
+      <h1 class="titulo">Tus productos</h1>
+      <div class="productos-existentes-container">
+        <div class="productos-existentes">
+          <img
+            class="img-producto"
+            src="/images/bicicleta-volta1.jpg"
+            alt="Logo"
+          />
+          <div class="productos-existentes-content">
+            <h3 class="nombre-bicicleta">Nombre bicicleta</h3>
+            <p class="precio">$43.000</p>
+            <p>Stock: 10 unidades</p>
+          </div>
         </div>
-
-        <div class="propiedades">
-            <textarea id="description" name="description" class="input-form" placeholder="Ejemplo" required></textarea>
-            <label for="description" class="labels">Descripción:</label>
+        <div class="productos-existentes">
+          <img
+            class="img-producto"
+            src="/images/bicicleta-volta1.jpg"
+            alt="Logo"
+          />
+          <div class="productos-existentes-content">
+            <h3 class="nombre-bicicleta">Nombre bicicleta</h3>
+            <p class="precio">$43.000</p>
+            <p>Stock: 10 unidades</p>
+          </div>
         </div>
-
-        <div class="propiedades">
-            <input type="file" id="image" name="image" class="input-form">
-            <label for="image" class="labels">Imagen:</label>
+        <div class="productos-existentes">
+          <img
+            class="img-producto"
+            src="/images/bicicleta-volta1.jpg"
+            alt="Logo"
+          />
+          <div class="productos-existentes-content">
+            <h3 class="nombre-bicicleta">Nombre bicicleta</h3>
+            <p class="precio">$43.000</p>
+            <p>Stock: 10 unidades</p>
+          </div>
         </div>
-
-        <div class="propiedades">
-            <input type="text" id="category" name="category" class="input-form" placeholder="Ejemplo" required>
-            <label for="category" class="labels">Categoría:</label>
+        <div class="productos-existentes">
+          <img
+            class="img-producto"
+            src="/images/bicicleta-volta1.jpg"
+            alt="Logo"
+          />
+          <div class="productos-existentes-content">
+            <h3 class="nombre-bicicleta">Nombre bicicleta</h3>
+            <p class="precio">$43.000</p>
+            <p>Stock: 10 unidades</p>
+          </div>
         </div>
-
-        <div class="propiedades">
-            <input type="text" id="colors" name="colors" class="input-form" placeholder="Ejemplo">
-            <label for="colors" class="labels">Colores:</label>
+        <div class="productos-existentes">
+          <img
+            class="img-producto"
+            src="/images/bicicleta-volta1.jpg"
+            alt="Logo"
+          />
+          <div class="productos-existentes-content">
+            <h3 class="nombre-bicicleta">Nombre bicicleta</h3>
+            <p class="precio">$43.000</p>
+            <p>Stock: 10 unidades</p>
+          </div>
         </div>
-
-        <div class="propiedades">
-            <input type="number" id="price" name="price" step="0.01" class="input-form" placeholder="Ejemplo" required>
-            <label for="price" class="labels">Precio:</label>
-        </div>
-
-        <input type="submit" value="Crear">
-
-    </form>
-</body>
-
+      </div>
+    </main>
+  </body>
 </html>

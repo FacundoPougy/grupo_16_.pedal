@@ -1,11 +1,36 @@
-.form-crear{
-    height: 60vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 10vw;
+.titulo {
+  margin: 15px;
 }
-
-.admin-title{
-    padding: 3vw;
+.productos-existentes-container {
+  display: flex;
+  flex-wrap: wrap;
+  /*   justify-content: center; */
+}
+.productos-existentes {
+  display: flex;
+  width: 80vw;
+  height: auto;
+  border: 1px black solid;
+  border-radius: 6px;
+  margin: 15px;
+  background-color: white;
+}
+.productos-existentes-content {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  justify-content: space-evenly;
+  margin-left: 3vw;
+}
+.productos-existentes img {
+  width: 33%;
+  margin-left: 1vw;
+}
+.precio {
+  font-weight: 600;
+}
+@media (min-width: 1200px) {
+  .productos-existentes {
+    width: 30vw;
+  }
 }
