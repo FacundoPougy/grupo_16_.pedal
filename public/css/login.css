@@ -61,7 +61,7 @@
   }
   
   .check-remind input[type="checkbox"] {
-    margin-right: 6vh;
+    margin-right: 3vh;
   }
   
   .forgot-password {
@@ -133,6 +133,8 @@
     font-size: 3.5vw;
     width: 65%;
 }
+
+button{cursor: pointer;}
 
 /* Opciones */
 
