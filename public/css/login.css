@@ -88,11 +88,6 @@
     justify-content: space-evenly;
 }
 
-.propiedades {
-    display: flex;
-    flex-direction: column;
-}
-
 #my-Checkbox {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -109,17 +104,6 @@
 
 #my-Checkbox:checked {
     background-color: var(--violeta-oscuro);
-}
-
-
-
-
-.input-form {
-    background-color: var(--blanquito);
-    outline: none;
-    border: none;
-    opacity: 0.75;
-    border-bottom: 2px solid var(--marronsito);
 }
 
 .center-button-login {
@@ -228,10 +212,5 @@
     .equis {
         font-size: 2vw;
     }
-
-    .input-form {
-        font-size: 1.5vw;
-    }
-
 
 }
