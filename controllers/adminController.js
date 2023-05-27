@@ -6,6 +6,14 @@ const controller = {
       title: "ADMIN"
     });
   },
+
+  getAdminCrear: (req, res) => {
+    res.render("admin-crear.ejs", {
+      title: "Crear"
+    });
+  },
+
+
 };
 
 module.exports = controller;
