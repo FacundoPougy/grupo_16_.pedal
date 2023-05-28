@@ -1,9 +1,24 @@
 const path = require("path");
 
+const fs = require('fs');
+
+const filePath = 'public/MOCK_BICIS.json';
+
+const data = fs.readFileSync(filePath, 'utf8');
+
+let bicisObj = {};
+
+try {
+  bicisObj = JSON.parse(data);
+} catch (error) {
+  console.error('Error al analizar el JSON:', error);
+}
+
 const controller = {
   getAdmin: (req, res) => {
     res.render("admin.ejs", {
-      title: "ADMIN"
+      title: "ADMIN",
+      bicis: bicisObj
     });
   },
 

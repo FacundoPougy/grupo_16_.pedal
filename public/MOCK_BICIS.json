@@ -1,0 +1,95 @@
+{
+    "bicicletas": [
+      {
+        "name": "Bicicleta de montaña",
+        "description": "Bicicleta especialmente diseñada para terrenos difíciles y montañas.",
+        "image": "https://example.com/bike1.jpg",
+        "category": "Montaña",
+        "colors": ["Negro", "Rojo"],
+        "price": 799.99,
+        "stock": 5
+      },
+      {
+        "name": "Bicicleta de ciudad",
+        "description": "Bicicleta urbana ideal para desplazamientos diarios en la ciudad.",
+        "image": "https://example.com/bike2.jpg",
+        "category": "Ciudad",
+        "colors": ["Azul", "Blanco"],
+        "price": 399.99,
+        "stock": 10
+      },
+      {
+        "name": "Bicicleta de carreras",
+        "description": "Bicicleta de alta velocidad diseñada para competiciones en carretera.",
+        "image": "https://example.com/bike3.jpg",
+        "category": "Carreras",
+        "colors": ["Negro", "Amarillo"],
+        "price": 1299.99,
+        "stock": 3
+      },
+      {
+        "name": "Bicicleta plegable",
+        "description": "Bicicleta compacta y plegable, ideal para viajes y almacenamiento en espacios reducidos.",
+        "image": "https://example.com/bike4.jpg",
+        "category": "Plegable",
+        "colors": ["Rojo"],
+        "price": 499.99,
+        "stock": 7
+      },
+      {
+        "name": "Bicicleta eléctrica",
+        "description": "Bicicleta con asistencia eléctrica para facilitar los desplazamientos largos o empinados.",
+        "image": "https://example.com/bike5.jpg",
+        "category": "Eléctrica",
+        "colors": ["Gris", "Verde"],
+        "price": 1499.99,
+        "stock": 2
+      },
+      {
+        "name": "Bicicleta de paseo",
+        "description": "Bicicleta cómoda y versátil para disfrutar de paseos relajados.",
+        "image": "https://example.com/bike6.jpg",
+        "category": "Paseo",
+        "colors": ["Morado"],
+        "price": 299.99,
+        "stock": 6
+      },
+      {
+        "name": "Bicicleta BMX",
+        "description": "Bicicleta resistente y ágil para realizar acrobacias y trucos en terrenos urbanos.",
+        "image": "https://example.com/bike7.jpg",
+        "category": "BMX",
+        "colors": ["Negro", "Naranja"],
+        "price": 599.99,
+        "stock": 4
+      },
+      {
+        "name": "Bicicleta de carga",
+        "description": "Bicicleta diseñada para transportar cargas pesadas o realizar repartos.",
+        "image": "https://example.com/bike8.jpg",
+        "category": "Carga",
+        "colors": ["Azul"],
+        "price": 899.99,
+        "stock": 1
+      },
+      {
+        "name": "Bicicleta para niños",
+        "description": "Bicicleta adaptada para los más pequeños, con ruedas estabilizadoras.",
+        "image": "https://example.com/bike9.jpg",
+        "category": "Niños",
+        "colors": ["Rosa", "Verde"],
+        "price": 199.99,
+        "stock": 8
+      },
+      {
+        "name": "Bicicleta de turismo",
+        "description": "Bicicleta ideal para viajes largos y travesías, con capacidad para cargar equipaje.",
+        "image": "https://example.com/bike10.jpg",
+        "category": "Turismo",
+        "colors": ["Gris", "Negro"],
+        "price": 999.99,
+        "stock": 0
+      }
+    ]
+  }
+  
