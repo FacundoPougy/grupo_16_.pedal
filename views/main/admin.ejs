@@ -1,76 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/inputs.css" />
-    <link rel="stylesheet" href="/css/admin.css" />
-  </head>
-  <body>
-    <header><%- include('../partials/header') %></header>
-    <main>
-      <h1 class="titulo">Tus productos</h1>
-      <div class="productos-existentes-container">
-        <div class="productos-existentes">
-          <img
-            class="img-producto"
-            src="/images/bicicleta-volta1.jpg"
-            alt="Logo"
-          />
-          <div class="productos-existentes-content">
-            <h3 class="nombre-bicicleta">Nombre bicicleta</h3>
-            <p class="precio">$43.000</p>
-            <p>Stock: 10 unidades</p>
-          </div>
+
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+
+<body>
+  <!-- <header><%- include('../partials/header') %></header> -->
+  <main>
+    <h1 class="titulo">Tus productos</h1>
+
+    <button class="create-button"></button>
+    <div class="productos-existentes-container">
+
+      <% bicis.bicicletas.forEach(function(bici) { %>
+      <article class="productos-existentes">
+        <img class="img-producto" src="<%= bici.image %>" alt="Bicicleta" />
+        <div class="productos-existentes-content">
+          <h3 class="nombre-bicicleta"><%= bici.name %></h3>
+          <p class="precio">$<%= bici.price %></p>
+          <p>Stock: <%= bici.stock %> unidades</p>
         </div>
-        <div class="productos-existentes">
-          <img
-            class="img-producto"
-            src="/images/bicicleta-volta1.jpg"
-            alt="Logo"
-          />
-          <div class="productos-existentes-content">
-            <h3 class="nombre-bicicleta">Nombre bicicleta</h3>
-            <p class="precio">$43.000</p>
-            <p>Stock: 10 unidades</p>
-          </div>
-        </div>
-        <div class="productos-existentes">
-          <img
-            class="img-producto"
-            src="/images/bicicleta-volta1.jpg"
-            alt="Logo"
-          />
-          <div class="productos-existentes-content">
-            <h3 class="nombre-bicicleta">Nombre bicicleta</h3>
-            <p class="precio">$43.000</p>
-            <p>Stock: 10 unidades</p>
-          </div>
-        </div>
-        <div class="productos-existentes">
-          <img
-            class="img-producto"
-            src="/images/bicicleta-volta1.jpg"
-            alt="Logo"
-          />
-          <div class="productos-existentes-content">
-            <h3 class="nombre-bicicleta">Nombre bicicleta</h3>
-            <p class="precio">$43.000</p>
-            <p>Stock: 10 unidades</p>
-          </div>
-        </div>
-        <div class="productos-existentes">
-          <img
-            class="img-producto"
-            src="/images/bicicleta-volta1.jpg"
-            alt="Logo"
-          />
-          <div class="productos-existentes-content">
-            <h3 class="nombre-bicicleta">Nombre bicicleta</h3>
-            <p class="precio">$43.000</p>
-            <p>Stock: 10 unidades</p>
-          </div>
-        </div>
-      </div>
-    </main>
-  </body>
+        <a class="edit-icon" href="admin/editar"><i class="fa-solid fa-pen-to-square"></i></a>
+      </article>
+      <% }) %>
+
+    </div>
+
+    <div class="fixed-div">
+      <a href="admin/crear" class="add-product">+</a>
+    </div>
+
+
+  </main>
+</body>
+
 </html>

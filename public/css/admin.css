@@ -1,49 +1,82 @@
 .titulo {
-  margin: 15px;
-}
-.productos-existentes-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-.productos-existentes {
-  display: flex;
-  width: 90vw;
-  height: auto;
-  border: 1px black solid;
-  border-radius: 6px;
-  margin: 15px;
-  background-color: white;
-}
-.productos-existentes-content {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  justify-content: space-evenly;
-  margin-left: 3vw;
-}
-.productos-existentes img {
-  width: 33%;
-  margin-left: 1vw;
-}
-.precio {
-  font-weight: 600;
-}
-@media (max-width: 767px) {
-  .productos-existentes-container {
-    justify-content: center;
-  }
-  .titulo {
     margin: 15px;
     text-align: center;
-  }
 }
+
+.productos-existentes-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.productos-existentes {
+    display: flex;
+    width: 90vw;
+    height: auto;
+    border: 1px black solid;
+    border-radius: 6px;
+    margin: 15px;
+    background-color: white;
+    justify-content: space-between;
+}
+
+.productos-existentes-content {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: space-evenly;
+    margin-left: 3vw;
+}
+
+.productos-existentes img {
+    width: 33%;
+    margin-left: 1vw;
+}
+
+.precio {
+    font-weight: 600;
+}
+
+.fixed-div {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--violeta-oscuro);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .add-product {
+    font-size: 40px;
+    color: var(--blanquito);
+  }
+  
+  .edit-icon{
+    padding: 10px;
+  }
+
+@media (max-width: 767px) {
+    .productos-existentes-container {
+        justify-content: center;
+    }
+
+    .titulo {
+        margin: 15px;
+        text-align: center;
+    }
+}
+
 @media (min-width: 768px) {
-  .productos-existentes {
-    width: 45vw;
-  }
+    .productos-existentes {
+        width: 45vw;
+    }
 }
+
 @media (min-width: 1200px) {
-  .productos-existentes {
-    width: 30vw;
-  }
+    .productos-existentes {
+        width: 30vw;
+    }
 }
