@@ -4,11 +4,10 @@
 .productos-existentes-container {
   display: flex;
   flex-wrap: wrap;
-  /*   justify-content: center; */
 }
 .productos-existentes {
   display: flex;
-  width: 80vw;
+  width: 90vw;
   height: auto;
   border: 1px black solid;
   border-radius: 6px;
@@ -28,6 +27,20 @@
 }
 .precio {
   font-weight: 600;
+}
+@media (max-width: 767px) {
+  .productos-existentes-container {
+    justify-content: center;
+  }
+  .titulo {
+    margin: 15px;
+    text-align: center;
+  }
+}
+@media (min-width: 768px) {
+  .productos-existentes {
+    width: 45vw;
+  }
 }
 @media (min-width: 1200px) {
   .productos-existentes {
