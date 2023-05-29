@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.get("/", adminController.getAdmin);
 router.get("/crear", adminController.getAdminCrear);
-router.get("/editar", adminController.getAdmin);
+router.get("/editar", adminController.getAdminEditar);
 
 module.exports = router;

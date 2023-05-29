@@ -28,6 +28,12 @@ const controller = {
     });
   },
 
+  getAdminEditar: (req, res) => {
+    res.render("admin-editar.ejs", {
+      title: "Editar"
+    });
+  }, 
+
 
 };
 
