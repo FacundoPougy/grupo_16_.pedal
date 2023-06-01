@@ -1,12 +1,25 @@
 const path = require("path");
 
+const productModel = require('../models/product');
+
 const controller = {
-  getDetalleDelProducto: (req, res) => {
-    res.render("product-detail.ejs",{title: "Detalle"});
-  },
+
+  // @GET /products 
   getProductos: (req, res) => {
-    res.render("products",{title: "Tienda"});
+    const productos = productModel.findAll();
+
+    res.render('products', {
+      title: 'Tienda',
+      productos
+    });
   },
+
+  getDetalleDelProducto: (req, res) => {
+    res.render("product-detail.ejs", {
+      title: "Detalle"
+    });
+  },
+
 };
 
 module.exports = controller;

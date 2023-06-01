@@ -2,7 +2,7 @@ const path = require("path");
 
 const fs = require('fs');
 
-const filePath = 'public/MOCK_BICIS.json';
+const filePath = 'data/products.json';
 
 const data = fs.readFileSync(filePath, 'utf8');
 
