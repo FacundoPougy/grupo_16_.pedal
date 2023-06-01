@@ -14,6 +14,11 @@
     appearance: none;
 }
 
+option, select{
+    color: var(--violeta-oscuro);
+}
+
+
 /* QUITANDO BOTONES DE DECREMENTO E INCREMENTO */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
