@@ -28,6 +28,10 @@ const controller = {
     });
   },
 
+/*   postAdminCrear: (req, res) => {
+    
+  }, */
+
   getAdminEditar: (req, res) => {
     res.render("admin-edit.ejs", {
       title: "Editar"

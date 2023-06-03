@@ -3,14 +3,13 @@ const path = require("path");
 const productModel = require('../models/products');
 
 const controller = {
-
-  // @GET /products 
+  // @GET /products
   getProductos: (req, res) => {
     const productos = productModel.findAll();
 
-    res.render('products', {
-      title: 'Tienda',
-      productos
+    res.render("products", {
+      title: "Tienda",
+      productos,
     });
   },
 
@@ -32,6 +31,13 @@ const controller = {
     res.render('product-detail', {
       title: 'Detalle' //,
       // product: productoAMostrar
+    });
+  },
+
+
+  getDetalleDelProducto: (req, res) => {
+    res.render("product-detail.ejs", {
+      title: "Detalle",
     });
   },
 

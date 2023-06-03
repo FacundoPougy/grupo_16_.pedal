@@ -11,61 +11,25 @@
       <div class="ofertas">
         <div class="ofertas-titulo">Ofertas</div>
         <div class="productos-en-tienda">
+          <% productos.bicicletas.forEach(function(bici) { %>
           <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
+            <img src="<%= bici.image %>" alt="Bicicleta" />
+            <p>$<%= bici.price %></p>
+            <p class="descripcion"><%= bici.name %></p>
           </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
+          <% }) %>
         </div>
       </div>
       <div class="nuestros-productos">
         <div class="nuestros-productos-titulo">Nuestros Productos</div>
         <div class="productos-en-tienda">
+          <% productos.bicicletas.forEach(function(bici) { %>
           <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
+            <img src="<%= bici.image %>" alt="Bicicleta" />
+            <p>$<%= bici.price %></p>
+            <p class="descripcion"><%= bici.name %></p>
           </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
+          <% }) %>
         </div>
       </div>
       <div class="basado-en-tu-ultima-visita">
@@ -73,31 +37,13 @@
           Basado en tu última visita
         </div>
         <div class="productos-en-tienda">
+          <% productos.bicicletas.forEach(function(bici) { %>
           <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
+            <img src="<%= bici.image %>" alt="Bicicleta" />
+            <p>$<%= bici.price %></p>
+            <p class="descripcion"><%= bici.name %></p>
           </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
+          <% }) %>
         </div>
       </div>
       <div class="accesorios">
