@@ -18,6 +18,7 @@ const model = {
     findById: function (id) {
         const products = this.findAll();
 
+        console.log(products.bicicletas + '___TEST' );
         let searched = products.find(product => product.id === id);
 
         if (!searched) {

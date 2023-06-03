@@ -1,6 +1,6 @@
 {
   "bicicletas": [{
-      "id": 0,
+      "id": 1,
       "name": "Bicicleta de montaña",
       "description": "Bicicleta especialmente diseñada para terrenos difíciles y montañas.",
       "image": "images/Bike_1.png",
@@ -10,7 +10,7 @@
       "stock": 5
     },
     {
-      "id":0,
+      "id":2,
       "name": "Bicicleta de ciudad",
       "description": "Bicicleta urbana ideal para desplazamientos diarios en la ciudad.",
       "image": "images/Bike_2.png",
@@ -20,7 +20,7 @@
       "stock": 10
     },
     {
-      "id": 0,
+      "id": 3,
       "name": "Bicicleta de carreras",
       "description": "Bicicleta de alta velocidad diseñada para competiciones en carretera.",
       "image": "images/Bike_3.png",
