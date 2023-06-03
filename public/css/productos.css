@@ -16,9 +16,6 @@
   display: flex;
   flex-direction: column;
   margin-right: 25px;
-  border: black 1px solid;
-  /*   height: max-content;
-  width: max-content; */
   min-height: 300px;
   max-width: 200px;
   max-height: 300px;
@@ -28,7 +25,7 @@
   margin-bottom: 3vh;
 }
 .productos-en-tienda-element:hover {
-  box-shadow: 0px 0px 3px black;
+  box-shadow: 0 7px 24px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   height: 500px;
 }
 .ofertas-titulo {
