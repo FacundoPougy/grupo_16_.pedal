@@ -11,7 +11,7 @@
   <h1 class="admin-title">Editar Producto</h1>
   <form class="form-crear" method="POST" action="/productos">
     <div class="propiedades">
-      <input type="text" id="name" name="name" class="input-form" placeholder="Ejemplo" required />
+      <input type="text" id="name" name="name" class="input-form" placeholder="Ejemplo" value="<%= producto.name %>" required />
       <label for="name" class="labels">Nombre del producto:</label>
     </div>
 
@@ -40,7 +40,7 @@
       <label for="price" class="labels">Precio:</label>
     </div>
 
-    <input type="submit" value="Crear" />
+    <input type="submit" value="Guardar cambios" />
   </form>
 </body>
 

@@ -48,6 +48,10 @@ input[type=number]::-webkit-outer-spin-button {
     color: var(--marronsito);
 }
 
+.input-form:valid~.labels {
+    top: -3vw;
+    font-size: 2.2vw;
+  }
 
 @media only screen and (min-width: 769px) {
     .input-form {
@@ -63,4 +67,9 @@ input[type=number]::-webkit-outer-spin-button {
         top: -1.8vw;
 
     }
+
+    .input-form:valid~.labels {
+        font-size: 1.2vw;
+        top: -1.8vw;
+      }
 }
