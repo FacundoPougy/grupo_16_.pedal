@@ -136,4 +136,7 @@
   .productos-en-tienda-element p {
     font-size: larger;
   }
+  .contenedor-precio-descripcion {
+    margin: 5px;
+  }
 }
