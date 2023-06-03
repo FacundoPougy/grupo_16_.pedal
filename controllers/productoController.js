@@ -29,15 +29,8 @@ const controller = {
     }
 
     res.render('product-detail', {
-      title: 'Detalle' //,
-      // product: productoAMostrar
-    });
-  },
-
-
-  getDetalleDelProducto: (req, res) => {
-    res.render("product-detail.ejs", {
-      title: "Detalle",
+      title: 'Detalle' ,
+       product: productoAMostrar
     });
   },
 
