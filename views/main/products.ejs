@@ -11,7 +11,7 @@
       <div class="ofertas">
         <div class="ofertas-titulo">Ofertas</div>
         <div class="productos-en-tienda">
-          <% productos.bicicletas.forEach(function(bici) { %>
+          <% productos.forEach(function(bici) { %>
           <div class="productos-en-tienda-element">
             <img src="<%= bici.image %>" alt="Bicicleta" />
             <p>$<%= bici.price %></p>
@@ -23,7 +23,7 @@
       <div class="nuestros-productos">
         <div class="nuestros-productos-titulo">Nuestros Productos</div>
         <div class="productos-en-tienda">
-          <% productos.bicicletas.forEach(function(bici) { %>
+          <% productos.forEach(function(bici) { %>
           <div class="productos-en-tienda-element">
             <img src="<%= bici.image %>" alt="Bicicleta" />
             <p>$<%= bici.price %></p>
@@ -37,7 +37,7 @@
           Basado en tu última visita
         </div>
         <div class="productos-en-tienda">
-          <% productos.bicicletas.forEach(function(bici) { %>
+          <% productos.forEach(function(bici) { %>
           <div class="productos-en-tienda-element">
             <img src="<%= bici.image %>" alt="Bicicleta" />
             <p>$<%= bici.price %></p>

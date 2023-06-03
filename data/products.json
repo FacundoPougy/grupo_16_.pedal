@@ -1,5 +1,4 @@
-{
-  "bicicletas": [{
+  [{
       "id": 1,
       "name": "Bicicleta de montaña",
       "description": "Bicicleta especialmente diseñada para terrenos difíciles y montañas.",
@@ -10,7 +9,7 @@
       "stock": 5
     },
     {
-      "id":2,
+      "id": 2,
       "name": "Bicicleta de ciudad",
       "description": "Bicicleta urbana ideal para desplazamientos diarios en la ciudad.",
       "image": "images/Bike_2.png",
@@ -100,4 +99,3 @@
       "stock": 0
     }
   ]
-}
