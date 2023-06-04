@@ -40,7 +40,7 @@ const controller = {
 
     res.render("admin-edit.ejs", {
       title: 'Editar',
-      producto: productoAMostrar
+      product: productoAMostrar
     });
   },
 
