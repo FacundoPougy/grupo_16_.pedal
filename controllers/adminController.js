@@ -49,7 +49,7 @@ const controller = {
   }, */
 
   getAdminCrear: (req, res) => {
-    res.render("admin-edit.ejs", {
+    res.render("admin-crear.ejs", {
       title: "Crear"
     });
   }, 
