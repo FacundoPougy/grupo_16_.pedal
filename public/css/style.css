@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@100;300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@100;300&display=swap");
 
 :root {
   --blanquito: #f1f0ec;
@@ -9,7 +9,6 @@
   --texto: Comfortaa;
   --titulos: Poppins;
 }
-
 
 * {
   margin: 0px;
@@ -24,6 +23,9 @@ body {
   background-color: var(--blanquito);
 }
 
+a {
+  color: inherit;
+}
 /*End of basic declaration*/
 
 /*Header*/
@@ -47,7 +49,9 @@ body {
   width: 20%;
 }
 
-a{text-decoration: none;}
+a {
+  text-decoration: none;
+}
 
 .main-nav-bar {
   display: flex;
@@ -200,7 +204,6 @@ a{text-decoration: none;}
   padding: 1.5vw 2vw;
 }
 
-
 /* Services */
 
 .services {
@@ -215,7 +218,6 @@ a{text-decoration: none;}
   align-items: center;
   width: 100%;
 }
-
 
 .service-image {
   width: 30vw;
@@ -239,7 +241,11 @@ a{text-decoration: none;}
 .categories {
   margin-top: 8vw;
   height: 60vw;
-  background: linear-gradient(to bottom, var(--blanquito) 17%, var(--violeta-claro) 17%);
+  background: linear-gradient(
+    to bottom,
+    var(--blanquito) 17%,
+    var(--violeta-claro) 17%
+  );
 }
 
 .categories-container {
@@ -285,7 +291,6 @@ a{text-decoration: none;}
   padding: 5vw;
 }
 
-
 .buttom-container button {
   width: 15vw;
   height: 5vw;
@@ -299,7 +304,6 @@ a{text-decoration: none;}
   text-align: center;
 }
 
-
 .categories-title h2 {
   font-size: 3.5vw;
   font-weight: 800;
@@ -308,8 +312,6 @@ a{text-decoration: none;}
 .categories-title h3 {
   font-size: 2vw;
 }
-
-
 
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
 /*Media queries*/
@@ -388,9 +390,12 @@ a{text-decoration: none;}
   }
 
   .categories {
-    background: linear-gradient(to bottom, var(--blanquito) 13%, var(--violeta-claro) 13%);
+    background: linear-gradient(
+      to bottom,
+      var(--blanquito) 13%,
+      var(--violeta-claro) 13%
+    );
   }
-
 }
 
 @media only screen and (min-width: 1279px) {

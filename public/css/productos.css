@@ -13,7 +13,6 @@
 }
 .productos-en-tienda-element {
   flex: 01 0 auto;
-  display: flex;
   flex-direction: column;
   margin-right: 25px;
   min-height: 300px;
