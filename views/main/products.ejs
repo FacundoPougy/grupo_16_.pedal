@@ -13,7 +13,7 @@
         <div class="productos-en-tienda">
           <% productos.forEach(function(bici) { %>
           <div class="productos-en-tienda-element">
-            <img src="<%= bici.image %>" alt="Bicicleta" />
+            <a href="productos/<%= bici.id %>/detalle"><img src="<%= bici.image %>" alt="Bicicleta" /></a>
             <div class="contenedor-precio-descripcion">
               <p>$<%= bici.price %></p>
               <p class="descripcion"><%= bici.name %></p>
