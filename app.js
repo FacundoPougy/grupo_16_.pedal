@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const methodOverride = require('method-override');
 const PORT = process.env.PORT || 3000;
 
 // Configurar EJS como motor de vistas
@@ -12,10 +13,14 @@ app.set('views', [
   path.join(__dirname, './views/products')
 ]);
 
+// --- Middlewares ---
 // Configuración de directorio público
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(methodOverride('_method'));
 
-// Rutas
+/* --- Routers --- */
 const homeRoutes = require("./routes/homeRoutes");
 const registerRoutes = require("./routes/registerRoutes");
 const loginRoutes = require("./routes/loginRoutes");

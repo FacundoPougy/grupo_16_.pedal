@@ -9,7 +9,8 @@ router.get("/crear", adminController.getAdminCrear);
 router.get('/:id/editar', adminController.getAdminEditar);
 
 // @PUT /:id/eliminar SOFT DELETE
-router.put('/:id/eliminar', adminController.adminDelete);
+router.put('/:id/eliminar', adminController.adminSoftDelete);
+
 
 module.exports = router;
 
