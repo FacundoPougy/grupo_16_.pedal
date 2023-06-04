@@ -49,10 +49,19 @@ const controller = {
   }, */
 
   getAdminCrear: (req, res) => {
-    res.render("admin-edit.ejs", {
+    res.render("admin-crear.ejs", {
       title: "Crear"
     });
   }, 
+
+  adminDelete: (req, res) =>{
+    const id = Number(req.params.id);
+
+    //productModel.deleteById(id);
+    productModel.softDeleteById(id);
+
+    res.redirect('/admin');
+  }
 
 
 };

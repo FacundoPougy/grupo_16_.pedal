@@ -19,11 +19,11 @@ const model = {
         const products = this.findAll();
 
         let searched = products.find(product => product.id === id);
-        
+
         if (!searched) {
             searched = null;
         }
-        
+
         return searched;
     },
 
@@ -35,6 +35,23 @@ const model = {
 
         const productsJSON = JSON.stringify(products);
 
+        fs.writeFileSync(path.join(__dirname, this.route), productsJSON);
+
+        return products;
+    },
+
+    // Eliminar soft un producto
+    softDeleteById: function (id) {
+        let products = this.findAll();
+
+        const indice = products.findIndex(productoActual => productoActual.id === id);
+
+        products[indice].deleted = true;
+
+        // Convertimos nuestro array de JS a un array de JSON
+        const productsJSON = JSON.stringify(products);
+
+        // Guardamos este nuevo array de JSON en el archivo correspondiente
         fs.writeFileSync(path.join(__dirname, this.route), productsJSON);
 
         return products;
