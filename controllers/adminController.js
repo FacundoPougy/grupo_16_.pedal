@@ -54,6 +54,15 @@ const controller = {
     });
   }, 
 
+  adminDelete: (req, res) =>{
+    const id = Number(req.params.id);
+
+    //productModel.deleteById(id);
+    productModel.softDeleteById(id);
+
+    res.redirect('/admin');
+  }
+
 
 };
 
