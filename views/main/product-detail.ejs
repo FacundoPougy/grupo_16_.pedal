@@ -22,7 +22,7 @@
         </div>
         <div class="datos-container">
           <div class="nombre-rating">
-            <h3>Bicicleta Volta Mtb Avian R29</h3>
+            <h3><%= product.name %></h3>
             <div class="rating">
               <div class="estrellitas">
                 <i class="fa-solid fa-star"></i>
@@ -37,7 +37,7 @@
           <div class="producto-container">
             <div class="producto-container-top">
               <div class="precio-envio">
-                <h3>$ 435.499</h3>
+                <h3>$<%= product.price %></h3>
                 <p>Ver medios de pago</p>
               </div>
               <p class="envio">Envío gratis</p>
@@ -85,15 +85,16 @@
             <div class="titulos">Descripción</div>
             <div>
               <p class="titulos-elements">
-                Esta increíble bicicleta Zykel by Gadnic ofrece un equipamiento
-                único en el mercado de ALTA GAMA. El cuadro de aluminio y la
-                homologación por IRAM la hacen la más elegida del mercado.
-                Cuenta con soldaduras super resistentes y ensayadas con los
-                estándares mas altos de calidad. Cuenta con frenos a discos con
-                ventilación, equipamiento completo Shimano (Palancas de cambios,
-                platos y sistema de cambios de 21 velocidades). Sus llantas de
-                aluminio doble pared hacen que el confort y la seguridad tanto
-                en ciudad como en montaña sean excelentes. Muy fácil de armar
+                Esta increíble <%= product.name %> by Gadnic ofrece un
+                equipamiento único en el mercado de ALTA GAMA. El cuadro de
+                aluminio y la homologación por IRAM la hacen la más elegida del
+                mercado. Cuenta con soldaduras super resistentes y ensayadas con
+                los estándares mas altos de calidad. Cuenta con frenos a discos
+                con ventilación, equipamiento completo Shimano (Palancas de
+                cambios, platos y sistema de cambios de 21 velocidades). Sus
+                llantas de aluminio doble pared hacen que el confort y la
+                seguridad tanto en ciudad como en montaña sean excelentes. Muy
+                fácil de armar
               </p>
             </div>
           </div>
@@ -107,7 +108,7 @@
                 </tr>
                 <tr>
                   <td>Silueta</td>
-                  <td>BICICLETAS MOUNTAIN BIKE</td>
+                  <td><%= product.name %></td>
                 </tr>
                 <tr>
                   <td>Género</td>
