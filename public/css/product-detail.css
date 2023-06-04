@@ -176,65 +176,7 @@ tr:nth-child(odd) {
 .input-reseña:focus {
   outline: none;
 }
-.interesar {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: scroll;
-  margin-bottom: 3vh;
-}
-.interesar-element img {
-  width: 100%;
-  margin-right: 20px;
-  margin-bottom: 1vh;
-  border-bottom: 1px #dbdbdb solid;
-}
-.interesar-element {
-  flex: 01 0 auto;
-  margin-right: 25px;
-  border: black 1px solid;
-  height: max-content;
-  width: max-content;
-  max-width: 200px;
-  max-height: 250px;
-  padding: 5px;
-  border-radius: 6px;
-  background-color: white;
-  margin-bottom: 3vh;
-}
-.interesar-element:hover {
-  box-shadow: 0px 0px 10px #402054;
-}
-.interesar-titulo {
-  background-color: #402054;
-  width: fit-content;
-  border-radius: 6px;
-  padding: 2vw;
-  margin-bottom: 2vh;
-  color: white;
-}
-.interesar-element p {
-  text-align: left;
-  font-weight: 600;
-}
-.descripcion {
-  display: none;
-}
-.interesar-element:hover .descripcion {
-  display: block;
-}
-.interesar::-webkit-scrollbar {
-  display: none;
-}
-.elements-reseñas::-webkit-scrollbar {
-  display: none;
-}
-.imagenes {
-  display: flex;
-  max-height: fit-content;
-}
-.imagenes::-webkit-scrollbar {
-  display: none;
-}
+
 .cantidad {
   display: flex;
   margin-top: 1vh;

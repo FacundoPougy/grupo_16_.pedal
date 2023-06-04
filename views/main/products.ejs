@@ -8,8 +8,8 @@
   <body>
     <header><%- include('../partials/header') %></header>
     <main>
-      <div class="ofertas">
-        <div class="ofertas-titulo">Ofertas</div>
+      <div class="carrusel-articulos">
+        <div class="carrusel-articulos-titulo">Ofertas</div>
         <div class="productos-en-tienda">
           <% productos.forEach(function(bici) { %>
           <div class="productos-en-tienda-element">
@@ -22,8 +22,8 @@
           <% }) %>
         </div>
       </div>
-      <div class="nuestros-productos">
-        <div class="nuestros-productos-titulo">Nuestros Productos</div>
+      <div class="carrusel-articulos">
+        <div class="carrusel-articulos-titulo">Nuestros Productos</div>
         <div class="productos-en-tienda">
           <% productos.forEach(function(bici) { %>
           <div class="productos-en-tienda-element">
@@ -36,10 +36,8 @@
           <% }) %>
         </div>
       </div>
-      <div class="basado-en-tu-ultima-visita">
-        <div class="basado-en-tu-ultima-visita-titulo">
-          Basado en tu última visita
-        </div>
+      <div class="carrusel-articulos">
+        <div class="carrusel-articulos-titulo">Basado en tu última visita</div>
         <div class="productos-en-tienda">
           <% productos.forEach(function(bici) { %>
           <div class="productos-en-tienda-element">
@@ -52,8 +50,8 @@
           <% }) %>
         </div>
       </div>
-      <div class="accesorios">
-        <div class="accesorios-titulo">Accesorios</div>
+      <div class="carrusel-articulos">
+        <div class="carrusel-articulos-titulo">Accesorios</div>
         <div class="productos-en-tienda">
           <div class="productos-en-tienda-element">
             <img src="/images/accesorios.jpg" alt="" />

@@ -1,221 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/product-detail.css" />
+    <link rel="stylesheet" href="/css/productos.css" />
+  </head>
 
-<head>
-  <%- include('../partials/head') %>
-  <link rel="stylesheet" href="/css/product-detail.css" />
-</head>
+  <header class="main-header"><%- include('../partials/header') %></header>
 
-<header class="main-header"><%- include('../partials/header') %></header>
-
-<body>
-  <main>
-    <div class="parte-superior">
-      <div class="main-top">
-        <div class="imagenes">
-          <img class="img-producto" src="/images/bicicleta-volta1.jpg" alt="Logo" />
-        </div>
-      </div>
-      <div class="datos-container">
-        <div class="nombre-rating">
-          <h3>Bicicleta Volta Mtb Avian R29</h3>
-          <div class="rating">
-            <div class="estrellitas">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-            </div>
-            <p class="cant-reseñas">(402)</p>
+  <body>
+    <main>
+      <div class="parte-superior">
+        <div class="main-top">
+          <div class="imagenes">
+            <img
+              class="img-producto"
+              src="/images/bicicleta-volta1.jpg"
+              alt="Logo"
+            />
           </div>
         </div>
-        <div class="producto-container">
-          <div class="producto-container-top">
-            <div class="precio-envio">
-              <h3>$ 435.499</h3>
-              <p>Ver medios de pago</p>
-            </div>
-            <p class="envio">Envío gratis</p>
-          </div>
-          <div class="producto-container-mid">
-            <div class="producto-left">
-              <label class="talle">Selecciona talle</label>
-              <div class="buttons">
-                <button type="button" class="active">M</button>
-                <button type="button" class="buttonl">L</button>
+        <div class="datos-container">
+          <div class="nombre-rating">
+            <h3>Bicicleta Volta Mtb Avian R29</h3>
+            <div class="rating">
+              <div class="estrellitas">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
               </div>
-              <div class="cantidad">
-                <label for="unidades">Cantidad:</label>
-                <select id="unidades" name="unidades">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+              <p class="cant-reseñas">(402)</p>
+            </div>
+          </div>
+          <div class="producto-container">
+            <div class="producto-container-top">
+              <div class="precio-envio">
+                <h3>$ 435.499</h3>
+                <p>Ver medios de pago</p>
+              </div>
+              <p class="envio">Envío gratis</p>
+            </div>
+            <div class="producto-container-mid">
+              <div class="producto-left">
+                <label class="talle">Selecciona talle</label>
+                <div class="buttons">
+                  <button type="button" class="active">M</button>
+                  <button type="button" class="buttonl">L</button>
+                </div>
+                <div class="cantidad">
+                  <label for="unidades">Cantidad:</label>
+                  <select id="unidades" name="unidades">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="producto-right">
+                <label class="color">Color</label>
+                <div class="buttons">
+                  <button type="button" class="active">Blanco</button>
+                  <button type="button" class="buttonl">Negro</button>
+                </div>
               </div>
             </div>
-            <div class="producto-right">
-              <label class="color">Color</label>
-              <div class="buttons">
-                <button type="button" class="active">Blanco</button>
-                <button type="button" class="buttonl">Negro</button>
+            <div class="producto-container-bot">
+              <div class="comprar">
+                <button type="button" class="carrito">Añadir al carrito</button>
+                <button type="button" class="comprar-ahora">
+                  Comprar ahora
+                </button>
               </div>
             </div>
           </div>
-          <div class="producto-container-bot">
-            <div class="comprar">
-              <button type="button" class="carrito">Añadir al carrito</button>
-              <button type="button" class="comprar-ahora">
-                Comprar ahora
-              </button>
+        </div>
+      </div>
+      <div class="main-low">
+        <div class="desc-carac">
+          <div class="descripcion1">
+            <div class="titulos">Descripción</div>
+            <div>
+              <p class="titulos-elements">
+                Esta increíble bicicleta Zykel by Gadnic ofrece un equipamiento
+                único en el mercado de ALTA GAMA. El cuadro de aluminio y la
+                homologación por IRAM la hacen la más elegida del mercado.
+                Cuenta con soldaduras super resistentes y ensayadas con los
+                estándares mas altos de calidad. Cuenta con frenos a discos con
+                ventilación, equipamiento completo Shimano (Palancas de cambios,
+                platos y sistema de cambios de 21 velocidades). Sus llantas de
+                aluminio doble pared hacen que el confort y la seguridad tanto
+                en ciudad como en montaña sean excelentes. Muy fácil de armar
+              </p>
             </div>
+          </div>
+          <div class="caracteristicas">
+            <div class="titulos">Características</div>
+            <div>
+              <table class="titulos-elements">
+                <tr>
+                  <td>Deporte</td>
+                  <td>MTB</td>
+                </tr>
+                <tr>
+                  <td>Silueta</td>
+                  <td>BICICLETAS MOUNTAIN BIKE</td>
+                </tr>
+                <tr>
+                  <td>Género</td>
+                  <td>UNISEX</td>
+                </tr>
+                <tr>
+                  <td>Color</td>
+                  <td>BLANCO</td>
+                </tr>
+                <tr>
+                  <td>Rodado</td>
+                  <td>29</td>
+                </tr>
+                <tr>
+                  <td>Material</td>
+                  <td>ALUMINIO</td>
+                </tr>
+              </table>
+              <p class="todas-caracteristicas">Ver todas las características</p>
+            </div>
+          </div>
+        </div>
+        <div class="op-res">
+          <div class="opiniones">
+            <h2>Opiniones del producto</h2>
+            <div class="num-star">
+              <h1>4.0</h1>
+              <div class="stars2">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+            <div class="escribe2">
+              <input
+                class="input-reseña2"
+                type="text"
+                placeholder="Escribe tu reseña"
+              />
+            </div>
+          </div>
+          <div class="reseñas">
+            <div class="titulos">Reseñas</div>
+            <div class="elements-reseñas">
+              <div class="elemento">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+                quas
+              </div>
+              <div class="elemento">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+                quas
+              </div>
+              <div class="elemento">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+                quas
+              </div>
+              <div class="elemento">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+                quas
+              </div>
+              <div class="elemento">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+                quas
+              </div>
+              <div class="elemento">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+                quas
+              </div>
+              <div class="elemento">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
+                quas
+              </div>
+            </div>
+            <div class="escribe">
+              <input
+                class="input-reseña"
+                type="text"
+                placeholder="Escribe tu reseña"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="carrusel-articulos">
+          <div class="carrusel-articulos-titulo">
+            Basado en tu última visita
+          </div>
+          <div class="productos-en-tienda">
+            <% productos.forEach(function(bici) { %>
+            <div class="productos-en-tienda-element">
+              <img src="<%= bici.image %>" alt="Bicicleta" />
+              <div class="contenedor-precio-descripcion">
+                <p>$<%= bici.price %></p>
+                <p class="descripcion"><%= bici.name %></p>
+              </div>
+            </div>
+            <% }) %>
           </div>
         </div>
       </div>
-    </div>
-    <div class="main-low">
-      <div class="desc-carac">
-        <div class="descripcion1">
-          <div class="titulos">Descripción</div>
-          <div>
-            <p class="titulos-elements">
-              Esta increíble bicicleta Zykel by Gadnic ofrece un equipamiento
-              único en el mercado de ALTA GAMA. El cuadro de aluminio y la
-              homologación por IRAM la hacen la más elegida del mercado.
-              Cuenta con soldaduras super resistentes y ensayadas con los
-              estándares mas altos de calidad. Cuenta con frenos a discos con
-              ventilación, equipamiento completo Shimano (Palancas de cambios,
-              platos y sistema de cambios de 21 velocidades). Sus llantas de
-              aluminio doble pared hacen que el confort y la seguridad tanto
-              en ciudad como en montaña sean excelentes. Muy fácil de armar
-            </p>
-          </div>
-        </div>
-        <div class="caracteristicas">
-          <div class="titulos">Características</div>
-          <div>
-            <table class="titulos-elements">
-              <tr>
-                <td>Deporte</td>
-                <td>MTB</td>
-              </tr>
-              <tr>
-                <td>Silueta</td>
-                <td>BICICLETAS MOUNTAIN BIKE</td>
-              </tr>
-              <tr>
-                <td>Género</td>
-                <td>UNISEX</td>
-              </tr>
-              <tr>
-                <td>Color</td>
-                <td>BLANCO</td>
-              </tr>
-              <tr>
-                <td>Rodado</td>
-                <td>29</td>
-              </tr>
-              <tr>
-                <td>Material</td>
-                <td>ALUMINIO</td>
-              </tr>
-            </table>
-            <p class="todas-caracteristicas">Ver todas las características</p>
-          </div>
-        </div>
-      </div>
-      <div class="op-res">
-        <div class="opiniones">
-          <h2>Opiniones del producto</h2>
-          <div class="num-star">
-            <h1>4.0</h1>
-            <div class="stars2">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-            </div>
-          </div>
-          <div class="escribe2">
-            <input class="input-reseña2" type="text" placeholder="Escribe tu reseña" />
-          </div>
-        </div>
-        <div class="reseñas">
-          <div class="titulos">Reseñas</div>
-          <div class="elements-reseñas">
-            <div class="elemento">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-              quas
-            </div>
-            <div class="elemento">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-              quas
-            </div>
-            <div class="elemento">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-              quas
-            </div>
-            <div class="elemento">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-              quas
-            </div>
-            <div class="elemento">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-              quas
-            </div>
-            <div class="elemento">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-              quas
-            </div>
-            <div class="elemento">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-              quas
-            </div>
-          </div>
-          <div class="escribe">
-            <input class="input-reseña" type="text" placeholder="Escribe tu reseña" />
-          </div>
-        </div>
-      </div>
-      <div class="tambien-te-puede-interesar">
-        <div class="interesar-titulo">También te puede interesar</div>
-        <div class="interesar">
-          <div class="interesar-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="interesar-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="interesar-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="interesar-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-          <div class="interesar-element">
-            <img src="/images/bicicleta-volta1.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Biclcleta x</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <%- include('../partials/footer') %>
-  </footer>
-</body>
-
+    <footer><%- include('../partials/footer') %></footer>
+  </body>
 </html>

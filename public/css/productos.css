@@ -28,7 +28,7 @@
   box-shadow: 0 7px 24px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   height: 500px;
 }
-.ofertas-titulo {
+.carrusel-articulos-titulo {
   background-color: #e94726;
   width: fit-content;
   border-radius: 6px;
@@ -37,33 +37,7 @@
   color: white;
   font-weight: 500;
 }
-.nuestros-productos-titulo {
-  background-color: #e94726;
-  width: fit-content;
-  border-radius: 6px;
-  padding: 2vw;
-  margin: 2vh 0;
-  color: white;
-  font-weight: 500;
-}
-.basado-en-tu-ultima-visita-titulo {
-  background-color: #e94726;
-  width: fit-content;
-  border-radius: 6px;
-  padding: 2vw;
-  margin: 2vh 0;
-  color: white;
-  font-weight: 500;
-}
-.accesorios-titulo {
-  background-color: #e94726;
-  width: fit-content;
-  border-radius: 6px;
-  padding: 2vw;
-  margin: 2vh 0;
-  color: white;
-  font-weight: 500;
-}
+
 .productos-en-tienda-element p {
   text-align: left;
   font-weight: 600;
@@ -80,49 +54,17 @@
 .elements-reseñas::-webkit-scrollbar {
   display: none;
 }
-.ofertas {
-  margin-left: 2vw;
-}
-.nuestros-productos {
-  margin-left: 2vw;
-}
-.basado-en-tu-ultima-visita {
-  margin-left: 2vw;
-}
-.accesorios {
+.carrusel-articulos {
   margin-left: 2vw;
 }
 
 @media (min-width: 768px) {
-  .ofertas-titulo {
-    padding: 1vw;
-  }
-
-  .nuestros-productos-titulo {
-    padding: 1vw;
-  }
-
-  .basado-en-tu-ultima-visita-titulo {
-    padding: 1vw;
-  }
-  .accesorios-titulo {
+  .carrusel-articulos {
     padding: 1vw;
   }
 }
 @media (min-width: 1200px) {
-  .ofertas-titulo {
-    font-size: x-large;
-    padding: 0.8vw;
-  }
-  .nuestros-productos-titulo {
-    font-size: x-large;
-    padding: 0.8vw;
-  }
-  .basado-en-tu-ultima-visita-titulo {
-    font-size: x-large;
-    padding: 0.8vw;
-  }
-  .accesorios-titulo {
+  .carrusel-articulos-titulo {
     font-size: x-large;
     padding: 0.8vw;
   }
