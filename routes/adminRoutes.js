@@ -6,15 +6,16 @@ router.get("/", adminController.getAdmin);
 
 router.get("/crear", adminController.getAdminCrear);
 
-router.get('/:id/editar', adminController.getAdminEditar);
+router.get("/:id/editar", adminController.getAdminEditar);
 
 // @PUT /:id/eliminar SOFT DELETE
-router.put('/:id/eliminar', adminController.adminSoftDelete);
+router.put("/:id/eliminar", adminController.adminSoftDelete);
 
+// @PUT /:id/editarProducto
+router.put("/:id/actualizar", adminController.actualizar);
 
 module.exports = router;
 
-
-//router.post("/crear", upload.any('image'), productoController.postAdminCrear); 
+//router.post("/crear", upload.any('image'), productoController.postAdminCrear);
 
 //router.get("/editar", adminController.getAdminEditar);
