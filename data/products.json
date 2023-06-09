@@ -196,7 +196,7 @@
     "colors": ["Negro", "Blanco", "Rojo", "Azul"],
     "price": 500,
     "stock": 10,
-    "rating": 4.5,
+    "stars": 4.5,
     "opinions": ["Excelente producto", "Muy útil durante los paseos"]
   },
   {
@@ -208,7 +208,7 @@
     "colors": ["Rojo", "Blanco"],
     "price": 800,
     "stock": 5,
-    "rating": 4.2,
+    "stars": 4.2,
     "opinions": ["Gran iluminación", "Fácil de instalar"]
   },
   {
@@ -220,7 +220,7 @@
     "colors": ["Plateado", "Negro"],
     "price": 200,
     "stock": 15,
-    "rating": 3.8,
+    "stars": 3.8,
     "opinions": ["Funciona muy bien", "Sonido potente"]
   },
   {
@@ -232,7 +232,7 @@
     "colors": ["Negro"],
     "price": 1200,
     "stock": 8,
-    "rating": 4.7,
+    "stars": 4.7,
     "opinions": ["Muy cómodo", "Recomendado para largas distancias"]
   },
   {
@@ -244,7 +244,7 @@
     "colors": ["Rojo", "Azul", "Negro"],
     "price": 1500,
     "stock": 3,
-    "rating": 4.9,
+    "stars": 4.9,
     "opinions": ["Excelente calidad", "Se ajusta perfectamente"]
   },
   {
@@ -256,7 +256,7 @@
     "colors": ["Negro", "Gris", "Azul"],
     "price": 900,
     "stock": 7,
-    "rating": 4.3,
+    "stars": 4.3,
     "opinions": ["Espaciosa y resistente", "Ideal para viajes largos"]
   },
   {
@@ -268,7 +268,7 @@
     "colors": ["Negro"],
     "price": 300,
     "stock": 12,
-    "rating": 4.0,
+    "stars": 4.0,
     "opinions": ["Fácil de usar", "Ofrece buena seguridad"]
   },
   {
@@ -280,7 +280,7 @@
     "colors": ["Negro", "Plateado"],
     "price": 250,
     "stock": 8,
-    "rating": 4.6,
+    "stars": 4.6,
     "opinions": ["Mejora la visibilidad", "Fácil de ajustar"]
   },
   {
@@ -292,7 +292,7 @@
     "colors": ["Negro"],
     "price": 700,
     "stock": 6,
-    "rating": 4.4,
+    "stars": 4.4,
     "opinions": ["Muy útil en viajes largos", "Fácil de instalar"]
   },
   {
@@ -304,7 +304,7 @@
     "colors": ["Negro", "Rojo"],
     "price": 400,
     "stock": 10,
-    "rating": 4.8,
+    "stars": 4.8,
     "opinions": ["Muy práctico", "Ocupa poco espacio"]
   }
 ]
