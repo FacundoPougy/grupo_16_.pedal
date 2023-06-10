@@ -76,6 +76,10 @@ const controller = {
     res.redirect("/admin");
     console.log("Se editó el id " + id);
   },
+
+  postAdminCrear: (req, res) => {
+    
+  }
 };
 
 module.exports = controller;
