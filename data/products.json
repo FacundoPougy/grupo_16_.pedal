@@ -1,6 +1,6 @@
 [{
     "id": 1,
-    "deleted": false,
+    "deleted": true,
     "name": "Bicicleta de montaña",
     "description": "Bicicleta especialmente diseñada para terrenos difíciles y montañas.",
     "image": "/images/Bike_1.png",
@@ -49,7 +49,7 @@
     "opinions": ["Muy práctica y fácil de transportar", "La recomendaría para personas que viajan mucho"]
 }, {
     "id": 5,
-    "deleted": false,
+    "deleted": true,
     "name": "Bicicleta eléctrica",
     "description": "Bicicleta con asistencia eléctrica para facilitar los desplazamientos largos o empinados.",
     "image": "/images/Bike_5.png",
@@ -85,7 +85,7 @@
     "opinions": ["La mejor BMX que he tenido, muy resistente", "Perfecta para hacer trucos en la calle"]
 }, {
     "id": 8,
-    "deleted": true,
+    "deleted": false,
     "name": "Bicicleta de carga rápida",
     "description": "Bicicleta diseñada para transportar cargas pesadas o realizar repartos. De forma eficaz.",
     "image": "/images/bicicleta-volta1.jpg",

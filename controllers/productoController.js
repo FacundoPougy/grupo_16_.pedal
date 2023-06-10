@@ -5,7 +5,7 @@ const productModel = require("../models/products");
 const controller = {
   // @GET /products
   getProductos: (req, res) => {
-    const productos = productModel.findAll();
+    const productos = productModel.showNotDeleted();
 
     res.render("products", {
       title: "Tienda",

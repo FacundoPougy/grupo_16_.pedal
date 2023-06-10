@@ -43,6 +43,14 @@ const model = {
     return products;
   },
 
+  showNotDeleted: function() {
+    let products = this.findAll();
+
+    products = products.filter((product) => !product.deleted);
+
+    return products;
+  },
+
   // Eliminar soft un producto
   softDeleteById: function (id) {
     let products = this.findAll();
