@@ -13,7 +13,7 @@
     "opinions": ["Buena bicicleta, pero el asiento es un poco incómodo", "Me encanta esta bicicleta, la recomiendo totalmente"]
 }, {
     "id": 2,
-    "deleted": false,
+    "deleted": true,
     "name": "Bicicleta de ciudad",
     "description": "Bicicleta urbana ideal para desplazamientos diarios en la ciudad.",
     "image": "/images/Bike_2.png",
