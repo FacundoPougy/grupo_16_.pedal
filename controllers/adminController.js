@@ -3,7 +3,9 @@ const path = require("path");
 const productModel = require("../models/products");
 
 const fs = require("fs");
-const { log } = require("console");
+const {
+  log
+} = require("console");
 
 const filePath = "data/products.json";
 
@@ -78,7 +80,22 @@ const controller = {
   },
 
   postAdminCrear: (req, res) => {
+    let datos = req.body;
+
+    console.log(req.files);
+
+
+    datos.price = Number(datos.price);
+    //datos.image = '/images/' + req.file.filename; 
+
+    /* 
+    datos.imgs = req.files.map(file => '/imgs/products' + file.filename);
     
+    */
+    productModel.createOne(datos);
+
+    console.log(datos);
+    res.redirect('/admin');
   }
 };
 
