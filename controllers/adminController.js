@@ -82,16 +82,10 @@ const controller = {
   postAdminCrear: (req, res) => {
     let datos = req.body;
 
-    console.log(req.files);
-
-
     datos.price = Number(datos.price);
-    //datos.image = '/images/' + req.file.filename; 
 
-    /* 
-    datos.imgs = req.files.map(file => '/imgs/products' + file.filename);
+    datos.image = req.files.map(file => '/images/' + file.filename);
     
-    */
     productModel.createOne(datos);
 
     console.log(datos);

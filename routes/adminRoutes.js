@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require("express");
 const adminController = require("../controllers/adminController.js");
 const router = express.Router();
@@ -32,4 +33,3 @@ module.exports = router;
 
 // @POST /products
 router.post("/", upload.any('image'), adminController.postAdminCrear);
-//router.post('/', upload.any('img'), productControllers.postProduct);
