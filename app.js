@@ -20,24 +20,31 @@ app.set('views', [
 // --- Middlewares ---
 // Configuración de directorio público
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
 app.use(cookieParser());
-app.use(expressSession({ secret: 'este es mi secreto monito123' }));
+// Configuración del middleware de sesión
+app.use(expressSession({
+  secret: 'mi-secreto', // CAMBIAR ESTO!!!!!
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use((req, res, next) => {
-  if(req.cookies.email){
-      const userModel = require('./models/user');
+  if (req.cookies.email) {
+    const userModel = require('./models/user');
 
-      const user = userModel.findByEmail(req.cookies.email);
+    const user = userModel.findByEmail(req.cookies.email);
 
-      delete user.id;
-      delete user.password;
+    delete user.id;
+    delete user.password;
 
-      req.session.user = user;
-      console.log(user + " user logueado");
+    req.session.user = user;
+    console.log(user + " user logueado");
   }
 
   next();
@@ -60,7 +67,11 @@ app.use("/productos", productoRoutes);
 app.use("/admin", adminRoutes);
 app.use("/cart", cartRoutes)
 
+app.use((req, res) => {
+  res.render('404');
+})
+
 // Inicio del servidor
 app.listen(PORT, () => {
-  console.log("Servidor en: http://localhost:" +PORT);
+  console.log("Servidor en: http://localhost:" + PORT);
 });

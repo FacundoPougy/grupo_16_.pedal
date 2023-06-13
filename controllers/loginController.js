@@ -1,4 +1,6 @@
 const path = require("path");
+const bcrypt = require('bcrypt');
+
 
 const controller = {
   getLogin: (req, res) => {
