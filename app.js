@@ -2,6 +2,10 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const methodOverride = require('method-override');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
+
 const PORT = process.env.PORT || 3000;
 
 // Configurar EJS como motor de vistas
@@ -19,6 +23,26 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(morgan('tiny'));
+app.use(cookieParser());
+app.use(expressSession({ secret: 'este es mi secreto monito123' }));
+
+app.use((req, res, next) => {
+  if(req.cookies.email){
+      const userModel = require('./models/user');
+
+      const user = userModel.findByEmail(req.cookies.email);
+
+      delete user.id;
+      delete user.password;
+
+      req.session.user = user;
+      console.log(user + " user logueado");
+  }
+
+  next();
+});
+
 
 /* --- Routers --- */
 const homeRoutes = require("./routes/homeRoutes");

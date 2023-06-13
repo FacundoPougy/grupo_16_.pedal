@@ -4,7 +4,7 @@
         "lastName": "Hannibal",
         "email": "ahannibal0@google.com",
         "password": "NnV2na1dX",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/voluptatemsuscipitqui.png?size=50x50&set=set1"
     },
     {
@@ -13,7 +13,7 @@
         "lastName": "Minette",
         "email": "aminette1@studiopress.com",
         "password": "APHpFzPjl",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/saepealiasqui.png?size=50x50&set=set1"
     },
     {
@@ -22,7 +22,7 @@
         "lastName": "Kerrane",
         "email": "tkerrane2@home.pl",
         "password": "4lhbjL1kVS",
-        "category": "user",
+        "type": "user",
         "image": "https://robohash.org/fugafacilisdistinctio.png?size=50x50&set=set1"
     },
     {
@@ -31,7 +31,7 @@
         "lastName": "Wapples",
         "email": "mwapples3@w3.org",
         "password": "CFVX7my1lu",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/rationerepellatmollitia.png?size=50x50&set=set1"
     },
     {
@@ -40,7 +40,7 @@
         "lastName": "Court",
         "email": "mcourt4@reverbnation.com",
         "password": "VIYlU7re0f",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/quidemsitmodi.png?size=50x50&set=set1"
     },
     {
@@ -49,7 +49,7 @@
         "lastName": "Bettington",
         "email": "gbettington5@ft.com",
         "password": "ce9OCp3u",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/inciduntfugitrecusandae.png?size=50x50&set=set1"
     },
     {
@@ -58,7 +58,7 @@
         "lastName": "Pendrid",
         "email": "cpendrid6@sitemeter.com",
         "password": "FTcFo26",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/laborumadnecessitatibus.png?size=50x50&set=set1"
     },
     {
@@ -67,7 +67,7 @@
         "lastName": "Friskey",
         "email": "cfriskey7@scribd.com",
         "password": "gpGRbwLqj6Uj",
-        "category": "user",
+        "type": "user",
         "image": "https://robohash.org/necessitatibusautemerror.png?size=50x50&set=set1"
     },
     {
@@ -76,7 +76,7 @@
         "lastName": "Augustus",
         "email": "paugustus8@washingtonpost.com",
         "password": "DT8CGAhnp0oZ",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/nihilillumqui.png?size=50x50&set=set1"
     },
     {
@@ -85,7 +85,7 @@
         "lastName": "Treffry",
         "email": "ttreffry9@phoca.cz",
         "password": "MCukvzw",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/sedminimaa.png?size=50x50&set=set1"
     },
     {
@@ -94,7 +94,7 @@
         "lastName": "Duval",
         "email": "fduvala@wired.com",
         "password": "PXWB66KS4c",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/dolorereruma.png?size=50x50&set=set1"
     },
     {
@@ -103,7 +103,7 @@
         "lastName": "Gocher",
         "email": "agocherb@wunderground.com",
         "password": "KuQ6TE2v0IqX",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/autdebitiseveniet.png?size=50x50&set=set1"
     },
     {
@@ -112,7 +112,7 @@
         "lastName": "Beach",
         "email": "cbeachc@google.co.jp",
         "password": "tWMJ4wT21KmS",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/repudiandaeesselibero.png?size=50x50&set=set1"
     },
     {
@@ -121,7 +121,7 @@
         "lastName": "Ughi",
         "email": "cughid@scientificamerican.com",
         "password": "ObeDkZiQq",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/rerumidcorporis.png?size=50x50&set=set1"
     },
     {
@@ -130,7 +130,7 @@
         "lastName": "Ritson",
         "email": "lritsone@vinaora.com",
         "password": "kYD9PQ0711J",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/sintdistinctiosunt.png?size=50x50&set=set1"
     },
     {
@@ -139,7 +139,7 @@
         "lastName": "Hassan",
         "email": "lhassanf@deviantart.com",
         "password": "IwsIMR",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/indolorrerum.png?size=50x50&set=set1"
     },
     {
@@ -148,7 +148,7 @@
         "lastName": "Wilkin",
         "email": "nwilking@shutterfly.com",
         "password": "ekLGH1Y",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/velitauttenetur.png?size=50x50&set=set1"
     },
     {
@@ -157,7 +157,7 @@
         "lastName": "Beddoes",
         "email": "abeddoesh@dagondesign.com",
         "password": "K8Lhup",
-        "category": "user",
+        "type": "user",
         "image": "https://robohash.org/voluptatemetanimi.png?size=50x50&set=set1"
     },
     {
@@ -166,7 +166,7 @@
         "lastName": "Klimkin",
         "email": "cklimkini@godaddy.com",
         "password": "UyYw2tnMci",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/etcupiditaterepudiandae.png?size=50x50&set=set1"
     },
     {
@@ -175,7 +175,7 @@
         "lastName": "Darlow",
         "email": "ndarlowj@yelp.com",
         "password": "SlgB15uHIhIW",
-        "category": "user",
+        "type": "user",
         "image": "https://robohash.org/dolorilloquia.png?size=50x50&set=set1"
     },
     {
@@ -184,7 +184,7 @@
         "lastName": "Hofton",
         "email": "thoftonk@mayoclinic.com",
         "password": "adoKtHD0D46k",
-        "category": "user",
+        "type": "user",
         "image": "https://robohash.org/liberooditsint.png?size=50x50&set=set1"
     },
     {
@@ -193,7 +193,7 @@
         "lastName": "Leaman",
         "email": "cleamanl@odnoklassniki.ru",
         "password": "37oqut0BOEP",
-        "category": "user",
+        "type": "user",
         "image": "https://robohash.org/saepeoccaecatisunt.png?size=50x50&set=set1"
     },
     {
@@ -202,7 +202,7 @@
         "lastName": "Cottey",
         "email": "acotteym@soup.io",
         "password": "TEzJ8ZLWU",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/molestiaesintoccaecati.png?size=50x50&set=set1"
     },
     {
@@ -211,7 +211,7 @@
         "lastName": "Minto",
         "email": "mminton@sakura.ne.jp",
         "password": "r8JJiQRQw",
-        "category": "user",
+        "type": "user",
         "image": "https://robohash.org/quodatipsam.png?size=50x50&set=set1"
     },
     {
@@ -220,7 +220,7 @@
         "lastName": "Instone",
         "email": "ginstoneo@mac.com",
         "password": "4rFnMkVa7",
-        "category": "user",
+        "type": "user",
         "image": "https://robohash.org/fugarecusandaecorrupti.png?size=50x50&set=set1"
     },
     {
@@ -229,7 +229,7 @@
         "lastName": "Biford",
         "email": "ebifordp@state.tx.us",
         "password": "c1DraonKLa05",
-        "category": "user",
+        "type": "user",
         "image": "https://robohash.org/utadtempora.png?size=50x50&set=set1"
     },
     {
@@ -238,7 +238,7 @@
         "lastName": "Regelous",
         "email": "dregelousq@twitpic.com",
         "password": "VKgvM53Tk17T",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/etimpeditporro.png?size=50x50&set=set1"
     },
     {
@@ -247,7 +247,7 @@
         "lastName": "Crame",
         "email": "dcramer@wired.com",
         "password": "5cxCwlPOfGc6",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/etetillo.png?size=50x50&set=set1"
     },
     {
@@ -256,7 +256,7 @@
         "lastName": "Stapforth",
         "email": "nstapforths@flavors.me",
         "password": "y2hQLM4Mn0u",
-        "category": "admin",
+        "type": "admin",
         "image": "https://robohash.org/eiusaut.png?size=50x50&set=set1"
     }
 ]
