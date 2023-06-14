@@ -1,94 +1,84 @@
 .titulo {
-    margin: 15px;
-    text-align: center;
+  text-align: center;
 }
 
 .productos-existentes-container {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .productos-existentes {
-    display: flex;
-    width: 90vw;
-    height: auto;
-    border: 1px black solid;
-    border-radius: 6px;
-    margin: 15px;
-    background-color: white;
-    justify-content: space-evenly;
+  display: flex;
+  width: 90vw;
+  height: 20vh;
+  border-radius: 4px;
+  margin: 15px;
+  background-color: white;
+  justify-content: space-evenly;
 }
 
 .productos-existentes-content {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    justify-content: space-evenly;
-    margin-left: 3vw;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  padding-left: 0px;
+  justify-content: space-evenly;
+  margin-left: 2vw;
 }
 
 .productos-existentes img {
-    width: 33%;
-    margin-left: 1vw;
+  margin-left: 1vw;
+  max-width: 35%;
+  max-height: 100%;
 }
 
 .precio {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .fixed-div {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--violeta-oscuro);
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    text-align: center;
-    cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--violeta-oscuro);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .add-product {
-    font-size: 40px;
-    color: var(--blanquito);
+  font-size: 40px;
+  color: var(--blanquito);
 }
 
 .edit-icon {
-    padding: 1vw;
-    height: 0vw;
+  padding: 1vw;
+  height: 0vw;
 }
 
 .delete-form {
-    padding: 1vw;
+  padding: 1vw;
 }
 
 .delete-icon {
-    background-color: transparent;
-    border: none; /* Elimina el borde del botón */
-    cursor: pointer; /* Cambia el cursor a la forma de un clic */
-    color: red;
-}
-
-@media (max-width: 767px) {
-    .productos-existentes-container {
-        justify-content: center;
-    }
-
-    .titulo {
-        margin: 15px;
-        text-align: center;
-    }
+  background-color: transparent;
+  border: none; /* Elimina el borde del botón */
+  cursor: pointer; /* Cambia el cursor a la forma de un clic */
+  color: red;
 }
 
 @media (min-width: 768px) {
-    .productos-existentes {
-        width: 45vw;
-    }
+  .productos-existentes {
+    width: 45vw;
+  }
 }
 
 @media (min-width: 1200px) {
-    .productos-existentes {
-        width: 30vw;
-    }
+  .productos-existentes {
+    width: 30vw;
+  }
 }
