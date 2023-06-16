@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/product-detail.css" />
     <link rel="stylesheet" href="/css/productos.css" />
+    <link rel="stylesheet" href="/css/product-detail.css" />
   </head>
 
   <header class="main-header"><%- include('../partials/header') %></header>
@@ -38,7 +38,7 @@
             <div class="producto-container-top">
               <div class="precio-envio">
                 <h3>$<%= product.price %></h3>
-                <p>Ver medios de pago</p>
+                <p class="medios-pago">Ver medios de pago</p>
               </div>
               <p class="envio">Envío gratis</p>
             </div>
@@ -84,18 +84,7 @@
           <div class="descripcion1">
             <div class="titulos">Descripción</div>
             <div>
-              <p class="titulos-elements">
-                Esta increíble <%= product.name %> by Gadnic ofrece un
-                equipamiento único en el mercado de ALTA GAMA. El cuadro de
-                aluminio y la homologación por IRAM la hacen la más elegida del
-                mercado. Cuenta con soldaduras super resistentes y ensayadas con
-                los estándares mas altos de calidad. Cuenta con frenos a discos
-                con ventilación, equipamiento completo Shimano (Palancas de
-                cambios, platos y sistema de cambios de 21 velocidades). Sus
-                llantas de aluminio doble pared hacen que el confort y la
-                seguridad tanto en ciudad como en montaña sean excelentes. Muy
-                fácil de armar
-              </p>
+              <p class="titulos-elements"><%= product.description %></p>
             </div>
           </div>
           <div class="caracteristicas">
@@ -135,7 +124,7 @@
           <div class="opiniones">
             <h2>Opiniones del producto</h2>
             <div class="num-star">
-              <h1>4.0</h1>
+              <h1><%= product.stars %></h1>
               <div class="stars2">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
