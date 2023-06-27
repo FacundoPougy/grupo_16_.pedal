@@ -7,7 +7,7 @@
 }
 body {
   padding: 15px;
-  background-color: whitesmoke;
+  background-color: #f1f0ec;
 }
 .main-top {
   display: flex;
@@ -42,6 +42,10 @@ body {
   justify-content: space-between;
   margin: 15px 0px;
 }
+.medios-pago {
+  color: #e94726;
+  font-size: smaller;
+}
 .envio {
   color: #e94726;
 }
@@ -73,7 +77,6 @@ label {
 .producto-container-mid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   flex-direction: column;
 }
 .producto-left {
@@ -102,9 +105,11 @@ label {
 .carrito {
   margin-bottom: 2vh;
   background-color: #b03a35;
+  width: 100%;
 }
 .comprar-ahora {
   background-color: #402054;
+  width: 100%;
 }
 .titulos {
   padding: 2vw;
@@ -115,7 +120,10 @@ label {
   color: white;
 }
 .titulos-elements {
-  margin-bottom: 2vh;
+  margin-bottom: 3vh;
+  background-color: white;
+  border-radius: 6px;
+  padding: 1vh;
 }
 table {
   border-collapse: collapse;
@@ -153,8 +161,8 @@ tr:nth-child(odd) {
 .elemento {
   flex: 1 0 auto;
   margin-right: 25px;
-  background-color: #f1f0ec;
-  width: 200px;
+  background-color: white;
+  width: 225px;
   height: 250px;
   padding: 5px;
   border-radius: 6px;
@@ -163,7 +171,7 @@ tr:nth-child(odd) {
   margin-top: 2vh;
 }
 .escribe {
-  background-color: #f1f0ec;
+  background-color: white;
   border-radius: 6px;
   width: fit-content;
   padding: 2vh;
@@ -171,8 +179,13 @@ tr:nth-child(odd) {
 }
 .input-reseña {
   border: none;
-  background-color: #f1f0ec;
+  background-color: white;
+  width: 100%;
 }
+.input-reseña::placeholder {
+  color: #402054;
+}
+
 .input-reseña:focus {
   outline: none;
 }
@@ -192,9 +205,7 @@ tr:nth-child(odd) {
   border-radius: 8px;
 }
 .img-producto {
-  border: white 1px solid;
-  border-radius: 12px;
-  margin-bottom: 1vh;
+  background-color: whitesmoke;
 }
 .opiniones {
   display: none;
@@ -206,6 +217,12 @@ footer {
 }
 header {
   display: none;
+}
+.carrusel-articulos {
+  margin-left: 0;
+}
+#unidades {
+  background-color: #f1f0ec;
 }
 
 @media (min-width: 768px) {
@@ -239,11 +256,24 @@ header {
     display: flex;
     margin-top: 1vh;
   }
+  .carrusel-articulos {
+    padding: 0;
+  }
+  .carrusel-articulos-titulo {
+    padding: 1.5vw;
+    font-size: large;
+    margin-top: 4vh;
+  }
   .desc-carac {
     margin-top: 1vh;
   }
   .titulos {
-    padding: 1vw;
+    padding: 1.5vw;
+    font-size: large;
+    margin-top: 4vh;
+  }
+  .titulos-elements {
+    height: 15vh;
   }
   .interesar-titulo {
     padding: 1vh;
@@ -261,11 +291,16 @@ header {
 }
 @media (min-width: 1200px) {
   .datos-container {
-    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
     padding-top: 5vh;
+    font-size: 150%;
+    justify-content: flex-start;
   }
   .img-producto {
     width: 40vw;
+    max-height: 4%;
   }
   .desc-carac {
     display: flex;
@@ -274,10 +309,10 @@ header {
     margin-top: 3vh;
   }
   .titulos-elements {
-    border: 1px #402054 solid;
-    max-width: 45vw;
-    border-radius: 6px;
-    padding: 1vh;
+    width: 40vw;
+    height: 300px;
+    border-radius: 8px;
+    padding: 2vh;
   }
   .img-producto {
     border: white 1px solid;
@@ -288,6 +323,7 @@ header {
     display: flex;
     margin-left: 2vw;
     margin-bottom: 2vh;
+    justify-content: center;
   }
   .opiniones {
     display: block;
@@ -302,7 +338,6 @@ header {
   }
   .num-star {
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
     margin-bottom: 7.5%;
   }
@@ -317,7 +352,7 @@ header {
     display: none;
   }
   .escribe2 {
-    background-color: #f1f0ec;
+    background-color: white;
     border-radius: 6px;
     width: 80%;
     padding: 2.5vh;
@@ -325,13 +360,17 @@ header {
   }
   .input-reseña2 {
     border: none;
-    background-color: #f1f0ec;
+    background-color: white;
+    width: 100%;
+  }
+  .input-reseña2::placeholder {
+    color: #402054;
   }
   .input-reseña2:focus {
     outline: none;
   }
   .caracteristicas {
-    width: 40%;
+    width: 50%;
   }
   .carrito {
     padding: 1.5vh 0;
@@ -347,6 +386,7 @@ header {
   }
   .titulos {
     padding: 1vw;
+    font-size: larger;
   }
   .interesar-titulo {
     padding: 1vh;
@@ -354,5 +394,16 @@ header {
   .interesar-elemet {
     max-width: 250px;
     max-height: 320px;
+  }
+  .carrusel-articulos {
+    margin-left: 1vw;
+  }
+  .elemento {
+    width: 250px;
+    height: 300px;
+  }
+  .carrusel-articulos-titulo {
+    padding: 1vw;
+    font-size: larger;
   }
 }
