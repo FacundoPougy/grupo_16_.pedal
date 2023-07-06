@@ -6,7 +6,7 @@ const middlewares = require('../middlewares/authMiddlewares');
 // @GET - /login
 router.get('/', middlewares.allowUnsignedIn, loginController.getLogin);
 
-// @GET - /login
-router.get("/", loginController.getLogin);
+// @POST - /login
+router.post("/", loginController.loginUser);
 
 module.exports = router;
