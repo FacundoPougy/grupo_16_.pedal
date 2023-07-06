@@ -1,28 +1,26 @@
-Retrospectiva Sprint_4
+Retrospectiva Sprint_5
 ===============================
 Comenzar a hacer:
 -----------
-* Pair programming. 
-* Setear un periodo de reuniones. De 2 a 3 reuniones semanales.
+* Practicar programación en pareja.
+* Establecer un horario regular para las reuniones, de 2 a 3 por semana.
 
 Hacer más:
 -----------
-* Si queremos manejar mejor nuestro tiempo, podríamos aprovechar las reuniones para hablar sobre temas que no entendemos del todo. Eso nos ayudaría bastante.
+* Para optimizar nuestra gestión del tiempo, podemos aprovechar las reuniones para discutir y aclarar los temas que no tengamos una comprensión completa. Esto resultará muy beneficioso.
 
 Continuar haciendo:
 -----------
-* Asignarnos las tareas en el tablero para dividir la carga de trabajo.
-* Llegando al sprint con tiempo para mejorar cosas secundarias.
-* Seguir adelantando en las clases prácticas.
+* Continuar avanzando en las clases prácticas.
 
 Hacer menos:
 -----------
-* Seguir acumulando detalles que hay que resolver.
-* Dividir el trabajo más equitativamente.
+* Evitar acumular problemas sin resolver y solo resolver lo del sprint.
+
 
 Dejar de hacer:
 -----------
-* Estar mucho tiempo sin comunicarnos.
+* Estar menos tiempo sin comunicarnos. En especial en este sprint estuvimos completamente desconectados.
 
 
 
