@@ -20,7 +20,6 @@ const model = {
 
   // Traer un usuario según su email
   findByEmail: function (email) {
-
     const users = this.findAll();
 
     let searched = users.find((user) => user.email === email);
@@ -82,6 +81,13 @@ const model = {
   createOne: function (newUser) {
     // Buscamos todos los usuarios
     let users = this.findAll();
+
+    // Verificar si el email ya está registrado
+    const existingUser = users.find((user) => user.email === newUser.email);
+
+    if (existingUser) {
+      return;
+    }
 
     // Le damos el ID al usuario nuevo
     newUser.id = uuid.v4();
