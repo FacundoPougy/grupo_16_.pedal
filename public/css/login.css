@@ -149,14 +149,16 @@ button {
     align-items: flex-end;
 }
 
-.login-button {
+.crear-cuenta {
     background-color: var(--naranja);
     color: var(--blanquito);
     border: none;
     height: 100%;
     width: 80%;
     border-radius: 1vw;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
