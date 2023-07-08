@@ -12,11 +12,12 @@ const controller = {
 
   loginUser: (req, res) => {
     const searchedUser = userModel.findByEmail(req.body.email);
-    console.log(searchedUser);
+
     if (!searchedUser) {
       return res.redirect('/login?error=El mail o la contraseña son incorrectos');
     }
-
+    return res.send("Boca juniors");
+    
     const {
       password: hashedPw
     } = searchedUser;

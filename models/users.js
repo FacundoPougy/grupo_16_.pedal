@@ -20,6 +20,7 @@ const model = {
 
   // Traer un usuario según su email
   findByEmail: function (email) {
+
     const users = this.findAll();
 
     let searched = users.find((user) => user.email === email);
