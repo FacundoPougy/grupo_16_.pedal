@@ -22,8 +22,9 @@ const controller = {
     const {
       password: hashedPw
     } = searchedUser;
-    const isCorrect = bcrypt.compareSync(req.body.password, hashedPw);
 
+    const isCorrect = bcrypt.compareSync(req.body.password, hashedPw);
+    
     if (isCorrect) {
       
       if (!!req.body.remember) {
@@ -38,7 +39,7 @@ const controller = {
       req.session.user = searchedUser;
 
       res.redirect('/');
-      
+
     } else {
       return res.redirect('/login?error=El mail o la contraseña son incorrectos');
     }

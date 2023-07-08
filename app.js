@@ -36,7 +36,7 @@ app.use(expressSession({
 
 app.use((req, res, next) => {
   if (req.cookies.email) {
-    const userModel = require('./models/user');
+    const userModel = require('./models/users');
 
     const user = userModel.findByEmail(req.cookies.email);
 

@@ -251,4 +251,12 @@
     "password": "$2b$12$naMwh4b5P6Plvd2DRBww.OnFPZX5yzm.983ZdeSemA8JuWS4.80nC",
     "telefono": "1125249395",
     "id": "a2037a59-f388-4567-9166-3b076f53889d"
+}, {
+    "nombre": "Tomas",
+    "apellido": "Gonzalez Mongelos",
+    "email": "tuturrito@gmail.com",
+    "password": "$2b$12$MaguBhnf.1CHun7RGcZzKuE7NeGvefzcuyNKSUSWC5j4NPl7fFsb.",
+    "telefono": "01125249395",
+    "image": ["/images/1688851968064-Lofi_Tomi.png"],
+    "id": "62d40e9e-3fac-4352-8d9e-3df58aa0d3e3"
 }]
