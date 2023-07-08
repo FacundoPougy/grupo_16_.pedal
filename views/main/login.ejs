@@ -10,7 +10,7 @@
 <body class="login-body">
 
     <header class="login-header">
-        <a class="equis-link" href="">
+        <a class="equis-link" href="/">
             <i class="fa-solid fa-xmark equis"></i>
         </a>
         <div class="logo-header">
@@ -37,6 +37,10 @@
                     <input type="password" placeholder="Ejemplo" name="password" id="contraseña" class="input-form" required>
                     <label class="labels" for="contraseña">Contraseña</label>
                 </div>
+
+                <% if (error) { %>
+                    <p class="error-message"><%= error %></p>
+                <% } %>
 
                 <div class="check-login">
                     <div class="check-remind">
@@ -73,12 +77,13 @@
                     <p class="text">Podrás realizar devoluciones online</p>
                 </div>
 
-
                 <div class="center-button">
-                    <button type="submit" class="login-button" formnovalidate>CREAR CUENTA</button>
+                    <a href="/register" class="login-button"> CREAR CUENTA </a>
                 </div>
 
         </form>
+
+
     </main>
 
 
