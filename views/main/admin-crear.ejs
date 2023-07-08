@@ -1,47 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/inputs.css" />
+    <link rel="stylesheet" href="/css/admin-crear.css" />
+  </head>
 
-<head>
-  <%- include('../partials/head') %>
-  <link rel="stylesheet" href="/css/inputs.css" />
-  <link rel="stylesheet" href="/css/admin-crear.css" />
-</head>
+  <body>
+    <h1 class="admin-title">Crear Producto</h1>
+    <form
+      class="form-crear"
+      method="POST"
+      action="/admin"
+      enctype="multipart/form-data"
+    >
+      <div class="propiedades">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="input-form"
+          placeholder="Ejemplo"
+          required
+        />
+        <label for="name" class="labels">Nombre del producto:</label>
+      </div>
 
-<body>
-  <h1 class="admin-title">Crear Producto</h1>
-  <form class="form-crear" method="POST" action="/admin" enctype="multipart/form-data">
-    <div class="propiedades">
-      <input type="text" id="name" name="name" class="input-form" placeholder="Ejemplo" required />
-      <label for="name" class="labels">Nombre del producto:</label>
-    </div>
+      <div class="propiedades">
+        <textarea
+          id="description"
+          name="description"
+          class="input-form"
+          placeholder="Ejemplo"
+          required
+        ></textarea>
+        <label for="description" class="labels">Descripción:</label>
+      </div>
 
-    <div class="propiedades">
-      <textarea id="description" name="description" class="input-form" placeholder="Ejemplo" required></textarea>
-      <label for="description" class="labels">Descripción:</label>
-    </div>
+      <div class="propiedades">
+        <input
+          type="file"
+          id="image"
+          placeholder="seleccionar imagen"
+          name="image"
+          class="input-form"
+        />
+        <label for="image" class="labels">Imagen:</label>
+      </div>
 
-    <div class="propiedades">
-      <input type="file" id="image" placeholder="seleccionar imagen" name="image" class="input-form" />
-      <!-- <label for="image" class="labels">Imagen:</label> -->
-    </div>
+      <div class="propiedades">
+        <input
+          type="text"
+          id="category"
+          name="category"
+          class="input-form"
+          placeholder="Ejemplo"
+          required
+        />
+        <label for="category" class="labels">Categoría:</label>
+      </div>
 
-    <div class="propiedades">
-      <input type="text" id="category" name="category" class="input-form" placeholder="Ejemplo" required />
-      <label for="category" class="labels">Categoría:</label>
-    </div>
+      <div class="propiedades">
+        <input
+          type="text"
+          id="colors"
+          name="colors"
+          class="input-form"
+          placeholder="Ejemplo"
+        />
+        <label for="colors" class="labels">Colores:</label>
+      </div>
 
-    <div class="propiedades">
-      <input type="text" id="colors" name="colors" class="input-form" placeholder="Ejemplo" />
-      <label for="colors" class="labels">Colores:</label>
-    </div>
+      <div class="propiedades">
+        <input
+          type="number"
+          id="price"
+          name="price"
+          step="0.01"
+          class="input-form"
+          placeholder="Ejemplo"
+          required
+        />
+        <label for="price" class="labels">Precio:</label>
+      </div>
 
-    <div class="propiedades">
-      <input type="number" id="price" name="price" step="0.01" class="input-form" placeholder="Ejemplo" required />
-      <label for="price" class="labels">Precio:</label>
-    </div>
-
-    <input type="submit" value="Crear" />
-  </form>
-</body>
-
+      <input type="submit" value="Crear" />
+    </form>
+  </body>
 </html>

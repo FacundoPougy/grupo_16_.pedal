@@ -3,9 +3,7 @@ const path = require("path");
 const productModel = require("../models/products");
 
 const fs = require("fs");
-const {
-  log
-} = require("console");
+const { log } = require("console");
 
 const filePath = "data/products.json";
 
@@ -84,13 +82,13 @@ const controller = {
 
     datos.price = Number(datos.price);
 
-    datos.image = req.files.map(file => '/images/' + file.filename);
-    
+    datos.image = req.files.map((file) => "/images/" + file.filename);
+
     productModel.createOne(datos);
 
     console.log(datos);
-    res.redirect('/admin');
-  }
+    res.redirect("/admin");
+  },
 };
 
 module.exports = controller;
