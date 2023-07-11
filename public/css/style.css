@@ -15,6 +15,7 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: var(--texto);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -26,6 +27,7 @@ body {
 a {
   color: inherit;
 }
+
 /*End of basic declaration*/
 
 /*Header*/
@@ -241,11 +243,9 @@ a {
 .categories {
   margin-top: 8vw;
   height: 60vw;
-  background: linear-gradient(
-    to bottom,
-    var(--blanquito) 17%,
-    var(--violeta-claro) 17%
-  );
+  background: linear-gradient(to bottom,
+      var(--blanquito) 17%,
+      var(--violeta-claro) 17%);
 }
 
 .categories-container {
@@ -390,11 +390,9 @@ a {
   }
 
   .categories {
-    background: linear-gradient(
-      to bottom,
-      var(--blanquito) 13%,
-      var(--violeta-claro) 13%
-    );
+    background: linear-gradient(to bottom,
+        var(--blanquito) 13%,
+        var(--violeta-claro) 13%);
   }
 }
 

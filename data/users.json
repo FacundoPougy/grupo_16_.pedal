@@ -259,4 +259,12 @@
     "telefono": "01125249395",
     "image": ["/images/1688851968064-Lofi_Tomi.png"],
     "id": "62d40e9e-3fac-4352-8d9e-3df58aa0d3e3"
+}, {
+    "nombre": "Tomas",
+    "apellido": "Gonzalez Mongelos",
+    "email": "prueba1234@gmail.com",
+    "password": "$2b$12$gYp6gPVw4a.X0XszD6NaBuHqiK3h.PTVL9.8sjabqSdQGPkijoWOe",
+    "telefono": "01125249395",
+    "image": [],
+    "id": "f222bbae-3b82-4b8a-b3cd-c5660f5bace2"
 }]

@@ -27,6 +27,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
 app.use(cookieParser());
+
 // Configuración del middleware de sesión
 app.use(expressSession({
   secret: 'mi-secreto', // CAMBIAR ESTO!!!!!
