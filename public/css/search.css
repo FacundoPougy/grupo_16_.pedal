@@ -13,6 +13,7 @@
   border-bottom-left-radius: 5px;
   color: var(--blanquito);
   background-color: var(--violeta-oscuro);
+  outline:none ;
 }
 
 .search-button {

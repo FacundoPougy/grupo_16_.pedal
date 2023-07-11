@@ -38,7 +38,7 @@ const controller = {
 
       req.session.user = searchedUser;
 
-      res.redirect('/');
+      res.redirect('/#menu');
 
     } else {
       return res.redirect('/login?error=El mail o la contraseña son incorrectos');

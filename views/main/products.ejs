@@ -1,95 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('../partials/head') %>
-    <link rel="stylesheet" href="css/productos.css" />
-  </head>
 
-  <body>
-    <header><%- include('../partials/header') %></header>
-    <main>
-      <div class="carrusel-articulos">
-        <div class="carrusel-articulos-titulo">Ofertas</div>
-        <div class="productos-en-tienda">
-          <% productos.forEach(function(bici) { %>
-          <div class="productos-en-tienda-element">
-            <a href="productos/<%= bici.id %>/detalle"
-              ><img src="<%= bici.image %>" alt="Bicicleta"
-            />
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="css/productos.css" />
+</head>
+
+<body>
+  <header><%- include('../partials/header') %></header>
+  <main>
+    <div class="carrusel-articulos">
+      <div class="carrusel-articulos-titulo">Ofertas</div>
+      <div class="productos-en-tienda">
+        <% productos.forEach(function(bici) { %>
+        <div class="productos-en-tienda-element">
+          <a href="productos/<%= bici.id %>/detalle"><img src="<%= bici.image %>" alt="Bicicleta" />
             <div class="contenedor-precio-descripcion">
               <p>$<%= bici.price %></p>
               <p class="descripcion"><%= bici.name %></p>
             </div>
-          </div>
+        </div>
         </a>
-          <% }) %>
-        </div>
+        <% }) %>
       </div>
-      <div class="carrusel-articulos">
-        <div class="carrusel-articulos-titulo">Nuestros Productos</div>
-        <div class="productos-en-tienda">
-          <% productos.forEach(function(bici) { %>
-            <div class="productos-en-tienda-element">
-              <a href="productos/<%= bici.id %>/detalle"
-                ><img src="<%= bici.image %>" alt="Bicicleta"
-              />
-              <div class="contenedor-precio-descripcion">
-                <p>$<%= bici.price %></p>
-                <p class="descripcion"><%= bici.name %></p>
-              </div>
+    </div>
+    <div class="carrusel-articulos">
+      <div class="carrusel-articulos-titulo">Nuestros Productos</div>
+      <div class="productos-en-tienda">
+        <% productos.forEach(function(bici) { %>
+        <div class="productos-en-tienda-element">
+          <a href="productos/<%= bici.id %>/detalle"><img src="<%= bici.image %>" alt="Bicicleta" />
+            <div class="contenedor-precio-descripcion">
+              <p>$<%= bici.price %></p>
+              <p class="descripcion"><%= bici.name %></p>
             </div>
-          </a>
-            <% }) %>
         </div>
+        </a>
+        <% }) %>
       </div>
-      <div class="carrusel-articulos">
-        <div class="carrusel-articulos-titulo">Basado en tu última visita</div>
-        <div class="productos-en-tienda">
-          <% productos.forEach(function(bici) { %>
-            <div class="productos-en-tienda-element">
-              <a href="productos/<%= bici.id %>/detalle"
-                ><img src="<%= bici.image %>" alt="Bicicleta"
-              />
-              <div class="contenedor-precio-descripcion">
-                <p>$<%= bici.price %></p>
-                <p class="descripcion"><%= bici.name %></p>
-              </div>
+    </div>
+    <div class="carrusel-articulos">
+      <div class="carrusel-articulos-titulo">Basado en tu última visita</div>
+      <div class="productos-en-tienda">
+        <% productos.forEach(function(bici) { %>
+        <div class="productos-en-tienda-element">
+          <a href="productos/<%= bici.id %>/detalle"><img src="<%= bici.image %>" alt="Bicicleta" />
+            <div class="contenedor-precio-descripcion">
+              <p>$<%= bici.price %></p>
+              <p class="descripcion"><%= bici.name %></p>
             </div>
-          </a>
-            <% }) %>
+        </div>
+        </a>
+        <% }) %>
+      </div>
+    </div>
+    <div class="carrusel-articulos">
+      <div class="carrusel-articulos-titulo">Accesorios</div>
+      <div class="productos-en-tienda">
+        <div class="productos-en-tienda-element">
+          <img src="/images/accesorios.jpg" alt="" />
+          <p>$148.000</p>
+          <p class="descripcion">Accesorio x</p>
+        </div>
+        <div class="productos-en-tienda-element">
+          <img src="/images/accesorios.jpg" alt="" />
+          <p>$148.000</p>
+          <p class="descripcion">Accesorio x</p>
+        </div>
+        <div class="productos-en-tienda-element">
+          <img src="/images/accesorios.jpg" alt="" />
+          <p>$148.000</p>
+          <p class="descripcion">Accesorio x</p>
+        </div>
+        <div class="productos-en-tienda-element">
+          <img src="/images/accesorios.jpg" alt="" />
+          <p>$148.000</p>
+          <p class="descripcion">Accesorio x</p>
+        </div>
+        <div class="productos-en-tienda-element">
+          <img src="/images/accesorios.jpg" alt="" />
+          <p>$148.000</p>
+          <p class="descripcion">Accesorio x</p>
         </div>
       </div>
-      <div class="carrusel-articulos">
-        <div class="carrusel-articulos-titulo">Accesorios</div>
-        <div class="productos-en-tienda">
-          <div class="productos-en-tienda-element">
-            <img src="/images/accesorios.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Accesorio x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/accesorios.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Accesorio x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/accesorios.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Accesorio x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/accesorios.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Accesorio x</p>
-          </div>
-          <div class="productos-en-tienda-element">
-            <img src="/images/accesorios.jpg" alt="" />
-            <p>$148.000</p>
-            <p class="descripcion">Accesorio x</p>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer><%- include('../partials/footer') %></footer>
-  </body>
+    </div>
+  </main>
+  <footer><%- include('../partials/footer') %></footer>
+</body>
+
 </html>

@@ -3,11 +3,12 @@
       <nav class="main-nav-bar">
         <ul>
           <li>
-            <a href="/"">Inicio</a>
+            <a href="/">Inicio</a>
           </li>
           <li>
-            <a href="/productos">Tienda </a> </li> <li>
-              <a href="#footer-container">Contacto</a>
+            <a href="/productos">Tienda </a> </li>
+          <li>
+            <a href="#footer-container">Contacto</a>
           </li>
         </ul>
       </nav>
@@ -21,14 +22,25 @@
         </div>
       </div>
 
-  <!-- Menú lateral -->
-  <div id="menu">
-    <!-- Contenido del menú -->
-    <ul id="user-actions">
-      <li><a href="#">Cerrar Menu</a></li>
-      <li><a href="#">Cerrar sesión</a></li>
-      <li><a href="#">Opción 3</a></li>
-    </ul>
-  </div>
+      <!-- Menú lateral -->
+      <div id="menu">
+        <!-- Contenido del menú -->
+        <a class="equis-link" href="#">
+          <i class="fa-solid fa-xmark equis"></i>
+        </a>
+
+        <!-- <img src="<%= user.image %>" alt="User image" /> -->
+
+        <!-- <p> <%= user.name %> </p> -->
+        <!-- 
+        <% if (error) { %>
+          <p class="error-message"><%= error %></p>
+      <% } %> -->
+
+        <ul id="user-actions">
+          <li><a href="#">Cerrar sesión</a></li>
+          <li><a href="#">Opción 3</a></li>
+        </ul>
+      </div>
 
     </div>

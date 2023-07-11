@@ -53,6 +53,7 @@ a {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .main-nav-bar {
