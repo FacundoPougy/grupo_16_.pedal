@@ -9,4 +9,7 @@ router.get('/', middlewares.allowUnsignedIn, loginController.getLogin);
 // @POST - /login
 router.post("/", loginController.loginUser);
 
+// @GET - /login/sign-out
+router.get('/sign-out', loginController.signOut);
+
 module.exports = router;

@@ -24,9 +24,9 @@ const controller = {
     } = searchedUser;
 
     const isCorrect = bcrypt.compareSync(req.body.password, hashedPw);
-    
+
     if (isCorrect) {
-      
+
       if (!!req.body.remember) {
         res.cookie('email', searchedUser.email, {
           maxAge: 1000 * 60 * 60 * 24 * 360 * 9999
@@ -44,6 +44,15 @@ const controller = {
       return res.redirect('/login?error=El mail o la contraseña son incorrectos');
     }
   },
+
+  signOut: (req, res) => {
+    res.clearCookie('email');
+
+    delete req.session.user;
+
+    res.redirect('/');
+  },
+
 };
 
 module.exports = controller;
