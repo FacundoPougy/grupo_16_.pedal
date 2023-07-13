@@ -19,8 +19,12 @@ const controller = {
 
     userModel.createOne(user);
 
-    //res.send('Se registró el usuario'); PONER UN MENSAJE DE USUARIO REGISTRADO CON EXITO
-    res.redirect("/");
+    delete user.password;
+    delete user.id;
+
+    req.session.user = user;
+
+    res.redirect('/#menu');
   },
 };
 

@@ -24,12 +24,12 @@
           </div>
 
           <div class="container-cart-products hidden-cart">
-              <div class="cart-product">
-                <div class="info-cart-product">
-                  <span class="cantidad-producto-carrito">1</span>
-                  <p class="titulo-producto-carrito">bici 12</p>
-                  <span class="precio-producto-carrito">$800</span>
-                </div>
+            <div class="cart-product">
+              <div class="info-cart-product">
+                <span class="cantidad-producto-carrito">1</span>
+                <p class="titulo-producto-carrito">bici 12</p>
+                <span class="precio-producto-carrito">$800</span>
+              </div>
             </div>
 
             <div class="cart-total hidden">
@@ -49,15 +49,26 @@
 
       <!-- Menú lateral -->
       <div id="menu">
-        <!-- Contenido del menú -->
         <a class="equis-link" href="#">
           <i class="fa-solid fa-xmark equis"></i>
         </a>
 
+        <% if (user) { %>
+        <% if (user.image && user.image.length > 0) { %>
+        <img class="user-img" src="<%= user.image[0] %>" alt="Imagen de usuario">
+        <% } else { %>
+        <img class="user-img" src="/images/no-user.jpg" alt="Imagen de usuario">
+        <% } %>
+        <br>
+        <p><%= user.nombre %></p>
+        <p><%= user.email %></p>
+        <br>
         <ul id="user-actions">
           <li><a href="/login/sign-out">Cerrar sesión</a></li>
-          <li><a href="#">Opción 3</a></li>
         </ul>
+        <% } else { %>
+        <p id="init-session">Inicia sesión para ver contenido personalizado</p>
+        <% } %>
       </div>
 
     </div>

@@ -2,7 +2,12 @@ const path = require("path");
 
 const controller = {
   getIndex: (req, res) => {
-    res.render('home',{ title: '.pedal' });
+    let userData = req.session.user;
+
+    res.render('home', {
+      title: '.pedal',
+      user: userData
+    });
   },
 };
 

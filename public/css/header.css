@@ -200,9 +200,19 @@ Hover en el carrito.
 
 #menu .equis-link {
   align-self: flex-end;
-  padding: 1vw;
+  padding: 3vw;
 }
 
 #menu:target {
   width: 20vw;
+}
+
+#init-session {
+  margin: auto;
+  text-align: center;
+}
+
+.user-img {
+  width: 25vh;
+  border-radius: 50%;
 }
