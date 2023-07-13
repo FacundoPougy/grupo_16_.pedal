@@ -8,6 +8,7 @@
   --naranja: #e94726;
   --texto: Comfortaa;
   --titulos: Poppins;
+  --break-mobile:768;
 }
 
 * {
@@ -31,73 +32,7 @@ a {
 /*End of basic declaration*/
 
 /*Header*/
-.main-header {
-  width: 90%;
-  height: 10vw;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.main-header-top-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.logo {
-  width: 20%;
-}
-
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.main-nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 35%;
-}
-
-.main-nav-bar ul {
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-  width: 100%;
-}
-
-.main-nav-bar a {
-  text-decoration: none;
-  font-size: 24px;
-  font-family: var(--texto);
-  font-weight: 700;
-}
-
-.left-menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 10vw;
-}
-
-.top-right-menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 4vw;
-}
-
-.top-right-menu span {
-  font-size: 4vw;
-}
-
-.icon-big {
-  display: none;
-}
 
 /*Main*/
 

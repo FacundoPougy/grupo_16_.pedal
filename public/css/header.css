@@ -1,0 +1,208 @@
+/* 
+--blanquito: #f1f0ec;
+--violeta-oscuro: #402054;
+--violeta-claro: #782d44;
+--marronsito: #b03a35;
+--naranja: #e94726;
+--texto: Comfortaa;
+--titulos: Poppins; 
+*/
+/*
+Header
+*/
+
+.main-header-top-bar {
+  height: 10vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.logo {
+  width: 20%;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+}
+
+.main-nav-bar ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 100%;
+}
+
+.main-nav-bar a {
+  text-decoration: none;
+  font-size: 24px;
+  font-family: var(--texto);
+  font-weight: 700;
+}
+
+.left-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 10vw;
+}
+
+.top-right-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 4vw;
+}
+
+.top-right-menu span {
+  font-size: 4vw;
+}
+
+.icon-big {
+  display: none;
+}
+
+/*
+Hover en el carrito.
+*/
+
+.count-products {
+  position: absolute;
+  left: 2vw;
+
+  background-color: var(--violeta-oscuro);
+  color: var(--blanquito);
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+#contador-productos {
+  font-size: 12px;
+}
+
+.container-cart-products {
+  position: absolute;
+  right: 2vw;
+  background-color: var(--blanquito);
+  width: 400px;
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+  border-radius: 10px;
+
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+
+}
+
+.info-cart-product {
+  display: flex;
+  justify-content: space-between;
+  flex: 0.8;
+}
+
+.titulo-producto-carrito {
+  font-size: 20px;
+}
+
+.precio-producto-carrito {
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.cantidad-producto-carrito {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.icon-close {
+  width: 25px;
+  height: 25px;
+}
+
+.icon-close:hover {
+  stroke: red;
+  cursor: pointer;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+}
+
+.cart-total h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.total-pagar {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+#container-icon {
+  position: relative;
+}
+
+.hidden-cart {
+  display: none;
+}
+
+#container-icon:hover {
+  cursor: pointer;
+}
+
+#container-icon:hover .hidden-cart {
+  display: block;
+}
+
+/* Menu desplegable de la hamburguesa */
+#menu {
+  width: 0;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: var(--violeta-oscuro);
+  opacity: 0.95;
+  color: var(--blanquito);
+  transition: width 0.6s ease;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#menu .equis-link {
+  align-self: flex-end;
+  padding: 1vw;
+}
+
+#menu:target {
+  width: 20vw;
+}
