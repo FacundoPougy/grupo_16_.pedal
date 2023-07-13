@@ -6,10 +6,12 @@ const controller = {
   // @GET /products
   getProductos: (req, res) => {
     const productos = productModel.showNotDeleted();
+    let userData = req.session.user;
 
     res.render("products", {
       title: "Tienda",
       productos,
+      user: userData
     });
   },
 
