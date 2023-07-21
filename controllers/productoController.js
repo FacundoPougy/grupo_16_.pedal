@@ -11,7 +11,7 @@ const controller = {
     res.render("products", {
       title: "Tienda",
       productos,
-      user: userData
+      user: userData,
     });
   },
 
@@ -31,11 +31,13 @@ const controller = {
       // *queremos detener la ejecución para que no se ejecute el otro res.render (la otra respuesta)
       return res.send("error de id");
     }
+    let userData = req.session.user;
 
     res.render("product-detail", {
       title: "Detalle",
       product: productoAMostrar,
       productos,
+      user: userData,
     });
   },
 };
