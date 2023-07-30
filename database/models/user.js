@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-    const alias = 'Item';
+    const alias = 'User';
 
     const cols = {
         id: {
@@ -7,12 +7,24 @@ module.exports = (sequelize, DataType) => {
             primaryKey: true,
             autoIncrement: true
         },
-        color: {
-            type: DataType.ENUM('Blanco', 'Negro', 'Rojo', 'Azul', 'Verde', 'Amarillo', 'Naranja', 'Morado', 'Gris', 'Marrón', 'Rosa'),
+        firstName: {
+            type: DataType.STRING(50),
             allowNull: false
         },
-        stock: {
-            type: DataType.INTEGER,
+        lastName: {
+            type: DataType.STRING(50),
+            allowNull: false
+        },
+        email: {
+            type: DataType.STRING(100),
+            allowNull: false
+        },
+        password: {
+            type: DataType.STRING(100),
+            allowNull: false
+        },
+        type: {
+            type: DataType.STRING(20),
             allowNull: false
         },
         image: {
@@ -22,19 +34,19 @@ module.exports = (sequelize, DataType) => {
     }
 
     const config = {
-        tableName: 'items',
+        tableName: 'users',
         timestamps: false
     }
 
-    const Item = sequelize.define(alias, cols, config);
+    const User = sequelize.define(alias, cols, config);
 
-    Item.associate = models => {
-        Item.belongsToMany(models.User, {
-            as: 'users',
-            foreignKey: 'item_id',
+    User.associate = models => {
+        User.belongsToMany(models.Item, {
+            as: 'items',
+            foreignKey: 'user_id',
             through: 'ShoppingCart'
         });
     };
 
-    return Item;
+    return User;
 }
