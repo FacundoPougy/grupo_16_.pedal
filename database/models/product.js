@@ -36,5 +36,21 @@ module.exports = (sequelize, DataType) => {
 
   const Product = sequelize.define(alias, cols, config);
 
+  Product.associate = (models) => {
+
+    // Product.hasMany(models.Jugador, {
+    //     as: 'product',
+    //     timestamps: false,
+    //     foreignKey: 'club_id'
+    // });
+
+    // Product.belongsToMany(models.Sponsor, {
+    //     as: 'sponsor-club',
+    //     foreignKey: 'club_id',
+    //     through: 'SponsorClub'
+    // });
+}
+
+
   return Product;
 };
