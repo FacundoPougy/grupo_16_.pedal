@@ -1,40 +1,37 @@
-module.exports = (sequelize, DataType) => {
-  const alias = 'StockItem';
+module.exports = (sequelize, DataTypes) => {
+    const Item = sequelize.define('Item', {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        color: {
+            type: DataTypes.ENUM('Blanco', 'Negro', 'Rojo', 'Azul', 'Verde', 'Amarillo', 'Naranja', 'Morado', 'Gris', 'Marrón', 'Rosa'),
+            allowNull: false
+        },
+        stock: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        image: {
+            type: DataTypes.STRING(255),
+            allowNull: false
+        }
+    }, {
+        tableName: 'items',
+        timestamps: false
+    });
 
-  const cols = {
-      id: {
-          type: DataType.BIGINT.UNSIGNED,
-          primaryKey: true,
-          autoIncrement: true
-      },
-      product_id: {
-          type: DataType.INTEGER,
-          allowNull: false,
-          references: {
-              model: 'products',
-              key: 'id'
-          }
-      },
-      color: {
-          type: DataType.ENUM('Red', 'Green', 'Blue', 'Black', 'White'),
-          allowNull: false
-      },
-      stock: {
-          type: DataType.BIGINT,
-          allowNull: false
-      },
-      image: {
-          type: DataType.STRING(255),
-          allowNull: false
-      }
-  };
+    Item.associate = (models) => {
+        Item.belongsTo(models.Product, {
+            as: 'product',
+            foreignKey: 'product_id'
+        });
+        Item.belongsTo(models.ShoppingCart, {
+            as: 'shopping_cart',
+            foreignKey: 'item_id'
+        });
+    };
 
-  const config = {
-      tableName: 'stock_items',
-      timestamps: false
-  };
-
-  const StockItem = sequelize.define(alias, cols, config);
-
-  return StockItem;
+    return Item;
 };

@@ -1,56 +1,41 @@
-module.exports = (sequelize, DataType) => {
-  const alias = 'Product';
-
-  const cols = {
-      id: {
-          type: DataType.INTEGER,
-          primaryKey: true,
-          autoIncrement: true
-      },
-      name: {
-          type: DataType.STRING(255),
-          allowNull: false
-      },
-      description: {
-          type: DataType.TEXT,
-          allowNull: false
-      },
-      category: {
-          type: DataType.STRING(50),
-          allowNull: false
-      },
-      price: {
-          type: DataType.DECIMAL(10, 2),
-          allowNull: false
-      },
-      stars: {
-          type: DataType.DECIMAL(3, 1),
-          allowNull: false
-      }
-  };
-
-  const config = {
-      tableName: 'products',
-      timestamps: false
-  };
-
-  const Product = sequelize.define(alias, cols, config);
+module.exports = (sequelize, DataTypes) => {
+  const Product = sequelize.define('Product', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    name: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    category: {
+      type: DataTypes.STRING(50),
+      allowNull: false
+    },
+    price: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false
+    },
+    main_image: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    }
+  }, {
+    tableName: 'products',
+    timestamps: false
+  });
 
   Product.associate = (models) => {
-
-    // Product.hasMany(models.Jugador, {
-    //     as: 'product',
-    //     timestamps: false,
-    //     foreignKey: 'club_id'
-    // });
-
-    // Product.belongsToMany(models.Sponsor, {
-    //     as: 'sponsor-club',
-    //     foreignKey: 'club_id',
-    //     through: 'SponsorClub'
-    // });
-}
-
+    Product.hasMany(models.Item, {
+      as: 'items',
+      foreignKey: 'product_id'
+    });
+  }
 
   return Product;
 };
