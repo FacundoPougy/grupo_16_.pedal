@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-    const alias = 'User';
+    const alias = 'Item';
 
     const cols = {
         id: {
@@ -7,53 +7,34 @@ module.exports = (sequelize, DataType) => {
             primaryKey: true,
             autoIncrement: true
         },
-        firstName: {
-            type: DataType.STRING(50),
+        color: {
+            type: DataType.ENUM('Blanco', 'Negro', 'Rojo', 'Azul', 'Verde', 'Amarillo', 'Naranja', 'Morado', 'Gris', 'Marrón', 'Rosa'),
             allowNull: false
         },
-        lastName: {
-            type: DataType.STRING(50),
-            allowNull: false
-        },
-        email: {
-            type: DataType.STRING(100),
-            allowNull: false
-        },
-        password: {
-            type: DataType.STRING(100),
-            allowNull: false
-        },
-        type: {
-            type: DataType.STRING(20),
+        stock: {
+            type: DataType.INTEGER,
             allowNull: false
         },
         image: {
             type: DataType.STRING(255),
             allowNull: false
         }
-    };
-
-    const config = {
-        tableName: 'users',
-        timestamps: false
-    };
-
-    const User = sequelize.define(alias, cols, config);
-
-    Product.associate = (models) => {
-
-        // Product.hasMany(models.Jugador, {
-        //     as: 'product',
-        //     timestamps: false,
-        //     foreignKey: 'club_id'
-        // });
-    
-        // Product.belongsToMany(models.Sponsor, {
-        //     as: 'sponsor-club',
-        //     foreignKey: 'club_id',
-        //     through: 'SponsorClub'
-        // });
     }
 
-    return User;
-};
+    const config = {
+        tableName: 'items',
+        timestamps: false
+    }
+
+    const Item = sequelize.define(alias, cols, config);
+
+    Item.associate = models => {
+        Item.belongsToMany(models.User, {
+            as: 'users',
+            foreignKey: 'item_id',
+            through: 'ShoppingCart'
+        });
+    };
+
+    return Item;
+}
