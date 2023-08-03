@@ -1,11 +1,12 @@
 const path = require("path");
 
-const productModel = require("../models/products");
+const { Product } = require('../database/models');
 
 const controller = {
   // @GET /products
-  getProductos: (req, res) => {
-    const productos = productModel.showNotDeleted();
+  getProductos: async (req, res) => {
+    const productos =  await Product.findAll();
+    console.log( productos);
     let userData = req.session.user;
 
     res.render("products", {
@@ -16,14 +17,14 @@ const controller = {
   },
 
   // @GET /products/:id/detail
-  getProductoDetalle: (req, res) => {
-    const productos = productModel.findAll();
+  getProductoDetalle: async (req, res) => {
+    const productos =  await Product.findAll();
 
     // Agarramos el ID que nos pasaron por parámetro de ruta, y lo convertimos en number
     const id = Number(req.params.id);
 
     // Buscamos en el array de productos, el producto cuyo ID coincida con el que nos enviaron por params
-    const productoAMostrar = productModel.findById(id);
+    const productoAMostrar = await Product.findByPk(id);
 
     // Si el producto no se encuentra (su id es inválido)
     if (!productoAMostrar) {

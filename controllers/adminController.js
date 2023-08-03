@@ -55,7 +55,6 @@ const controller = {
   },
 
   adminSoftDelete: (req, res) => {
-    console.log("Llegue");
 
     const id = Number(req.params.id);
 
