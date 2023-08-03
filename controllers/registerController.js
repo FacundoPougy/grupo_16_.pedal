@@ -1,5 +1,5 @@
-const bcrypt = require('bcrypt');
-const userModel = require('../models/users');
+const bcrypt = require("bcrypt");
+const { User } = require("../database/models");
 
 const controller = {
   getRegister: (req, res) => {
@@ -8,23 +8,25 @@ const controller = {
     });
   },
 
-  registerUser: (req, res) => {
+  registerUser: async (req, res) => {
     const user = req.body;
 
     const newPassword = bcrypt.hashSync(user.password, 12);
 
     user.password = newPassword;
 
-    user.image = req.files.map((file) => "/images/" + file.filename);
+    user.image = req.files.map((file) => "/images/" + file.filename)[0];
 
-    userModel.createOne(user);
+    user.type = "user";
+
+    await User.create(user);
 
     delete user.password;
     delete user.id;
 
     req.session.user = user;
 
-    res.redirect('/#menu');
+    res.redirect("/#menu");
   },
 };
 

@@ -1,35 +1,41 @@
 const path = require("path");
-const bcrypt = require('bcrypt');
-const userModel = require('../models/users');
+const bcrypt = require("bcrypt");
+const { User } = require("../database/models");
+const { log } = require("console");
 
 const controller = {
-
   getLogin: (req, res) => {
     const error = req.query.error; // Obtener el valor del parámetro "error"
-    res.render('login', {
-      title: 'Login',
-      error: error
+    res.render("login", {
+      title: "Login",
+      error: error,
     });
   },
 
-  loginUser: (req, res) => {
-    const searchedUser = userModel.findByEmail(req.body.email);
-
-    if (!searchedUser) {
-      return res.redirect('/login?error=El mail o la contraseña son incorrectos');
+  loginUser: async (req, res) => {
+    try {
+      const searchedUser = await User.findOne({
+        where: { email: req.body.email },
+      });
+      console.log(searchedUser, "miprueba");
+      if (!searchedUser) {
+        return res.redirect(
+          "/login?error=El mail o la contraseña son incorrectos"
+        );
+      }
+    } catch (error) {
+      console.error("Error al buscar el usuario:", error);
+      return res.redirect("/login?error=" + error);
     }
-
-    const {
-      password: hashedPw
-    } = searchedUser;
+    console.log(searchedUser);
+    const { password: hashedPw } = searchedUser;
 
     const isCorrect = bcrypt.compareSync(req.body.password, hashedPw);
 
     if (isCorrect) {
-
       if (!!req.body.remember) {
-        res.cookie('email', searchedUser.email, {
-          maxAge: 1000 * 60 * 60 * 24 * 360 * 9999
+        res.cookie("email", searchedUser.email, {
+          maxAge: 1000 * 60 * 60 * 24 * 360 * 9999,
         });
       }
 
@@ -38,21 +44,21 @@ const controller = {
 
       req.session.user = searchedUser;
 
-      res.redirect('/#menu');
-
+      res.redirect("/#menu");
     } else {
-      return res.redirect('/login?error=El mail o la contraseña son incorrectos');
+      return res.redirect(
+        "/login?error=El mail o la contraseña son incorrectos"
+      );
     }
   },
 
   signOut: (req, res) => {
-    res.clearCookie('email');
+    res.clearCookie("email");
 
     delete req.session.user;
 
-    res.redirect('/');
+    res.redirect("/");
   },
-
 };
 
 module.exports = controller;
