@@ -5,18 +5,6 @@ const Product = require("../database/models");
 const fs = require("fs");
 const { log } = require("console");
 
-const filePath = "data/products.json";
-
-/* const data = fs.readFileSync(filePath, "utf8");
-
-let bicisObj = {};
-
-try {
-  bicisObj = JSON.parse(data);
-} catch (error) {
-  console.error("Error al analizar el JSON:", error);
-} */
-
 const controller = {
   getAdmin: (req, res) => {
     res.render("admin.ejs", {
@@ -43,10 +31,6 @@ const controller = {
       product: productoAMostrar,
     });
   },
-
-  /*   postAdminCrear: (req, res) => {
-    
-  }, */
 
   getAdminCrear: (req, res) => {
     res.render("admin-crear.ejs", {
