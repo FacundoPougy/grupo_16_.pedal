@@ -35,17 +35,39 @@ app.use(expressSession({
   saveUninitialized: false
 }));
 
-app.use((req, res, next) => {
+app.use(async (req, res, next) => {
   if (req.cookies.email) {
-    const userModel = require('./models/users');
+    const {
+      User
+    } = require("./database/models");
 
-    const user = userModel.findByEmail(req.cookies.email);
+    try {
+      const searchedUser = await User.findOne({
+        where: {
+          email: req.cookies.email
+        },
+      });
+      if (!searchedUser) {
+        // return res.redirect(
+        //   "/login?error=El mail o la contraseña son incorrectos"
+        // );
+      console.error("Usuario no encontrado");
 
-    delete user.id;
-    delete user.password;
+      }
 
-    req.session.user = user;
-    console.log(user + " user logueado");
+      console.log(searchedUser);
+
+      delete searchedUser.id;
+      delete searchedUser.password;
+
+      req.session.user = searchedUser;
+      console.log(searchedUser + " user logueado");
+
+    } catch (error) {
+      console.error("Error al buscar el usuario:", error);
+      // return res.redirect("/login?error=" + error);
+    }
+
   }
 
   next();

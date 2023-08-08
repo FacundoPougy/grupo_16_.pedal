@@ -1,93 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/register.css" />
-    <link rel="stylesheet" href="/css/inputs.css" />
-  </head>
 
-  <body>
-    <header class="register-header">
-      <a class="flecha-link" href="/login">
-        <i class="fa-solid fa-arrow-left fa-lg flecha"></i>
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/register.css" />
+  <link rel="stylesheet" href="/css/inputs.css" />
+</head>
+
+<body>
+  <header class="register-header">
+    <a class="flecha-link" href="/login">
+      <i class="fa-solid fa-arrow-left fa-lg flecha"></i>
+    </a>
+    <div class="logo-header">
+      <a class="center-img" href="/">
+        <img src="/images/Logo.svg" alt="Logo de la página" />
       </a>
-      <div class="logo-header">
-        <a class="center-img" href="/">
-          <img src="/images/Logo.svg" alt="Logo de la página" />
-        </a>
-      </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="register-main">
-      <h1 class="register-title">¿NO TIENES CUENTA? REGÍSTRATE</h1>
+  <main class="register-main">
+    <h1 class="register-title">¿NO TIENES CUENTA? REGÍSTRATE</h1>
 
-      <form
-        action="/register"
-        method="post"
-        class="register-form"
-        enctype="multipart/form-data"
-      >
-        <div class="propiedades-container">
-          <h2 class="register-subtitle">INTRODUCE TUS DATOS DE REGISTRO</h2>
-          <div class="propiedades">
-            <input
-              placeholder="Ejemplo"
-              type="text"
-              name="firstName"
-              id="nombre"
-              class="input-form"
-              required
-            />
-            <label for="nombre" class="labels">Nombre</label>
-          </div>
+    <form action="/register" method="post" class="register-form" enctype="multipart/form-data">
+      <div class="propiedades-container">
+        <h2 class="register-subtitle">INTRODUCE TUS DATOS DE REGISTRO</h2>
+        <div class="propiedades">
+          <input placeholder="Ejemplo" type="text" name="firstName" id="nombre" class="input-form" required />
+          <label for="nombre" class="labels">Nombre</label>
+        </div>
 
-          <div class="propiedades">
-            <input
-              placeholder="Ejemplo"
-              type="text"
-              name="lastName"
-              id="apellido"
-              class="input-form"
-              required
-            />
-            <label for="apellido" class="labels">Apellidos</label>
-          </div>
+        <div class="propiedades">
+          <input placeholder="Ejemplo" type="text" name="lastName" id="apellido" class="input-form" required />
+          <label for="apellido" class="labels">Apellidos</label>
+        </div>
 
-          <div class="propiedades">
-            <input
-              placeholder="Ejemplo"
-              type="email"
-              name="email"
-              id="correo"
-              class="input-form"
-              required
-            />
-            <label for="correo" class="labels">Correo electrónico</label>
-          </div>
+        <div class="propiedades">
+          <input placeholder="Ejemplo" type="email" name="email" id="correo" class="input-form" required />
+          <label for="correo" class="labels">Correo electrónico</label>
+        </div>
 
-          <div class="propiedades">
-            <input
-              placeholder="Ejemplo"
-              type="password"
-              name="password"
-              id="password"
-              class="input-form"
-              required
-            />
-            <label for="password" class="labels">Contraseña</label>
-          </div>
-          <div class="propiedades">
-            <input
-              type="file"
-              id="image"
-              placeholder="seleccionar imagen"
-              name="image"
-              class="input-form"
-            />
-            <label for="image" class="labels">Imagen:</label>
-          </div>
+        <div class="propiedades">
+          <input placeholder="Ejemplo" type="password" name="password" id="password" class="input-form" required />
+          <label for="password" class="labels">Contraseña</label>
+        </div>
+        <div class="propiedades">
+          <input type="file" id="image" placeholder="seleccionar imagen" name="image" class="input-form" />
+          <label for="image" class="labels">Imagen:</label>
+        </div>
 
-          <!-- <div class="register-telefono">
+        <!-- <div class="register-telefono">
             <div class="propiedades">           
               <select class="input-form" required>
                 <option value="+54">+54</option>
@@ -108,44 +70,45 @@
               <label for="telefono" class="labels">Teléfono</label>
             </div>
           </div> -->
+      </div>
+
+      <div class="opciones-container">
+        <div class="opciones">
+          <p class="text">
+            Quiero recibir novedades y comunicaciones de .Pedal a través de mi
+            correo electrónico
+          </p>
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
         </div>
 
-        <div class="opciones-container">
-          <div class="opciones">
-            <p class="text">
-              Quiero recibir novedades y comunicaciones de .Pedal a través de mi
-              correo electrónico
-            </p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-
-          <div class="opciones">
-            <p class="text">
-              He podido leer y entiendo la información sobre el uso de mis datos
-              personales explicada en la
-              <span class="policy">Política de Privacidad</span>
-            </p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-
-          <div class="opciones">
-            <p class="text">Recuérdame</p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <div class="center-button">
-            <button type="submit" class="register-button">CREAR CUENTA</button>
-          </div>
+        <div class="opciones">
+          <p class="text">
+            He podido leer y entiendo la información sobre el uso de mis datos
+            personales explicada en la
+            <span class="policy">Política de Privacidad</span>
+          </p>
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
         </div>
-      </form>
-    </main>
-  </body>
+
+        <div class="opciones">
+          <p class="text">Recuérdame</p>
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="center-button">
+          <button type="submit" class="register-button">CREAR CUENTA</button>
+        </div>
+      </div>
+    </form>
+  </main>
+</body>
+
 </html>
