@@ -24,7 +24,7 @@ router.get("/crear", adminController.getAdminCrear);
 router.get("/:id/editar", adminController.getAdminEditar);
 
 // @PUT /:id/eliminar SOFT DELETE
-router.put("/:id/eliminar", adminController.adminSoftDelete);
+router.put("/:id/eliminar", adminController.adminDelete);
 
 // @PUT /:id/editarProducto
 router.put("/:id/actualizar", adminController.actualizar);

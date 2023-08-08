@@ -1,12 +1,20 @@
-const path = require("path");
+const {
+  Product
+} = require('../database/models');
 
-const Product = require("../database/models");
+const {
+  Item
+} = require('../database/models');
 
-const fs = require("fs");
-const { log } = require("console");
+const {
+  ShoppingCart
+} = require('../database/models');
 
 const controller = {
-  getAdmin: (req, res) => {
+  getAdmin: async (req, res) => {
+
+    let bicisObj = await Product.findAll();
+
     res.render("admin.ejs", {
       title: "ADMIN",
       bicis: bicisObj,
@@ -17,7 +25,7 @@ const controller = {
     // Agarramos el ID que nos pasaron por parámetro de ruta, y lo convertimos en number
     const id = Number(req.params.id);
     // Buscamos en el array de productos, el producto cuyo ID coincida con el que nos enviaron por params
-    const productoAMostrar = await Product.findByPK(id);
+    const productoAMostrar = await Product.findByPk(id);
 
     // Si el producto no se encuentra (su id es inválido)
     if (!productoAMostrar) {
@@ -38,11 +46,34 @@ const controller = {
     });
   },
 
-  adminSoftDelete: (req, res) => {
+  adminDelete: async (req, res) => {
     const id = Number(req.params.id);
 
-    //productModel.deleteById(id);
-    Product.Destroy({ where: { id: id } });
+    const itemsToDestroy = await Item.findAll({
+      where: {
+        product_id: id
+      }
+    });
+
+    itemsToDestroy.forEach(async item => {
+      await ShoppingCart.destroy({
+        where: {
+          item_id: item.id
+        }
+      });
+    });
+
+    await Item.destroy({
+      where: {
+        product_id: id
+      }
+    });
+
+    await Product.destroy({
+      where: {
+        id: id
+      }
+    });
 
     res.redirect("/admin");
   },
