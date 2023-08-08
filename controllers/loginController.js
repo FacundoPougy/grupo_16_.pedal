@@ -28,10 +28,7 @@ const controller = {
           "/login?error=El mail o la contraseña son incorrectos"
         );
       }
-
-      const {
-        password: hashedPw
-      } = searchedUser;
+      const { password: hashedPw } = searchedUser;
 
       const isCorrect = bcrypt.compareSync(req.body.password, hashedPw);
 
@@ -53,12 +50,10 @@ const controller = {
           "/login?error=El mail o la contraseña son incorrectos"
         );
       }
-
     } catch (error) {
       console.error("Error al buscar el usuario:", error);
       return res.redirect("/login?error=" + error);
     }
-
   },
 
   signOut: (req, res) => {
