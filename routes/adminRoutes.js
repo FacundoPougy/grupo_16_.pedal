@@ -6,7 +6,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './public/images');
+        cb(null, './public/images/products/');
     },
     filename: (req, file, cb) => {
         console.log(path.extname(file.originalname))
@@ -31,5 +31,5 @@ router.put("/:id/actualizar", adminController.actualizar);
 
 module.exports = router;
 
-// @POST /products
+// @POST /
 router.post("/", upload.any('image'), adminController.postAdminCrear);
