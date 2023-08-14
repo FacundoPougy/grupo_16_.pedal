@@ -1,14 +1,12 @@
-const {
-  Product
-} = require('../database/models');
+const fs = require('fs');
+const path = require('path');
 
 const {
-  Item
-} = require('../database/models');
-
-const {
+  Product,
+  Item,
   ShoppingCart
 } = require('../database/models');
+
 
 const controller = {
   getAdmin: async (req, res) => {
@@ -49,33 +47,79 @@ const controller = {
   adminDelete: async (req, res) => {
     const id = Number(req.params.id);
 
-    const itemsToDestroy = await Item.findAll({
-      where: {
-        product_id: id
-      }
-    });
-
-    itemsToDestroy.forEach(async item => {
-      await ShoppingCart.destroy({
+    try {
+      // Encontrar y eliminar items relacionados
+      const itemsToDestroy = await Item.findAll({
         where: {
-          item_id: item.id
+          product_id: id
         }
       });
-    });
 
-    await Item.destroy({
-      where: {
-        product_id: id
+      // Iterar y eliminar items en el shopping cart y sus imágenes
+      for (const item of itemsToDestroy) {
+        try {
+          await ShoppingCart.destroy({
+            where: {
+              item_id: item.id
+            }
+          });
+
+          if (item.image) {
+            const itemImagePath = path.join(__dirname, '../public/', item.image);
+            console.log(itemImagePath);
+            fs.unlink(itemImagePath, err => {
+              if (err) {
+                console.error('Error deleting item image:', err);
+              }
+            });
+          }
+        } catch (error) {
+          console.error('Error deleting item:', error);
+        }
       }
-    });
 
-    await Product.destroy({
-      where: {
-        id: id
+      // Eliminar los items
+      await Item.destroy({
+        where: {
+          product_id: id
+        }
+      });
+
+      // Encontrar el producto. Debería ser siempre uno solo.
+      const productToDelete = await Product.findOne({
+        where: {
+          id: id
+        }
+      });
+
+      // Eliminar imagen del producto
+      try {
+        if (productToDelete.main_image) {
+          const productImagePath = path.join(__dirname, '../public/', productToDelete.main_image);
+          fs.unlink(productImagePath, err => {
+            if (err) {
+              console.error('Error deleting product image:', err);
+            }
+          });
+        }
+      } catch (error) {
+        console.error('Error deleting product image:', error);
       }
-    });
 
-    res.redirect("/admin");
+      // Eliminar el producto
+      await Product.destroy({
+        where: {
+          id: id
+        }
+      });
+
+      // Redirigir después de eliminar
+      res.redirect("/admin");
+    } catch (error) {
+      console.error('Error deleting product and related items:', error);
+      // Manejar el error
+      res.status(500).send('Internal Server Error');
+    }
   },
   actualizar: (req, res) => {
     //constantes
@@ -90,17 +134,25 @@ const controller = {
     console.log("Se editó el id " + id);
   },
 
-  postAdminCrear: (req, res) => {
-    let datos = req.body;
+  postAdminCrear: async (req, res) => {
+    try {
+      
+      let datos = req.body;
+      
+      console.log(datos.name,"test");
 
-    datos.price = Number(datos.price);
+      console.log(datos);
+      datos.price = Number(datos.price);
 
-    datos.image = req.files.map((file) => "/images/" + file.filename);
+      datos.main_image = req.files.map((file) => "/images/products/" + file.filename)[0]; // Tomar solo la primer imagen
 
-    productModel.createOne(datos);
+      await Product.create(datos);
 
-    console.log(datos);
-    res.redirect("/admin");
+      res.redirect("/admin");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Hubo un error al crear el producto");
+    }
   },
 };
 
