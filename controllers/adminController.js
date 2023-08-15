@@ -7,6 +7,27 @@ const {
   ShoppingCart
 } = require('../database/models');
 
+async function deleteItemAndRelated(item) {
+  try {
+    await ShoppingCart.destroy({
+      where: {
+        item_id: item.id
+      }
+    });
+
+    if (item.image) {
+      const itemImagePath = path.join(__dirname, '../public/', item.image);
+      console.log(itemImagePath);
+      fs.unlink(itemImagePath, err => {
+        if (err) {
+          console.error('Error deleting item image:', err);
+        }
+      });
+    }
+  } catch (error) {
+    console.error('Error deleting item:', error);
+  }
+}
 
 const controller = {
   getAdmin: async (req, res) => {
@@ -57,25 +78,7 @@ const controller = {
 
       // Iterar y eliminar items en el shopping cart y sus imágenes
       for (const item of itemsToDestroy) {
-        try {
-          await ShoppingCart.destroy({
-            where: {
-              item_id: item.id
-            }
-          });
-
-          if (item.image) {
-            const itemImagePath = path.join(__dirname, '../public/', item.image);
-            console.log(itemImagePath);
-            fs.unlink(itemImagePath, err => {
-              if (err) {
-                console.error('Error deleting item image:', err);
-              }
-            });
-          }
-        } catch (error) {
-          console.error('Error deleting item:', error);
-        }
+        await deleteItemAndRelated(item);
       }
 
       // Eliminar los items
@@ -136,24 +139,47 @@ const controller = {
 
   postAdminCrear: async (req, res) => {
     try {
-      
-      let datos = req.body;
-      
-      console.log(datos.name,"test");
-
-      console.log(datos);
+      let datos = JSON.parse(req.body.data);
       datos.price = Number(datos.price);
-
       datos.main_image = req.files.map((file) => "/images/products/" + file.filename)[0]; // Tomar solo la primer imagen
 
-      await Product.create(datos);
+      const createdProduct = await Product.create(datos);
 
-      res.redirect("/admin");
+      const productId = createdProduct.dataValues.id;
+
+      for (const item of JSON.parse(req.body.items)) {
+        item.product_id = productId;
+        await Item.create(item);
+      }
+
+      res.status(200).send("Producto cargado con éxito.");
+
     } catch (error) {
       console.error(error);
       res.status(500).send("Hubo un error al crear el producto");
     }
   },
+
+  postImage: (req, res) => {
+    res.status(200).send(req.files.map((file) => "/images/products/" + file.filename)[0]);
+  },
+
+  deleteImage: async (req, res) => {
+
+    for (const item of JSON.parse(req.body.items)) {
+      if (item.image) {
+        const itemImagePath = path.join(__dirname, '../public/', item.image);
+        fs.unlink(itemImagePath, err => {
+          if (err) {
+            console.error('Error deleting item image:', err);
+          }
+        });
+      }
+    }
+
+    res.status(200).send("Item deleted.");
+  },
+
 };
 
 module.exports = controller;

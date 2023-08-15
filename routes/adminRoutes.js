@@ -14,22 +14,27 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({ storage });
+const upload = multer({
+    storage
+});
 
 router.get("/", adminController.getAdmin);
 
 router.get("/crear", adminController.getAdminCrear);
 
-
 router.get("/:id/editar", adminController.getAdminEditar);
 
-// @PUT /:id/eliminar SOFT DELETE
+// @PUT /:id/eliminar
 router.put("/:id/eliminar", adminController.adminDelete);
 
 // @PUT /:id/editarProducto
 router.put("/:id/actualizar", adminController.actualizar);
 
-module.exports = router;
-
 // @POST /
-router.post("/", upload.any('image'), adminController.postAdminCrear);
+router.post("/", [upload.any('image')], adminController.postAdminCrear);
+
+router.post("/image", [upload.any('image-item')], adminController.postImage);
+
+router.post("/deleteImage", [upload.none()], adminController.deleteImage);
+
+module.exports = router;
