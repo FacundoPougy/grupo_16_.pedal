@@ -5,6 +5,8 @@
   <%- include('../partials/head') %>
     <link rel="stylesheet" href="/css/productos.css" />
     <link rel="stylesheet" href="/css/product-detail.css" />
+
+
 </head>
 
 <header class="main-header"><%- include('../partials/header') %></header>
@@ -66,14 +68,14 @@
               <label class="color">Color</label>
               <div class="buttons">
                 <% product.items.forEach(item=> { %>
-                  <button type="button" class="active">
+                  <button type="selected" class="botones-color" data-color="<%= item.image %>">
                     <%= item.color %>
                   </button>
                   <% }); %>
               </div>
             </div>
           </div>
-          <div class="producto-container-bot">
+          <div class=" producto-container-bot">
             <div class="comprar">
               <button type="button" class="carrito">Añadir al carrito</button>
               <button type="button" class="comprar-ahora">
@@ -210,6 +212,7 @@
   </main>
 
   <footer><%- include('../partials/footer') %></footer>
+  <script src="../script/product-detail.js"></script>
 </body>
 
 </html>
