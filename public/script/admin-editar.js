@@ -7,7 +7,6 @@ window.onload = function () {
     const submitButton = document.getElementById('crear-product');
     let itemList = [];
 
-
     function hideItemsForm(overlay, toggleButton) {
         overlay.style.display = 'none';
         toggleButton.innerText = "Agregar un item";
@@ -19,15 +18,6 @@ window.onload = function () {
         toggleButton.innerText = "Cancelar";
         toggleButton.style.width = '12vw';
     }
-
-    toggleButton.addEventListener('click', () => {
-        if (overlay.style.display === 'none') {
-            showItemsForm(overlay, toggleButton);
-        } else {
-            hideItemsForm(overlay, toggleButton);
-        }
-    });
-
 
     function showItem(color, stock, imagenSrc) {
         // Obtén una referencia al contenedor de productos existentes
@@ -60,21 +50,6 @@ window.onload = function () {
         // Crea el botón de eliminar
         var button = document.createElement("button");
         button.className = "delete-icon";
-        // Agrega un controlador de evento clic a cada objeto delete
-        button.addEventListener("click", async function (event) {
-            event.preventDefault();
-            let items = document.querySelectorAll(".productos-existentes");
-            const indiceClicado = Array.from(items).indexOf(article);
-            article.remove();
-            const formInfo = new FormData();
-            formInfo.append('items', JSON.stringify([itemList[indiceClicado]]));
-            await fetch('/admin/deleteImage', {
-                method: 'POST',
-                body: formInfo,
-            });
-
-        });
-
         var icon = document.createElement("i");
         icon.className = "fa-solid fa-trash-can";
         button.appendChild(icon);
@@ -98,6 +73,26 @@ window.onload = function () {
 
     }
 
+    toggleButton.addEventListener('click', () => {
+        if (overlay.style.display === 'none') {
+            showItemsForm(overlay, toggleButton);
+        } else {
+            hideItemsForm(overlay, toggleButton);
+        }
+    });
+
+    function deleteButtons() {
+        const deleteButtons = document.querySelectorAll('.delete-icon');
+        deleteButtons.forEach(deleteButton => {
+            deleteButton.addEventListener("click", async function (event) {
+                event.preventDefault();
+                const articleToRemove = this.parentNode;
+                articleToRemove.remove();
+            });
+        });
+    }
+
+    deleteButtons();
 
     addButton.addEventListener("click", async function (event) {
 

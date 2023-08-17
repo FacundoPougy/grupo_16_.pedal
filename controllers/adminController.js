@@ -7,6 +7,27 @@ const {
   ShoppingCart
 } = require('../database/models');
 
+async function deleteItemAndRelated(item) {
+  try {
+    await ShoppingCart.destroy({
+      where: {
+        item_id: item.id
+      }
+    });
+
+    if (item.image) {
+      const itemImagePath = path.join(__dirname, '../public/', item.image);
+      console.log(itemImagePath);
+      fs.unlink(itemImagePath, err => {
+        if (err) {
+          console.error('Error deleting item image:', err);
+        }
+      });
+    }
+  } catch (error) {
+    console.error('Error deleting item:', error);
+  }
+}
 
 const controller = {
   getAdmin: async (req, res) => {
@@ -23,7 +44,10 @@ const controller = {
     // Agarramos el ID que nos pasaron por parámetro de ruta, y lo convertimos en number
     const id = Number(req.params.id);
     // Buscamos en el array de productos, el producto cuyo ID coincida con el que nos enviaron por params
-    const productoAMostrar = await Product.findByPk(id);
+    const productoAMostrar = await Product.findByPk(id, {
+      include: 'items',
+      nest: true,
+    });
 
     // Si el producto no se encuentra (su id es inválido)
     if (!productoAMostrar) {
@@ -32,9 +56,12 @@ const controller = {
       return res.send("error de id");
     }
 
+    const jsonString = JSON.stringify(productoAMostrar);
+
     res.render("admin-edit.ejs", {
       title: "Editar",
       product: productoAMostrar,
+      items: JSON.parse(jsonString).items,
     });
   },
 
@@ -57,25 +84,7 @@ const controller = {
 
       // Iterar y eliminar items en el shopping cart y sus imágenes
       for (const item of itemsToDestroy) {
-        try {
-          await ShoppingCart.destroy({
-            where: {
-              item_id: item.id
-            }
-          });
-
-          if (item.image) {
-            const itemImagePath = path.join(__dirname, '../public/', item.image);
-            console.log(itemImagePath);
-            fs.unlink(itemImagePath, err => {
-              if (err) {
-                console.error('Error deleting item image:', err);
-              }
-            });
-          }
-        } catch (error) {
-          console.error('Error deleting item:', error);
-        }
+        await deleteItemAndRelated(item);
       }
 
       // Eliminar los items
@@ -126,34 +135,55 @@ const controller = {
     const id = Number(req.params.id);
     const newData = req.body;
 
-    //requerimos el updateById
-    productModel.updateById(id, newData);
-
-    //cuando termine nos redirija a /admin
-    res.redirect("/admin");
     console.log("Se editó el id " + id);
+
+
+    res.redirect("/admin");
   },
 
   postAdminCrear: async (req, res) => {
     try {
-      
-      let datos = req.body;
-      
-      console.log(datos.name,"test");
-
-      console.log(datos);
+      let datos = JSON.parse(req.body.data);
       datos.price = Number(datos.price);
-
       datos.main_image = req.files.map((file) => "/images/products/" + file.filename)[0]; // Tomar solo la primer imagen
 
-      await Product.create(datos);
+      const createdProduct = await Product.create(datos);
 
-      res.redirect("/admin");
+      const productId = createdProduct.dataValues.id;
+
+      for (const item of JSON.parse(req.body.items)) {
+        item.product_id = productId;
+        await Item.create(item);
+      }
+
+      res.status(200).send("Producto cargado con éxito.");
+
     } catch (error) {
       console.error(error);
       res.status(500).send("Hubo un error al crear el producto");
     }
   },
+
+  postImage: (req, res) => {
+    res.status(200).send(req.files.map((file) => "/images/products/" + file.filename)[0]);
+  },
+
+  deleteImage: async (req, res) => {
+
+    for (const item of JSON.parse(req.body.items)) {
+      if (item.image) {
+        const itemImagePath = path.join(__dirname, '../public/', item.image);
+        fs.unlink(itemImagePath, err => {
+          if (err) {
+            console.error('Error deleting item image:', err);
+          }
+        });
+      }
+    }
+
+    res.status(200).send("Item deleted.");
+  },
+
 };
 
 module.exports = controller;
