@@ -21,7 +21,7 @@ const controller = {
         name: { [Op.like]: query },
       },
     });
-    /* Si se encuentra un resultado, se redirige al cliente al detalle del producto requerido */
+
     if (searchedProduct) {
       return res.redirect(`/productos/${searchedProduct.id}/detalle`);
     }
