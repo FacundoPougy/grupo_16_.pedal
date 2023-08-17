@@ -44,7 +44,10 @@ const controller = {
     // Agarramos el ID que nos pasaron por parámetro de ruta, y lo convertimos en number
     const id = Number(req.params.id);
     // Buscamos en el array de productos, el producto cuyo ID coincida con el que nos enviaron por params
-    const productoAMostrar = await Product.findByPk(id);
+    const productoAMostrar = await Product.findByPk(id, {
+      include: 'items',
+      nest: true,
+    });
 
     // Si el producto no se encuentra (su id es inválido)
     if (!productoAMostrar) {
@@ -53,9 +56,12 @@ const controller = {
       return res.send("error de id");
     }
 
+    const jsonString = JSON.stringify(productoAMostrar);
+
     res.render("admin-edit.ejs", {
       title: "Editar",
       product: productoAMostrar,
+      items: JSON.parse(jsonString).items,
     });
   },
 
@@ -129,12 +135,10 @@ const controller = {
     const id = Number(req.params.id);
     const newData = req.body;
 
-    //requerimos el updateById
-    productModel.updateById(id, newData);
-
-    //cuando termine nos redirija a /admin
-    res.redirect("/admin");
     console.log("Se editó el id " + id);
+
+
+    res.redirect("/admin");
   },
 
   postAdminCrear: async (req, res) => {
