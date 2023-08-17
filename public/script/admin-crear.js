@@ -28,7 +28,6 @@ window.onload = function () {
         }
     });
 
-
     function showItem(color, stock, imagenSrc) {
         // Obtén una referencia al contenedor de productos existentes
         var productosContainer = document.getElementById("items-container");
@@ -72,6 +71,7 @@ window.onload = function () {
                 method: 'POST',
                 body: formInfo,
             });
+            itemList.splice(indiceClicado, 1);
 
         });
 
@@ -97,7 +97,6 @@ window.onload = function () {
         productosContainer.appendChild(article);
 
     }
-
 
     addButton.addEventListener("click", async function (event) {
 
@@ -197,11 +196,22 @@ window.onload = function () {
 
     });
 
-    window.addEventListener('beforeunload', function (event) {
+    window.addEventListener('beforeunload', async function (event) {
+        event.preventDefault();
         if (!allowExit) {
-            event.returnValue = "???";
+            //event.returnValue = ""
+            const formInfo = new FormData();
+            formInfo.append('items', JSON.stringify(itemList));
+
+            await fetch('/admin/deleteImage', {
+                method: 'POST',
+                body: formInfo,
+            });
+
         }
     });
+
+
 
 
 };
