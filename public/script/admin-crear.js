@@ -1,11 +1,4 @@
 window.onload = function () {
-    let allowExit = false;
-    const overlay = document.getElementById('overlay');
-    const toggleButton = document.getElementById('toggle-button');
-    const addButton = document.getElementById("add-item-button");
-    const submitButton = document.getElementById('crear-product');
-    let itemList = [];
-    //let itemImages = [];
 
     function hideItemsForm(overlay, toggleButton) {
         overlay.style.display = 'none';
@@ -18,14 +11,6 @@ window.onload = function () {
         toggleButton.innerText = "Cancelar";
         toggleButton.style.width = '12vw';
     }
-
-    toggleButton.addEventListener('click', () => {
-        if (overlay.style.display === 'none') {
-            showItemsForm(overlay, toggleButton);
-        } else {
-            hideItemsForm(overlay, toggleButton);
-        }
-    });
 
     function showItem(color, stock, imagenSrc) {
         // Obtén una referencia al contenedor de productos existentes
@@ -95,6 +80,27 @@ window.onload = function () {
 
         return await response.text();
     }
+
+    let allowExit = false;
+    const overlay = document.getElementById('overlay');
+    const toggleButton = document.getElementById('toggle-button');
+    const addButton = document.getElementById("add-item-button");
+    const submitButton = document.getElementById('crear-product');
+    let itemList = [];
+
+    //Toggle Show/hide form items
+    toggleButton.addEventListener('click', () => {
+        if (overlay.style.display === 'none') {
+            showItemsForm(overlay, toggleButton);
+        } else {
+            hideItemsForm(overlay, toggleButton);
+        }
+    });
+
+    //Leaving without save
+    window.addEventListener('beforeunload', async function (event) {
+        if (!allowExit) event.returnValue = "???";
+    });
 
     //AGREGAR ITEM
     addButton.addEventListener("click", async function (event) {
@@ -218,12 +224,5 @@ window.onload = function () {
 
         window.location.href = '/admin';
     });
-
-    window.addEventListener('beforeunload', async function (event) {
-        if (!allowExit) event.returnValue = "???";
-    });
-
-
-
 
 };

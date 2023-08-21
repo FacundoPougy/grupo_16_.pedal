@@ -1,12 +1,5 @@
 window.onload = function () {
 
-    let allowExit = false;
-    const overlay = document.getElementById('overlay');
-    const toggleButton = document.getElementById('toggle-button');
-    const addButton = document.getElementById("add-item-button");
-    const submitButton = document.getElementById('crear-product');
-    let itemList = [];
-
     function hideItemsForm(overlay, toggleButton) {
         overlay.style.display = 'none';
         toggleButton.innerText = "Agregar un item";
@@ -29,6 +22,7 @@ window.onload = function () {
 
         // Crea la imagen del producto
         var img = document.createElement("img");
+        img.id = "img-n" + itemList.length;
         img.className = "img-producto";
         img.src = imagenSrc;
         img.alt = "Bicicleta";
@@ -50,18 +44,18 @@ window.onload = function () {
         // Crea el botón de eliminar
         var button = document.createElement("button");
         button.className = "delete-icon";
-        var icon = document.createElement("i");
-        icon.className = "fa-solid fa-trash-can";
-        button.appendChild(icon);
+        // Agrega un controlador de evento clic a cada objeto delete
+        button.addEventListener("click", async function (event) {
+            event.preventDefault();
+            let items = document.querySelectorAll(".productos-existentes");
+            const indiceClicado = Array.from(items).indexOf(article);
+            article.remove();
+            itemList.splice(indiceClicado, 1);
+        });
 
-        // Crea el botón de actualizar
-        /*
-        var button = document.createElement("button");
-        button.className = "delete-icon";
         var icon = document.createElement("i");
         icon.className = "fa-solid fa-trash-can";
         button.appendChild(icon);
-        */
 
         // Agrega la imagen, el contenido y el botón al artículo
         article.appendChild(img);
@@ -73,6 +67,28 @@ window.onload = function () {
 
     }
 
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function uploadImage(formData) {
+
+        const response = await fetch('/admin/image', {
+            method: 'POST',
+            body: formData
+        })
+
+        return await response.text();
+    }
+
+    let allowExit = false;
+    const overlay = document.getElementById('overlay');
+    const toggleButton = document.getElementById('toggle-button');
+    const addButton = document.getElementById("add-item-button");
+    const submitButton = document.getElementById('crear-product');
+    let itemList = [];
+
+    //Toggle Show/hide form items
     toggleButton.addEventListener('click', () => {
         if (overlay.style.display === 'none') {
             showItemsForm(overlay, toggleButton);
@@ -81,19 +97,12 @@ window.onload = function () {
         }
     });
 
-    function deleteButtons() {
-        const deleteButtons = document.querySelectorAll('.delete-icon');
-        deleteButtons.forEach(deleteButton => {
-            deleteButton.addEventListener("click", async function (event) {
-                event.preventDefault();
-                const articleToRemove = this.parentNode;
-                articleToRemove.remove();
-            });
-        });
-    }
+    //Leaving without save
+    window.addEventListener('beforeunload', async function (event) {
+        if (!allowExit) event.returnValue = "???";
+    });
 
-    deleteButtons();
-
+    //AGREGAR ITEM
     addButton.addEventListener("click", async function (event) {
 
         const imageInput = document.getElementById("image-item");
@@ -106,45 +115,62 @@ window.onload = function () {
 
         const image = imageInput.files[0];
 
-        if (imageValue && colorValue && stockValue) {
+        //VALIDACIONES
+        if (!imageValue || !colorValue || !stockValue || !image) {
+            alert("Por favor, complete todos los campos.");
+            return;
+        }
 
-            //Limpiar los campos del formulario
-            imageInput.value = "";
-            colorInput.value = "";
-            stockInput.value = "";
 
+        //___________________________________________________________________________________________________________
+
+        //Limpiar los campos del formulario
+        imageInput.value = "";
+        colorInput.value = "";
+        stockInput.value = "";
+
+        try {
+            // Subo la imagen preview al servidor
             const formData = new FormData();
             formData.append('image', image);
+            const imagePath = await uploadImage(formData);
 
-            // Perform a POST request using Fetch or another method
+            //itemImages.push(formData);
 
-            try {
-                const response = await fetch('/admin/image', {
-                    method: 'POST',
-                    body: formData
-                })
-                const imagePath = await response.text();
+            itemList.push({
+                image: formData,
+                stock: stockValue,
+                color: colorValue
+            })
 
-                itemList.push({
-                    image: imagePath,
-                    stock: stockValue,
-                    color: colorValue
-                })
+            //Agregar el item para que se vea.
+            showItem(colorValue, stockValue, imagePath);
 
-                //Ocultar formulario
-                hideItemsForm(overlay, toggleButton);
+            //Ocultar formulario
+            hideItemsForm(overlay, toggleButton);
 
-                //Agregar el item para que se vea.
-                showItem(colorValue, stockValue, imagePath);
-            } catch (err) {
-                alert("Error cargando el item.");
-            }
+            // Esperar a que la imagen se cargue completamente
+            await delay(1000); // Espera 1 segundo
 
-        } else {
-            alert("Por favor, complete todos los campos.");
+            //Elimino la imagen preview del servidor.
+            const formInfo = new FormData();
+            formInfo.append('items', JSON.stringify([{
+                image: imagePath
+            }]));
+
+            await fetch('/admin/deleteImage', {
+                method: 'POST',
+                body: formInfo,
+            });
+
+        } catch (err) {
+            alert("Error cargando el item.");
+            console.error("Error cargando el item.", err);
         }
+
     });
 
+    //GUARDAR
     submitButton.addEventListener('click', async function (event) {
         event.preventDefault();
         const name = document.getElementById('name').value;
@@ -153,24 +179,43 @@ window.onload = function () {
         const category = document.getElementById('category').value;
         const price = parseFloat(document.getElementById('price').value);
 
-        // Here, you can perform any additional processing on the data before sending it
+        //VALIDACIONES:
+
+
+        //__________________________________________________________________________
 
         const data = {
             name: name,
             description: description,
             category: category,
             price: price,
-            // Add any other properties you want to send
         };
 
-        const formData = new FormData();
+        //Por cada item pushea la imagen al servidor guarda los paths en item list.
+        let itemsToPost = [];
 
+        for (const item of itemList) {
+            const {
+                image,
+                stock,
+                color
+            } = item;
+            const imagePathFinal = await uploadImage(image);
+            itemsToPost.push({
+                image: imagePathFinal,
+                stock,
+                color
+            });
+        }
+
+        //Data para crear un nuevo producto junto con sus items.
+        const formData = new FormData();
         formData.append('data', JSON.stringify(data));
         formData.append('image', image);
-        formData.append('items', JSON.stringify(itemList));
+        formData.append('items', JSON.stringify(itemsToPost));
 
         // Perform a POST request using Fetch or another method
-        const response = await fetch('/admin', {
+        await fetch('/admin', {
             method: 'POST',
             body: formData,
         })
@@ -178,25 +223,6 @@ window.onload = function () {
         allowExit = true;
 
         window.location.href = '/admin';
-
-
-        /*
-        const formInfo = new FormData();
-        formInfo.append('items', JSON.stringify(itemList));
-        
-        const responseT = await fetch('/admin/deleteImage', {
-            method: 'POST',
-            body: formInfo,
-        });
-        */
-
     });
-
-    window.addEventListener('beforeunload', function (event) {
-        if (!allowExit) {
-            event.returnValue = "???";
-        }
-    });
-
 
 };

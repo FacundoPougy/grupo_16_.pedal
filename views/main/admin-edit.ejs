@@ -32,22 +32,28 @@
       </div>
 
       <div class="propiedades">
+        <input type="number" id="price" name="price" step="1" class="input-form" placeholder="Ejemplo"
+          value="<%= product.price %>" required />
+        <label for="price" class="labels">Precio:</label>
+      </div>
+
+      <div class="propiedades">
         <input type="file" id="image" placeholder="seleccionar imagen" name="image" value="<%= product.image %>"
           class="input-form" />
         <label for="image" class="labels">Imagen:</label>
       </div>
 
       <div class="propiedades">
-        <input type="text" id="category" name="category" class="input-form" placeholder="Ejemplo"
-          value="<%= product.category %>" required />
-        <label for="category" class="labels">Categoría:</label>
+        <label for="category" class="labels select">Categoría:</label>
+        <select id="category" name="category" class="input-form" required>
+          <% const categories = ['Bicicleta', 'Accesorio']; %>
+          <% for (const category of categories) { %>
+          <option value="<%= category %>" <%= category === "<%= product.category %>" ? 'selected' : '' %>
+            ><%= category %></option>
+          <% } %>
+        </select>
       </div>
 
-      <div class="propiedades">
-        <input type="number" id="price" name="price" step="1" class="input-form" placeholder="Ejemplo"
-          value="<%= product.price %>" required />
-        <label for="price" class="labels">Precio:</label>
-      </div>
     </section>
 
     <div id="items-container" class="productos-existentes-container">
@@ -79,8 +85,13 @@
         </div>
 
         <div class="propiedades">
-          <input type="text" id="color" name="color" class="input-form" placeholder="Naranja" required />
-          <label for="color" class="labels">Color</label>
+          <label for="color" class="labels select">Color:</label>
+          <select id="color" name="color" class="input-form" required>
+            <% const colors = ['Blanco', 'Negro', 'Rojo', 'Azul', 'Verde', 'Amarillo', 'Naranja', 'Morado', 'Gris', 'Marrón', 'Rosa']; %>
+            <% for (const color of colors) { %>
+            <option value="<%= color %>" <%= color === 'Negro' ? 'selected' : '' %>><%= color %></option>
+            <% } %>
+          </select>
         </div>
 
         <div class="propiedades">
