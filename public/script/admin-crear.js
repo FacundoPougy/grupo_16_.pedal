@@ -5,7 +5,7 @@ window.onload = function () {
     const addButton = document.getElementById("add-item-button");
     const submitButton = document.getElementById('crear-product');
     let itemList = [];
-    let itemImages = [];
+    //let itemImages = [];
 
     function hideItemsForm(overlay, toggleButton) {
         overlay.style.display = 'none';
@@ -66,7 +66,6 @@ window.onload = function () {
             const indiceClicado = Array.from(items).indexOf(article);
             article.remove();
             itemList.splice(indiceClicado, 1);
-
         });
 
         var icon = document.createElement("i");
@@ -87,6 +86,16 @@ window.onload = function () {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
+    async function uploadImage(formData) {
+
+        const response = await fetch('/admin/image', {
+            method: 'POST',
+            body: formData
+        })
+
+        return await response.text();
+    }
+
     //AGREGAR ITEM
     addButton.addEventListener("click", async function (event) {
 
@@ -101,14 +110,13 @@ window.onload = function () {
         const image = imageInput.files[0];
 
         //VALIDACIONES
-        if (!imageValue || !colorValue || !stockValue) {
+        if (!imageValue || !colorValue || !stockValue || !image) {
             alert("Por favor, complete todos los campos.");
             return;
         }
 
 
         //___________________________________________________________________________________________________________
-
 
         //Limpiar los campos del formulario
         imageInput.value = "";
@@ -119,15 +127,12 @@ window.onload = function () {
             // Subo la imagen preview al servidor
             const formData = new FormData();
             formData.append('image', image);
-            itemImages.push(formData);
+            const imagePath = await uploadImage(formData);
 
-            const response = await fetch('/admin/image', {
-                method: 'POST',
-                body: formData
-            })
-            const imagePath = await response.text();
+            //itemImages.push(formData);
 
             itemList.push({
+                image: formData,
                 stock: stockValue,
                 color: colorValue
             })
@@ -143,9 +148,9 @@ window.onload = function () {
 
             //Elimino la imagen preview del servidor.
             const formInfo = new FormData();
-            formInfo.append('items', JSON.stringify({
+            formInfo.append('items', JSON.stringify([{
                 image: imagePath
-            }));
+            }]));
 
             await fetch('/admin/deleteImage', {
                 method: 'POST',
@@ -168,7 +173,6 @@ window.onload = function () {
         const category = document.getElementById('category').value;
         const price = parseFloat(document.getElementById('price').value);
 
-        // Here, you can perform any additional processing on the data before sending it
         //VALIDACIONES:
 
 
@@ -181,11 +185,28 @@ window.onload = function () {
             price: price,
         };
 
-        const formData = new FormData();
+        //Por cada item pushea la imagen al servidor guarda los paths en item list.
+        let itemsToPost = [];
 
+        for (const item of itemList) {
+            const {
+                image,
+                stock,
+                color
+            } = item;
+            const imagePathFinal = await uploadImage(image);
+            itemsToPost.push({
+                image: imagePathFinal,
+                stock,
+                color
+            });
+        }
+
+        //Data para crear un nuevo producto junto con sus items.
+        const formData = new FormData();
         formData.append('data', JSON.stringify(data));
         formData.append('image', image);
-        formData.append('items', JSON.stringify(itemList));
+        formData.append('items', JSON.stringify(itemsToPost));
 
         // Perform a POST request using Fetch or another method
         await fetch('/admin', {

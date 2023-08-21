@@ -14,7 +14,8 @@
     appearance: none;
 }
 
-option, select{
+option,
+select {
     color: var(--violeta-oscuro);
 }
 
@@ -22,8 +23,8 @@ option, select{
 /* QUITANDO BOTONES DE DECREMENTO E INCREMENTO */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .labels {
@@ -51,7 +52,12 @@ input[type=number]::-webkit-outer-spin-button {
 .input-form:valid~.labels {
     top: -3vw;
     font-size: 2.2vw;
-  }
+}
+
+.select {
+    top: -3vw;
+    font-size: 2.2vw;
+}
 
 @media only screen and (min-width: 769px) {
     .input-form {
@@ -71,5 +77,10 @@ input[type=number]::-webkit-outer-spin-button {
     .input-form:valid~.labels {
         font-size: 1.2vw;
         top: -1.8vw;
-      }
+    }
+
+    .select {
+        font-size: 1.2vw;
+        top: -1.8vw;
+    }
 }
