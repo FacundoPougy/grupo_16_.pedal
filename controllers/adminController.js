@@ -29,6 +29,13 @@ async function deleteItemAndRelated(item) {
   }
 }
 
+async function createItems(itemList, productId) {
+  for (const item of itemList) {
+    item.product_id = productId;
+    await Item.create(item);
+  }
+}
+
 const controller = {
   getAdmin: async (req, res) => {
 
@@ -131,15 +138,46 @@ const controller = {
     }
   },
 
-  actualizar: (req, res) => {
-    //constantes
-    const id = Number(req.params.id);
-    const newData = req.body;
+  actualizar: async (req, res) => {
+    try {
+      const id = Number(req.params.id);
+      const newInfo = req.body;
+      const newImage = req.files.length > 0 ? "/images/products/" + req.files[0].filename : null; // Tomar solo la primera imagen
+      const oldProduct = await Product.findByPk(id);
 
-    console.log("Se editó el id " + id);
+      const updatedProductData = {
+        name: newInfo.name,
+        description: newInfo.description,
+        category: newInfo.category,
+        price: Number(newInfo.price),
+        main_image: newImage || oldProduct.main_image // Usar newImage si está definida, de lo contrario, mantener la imagen existente
+      };
 
+      await Product.update(updatedProductData, {
+        where: {
+          id: id
+        }
+      });
 
-    res.redirect("/admin");
+      // Borrar la imagen anterior
+      if (newImage && oldProduct.main_image) {
+        try {
+          const entirePath = path.join(__dirname, '../public/', oldProduct.main_image);
+          await fs.unlink(entirePath, err => {
+            if (err) {
+              console.error('Error deleting item image:', err);
+            }
+          });
+        } catch (unlinkErr) {
+          console.error('Error deleting item image:', unlinkErr);
+        }
+      }
+
+      res.redirect("/admin");
+    } catch (error) {
+      console.error('Error during product update:', error);
+      res.status(500).send('Error durante la actualización.');
+    }
   },
 
   postAdminCrear: async (req, res) => {
@@ -152,10 +190,7 @@ const controller = {
 
       const productId = createdProduct.dataValues.id;
 
-      for (const item of JSON.parse(req.body.items)) {
-        item.product_id = productId;
-        await Item.create(item);
-      }
+      await createItems(JSON.parse(req.body.items), productId);
 
       res.status(200).send("Producto cargado con éxito.");
 
@@ -183,6 +218,16 @@ const controller = {
     }
 
     res.status(200).send("Item deleted.");
+  },
+
+  postCrearItems: async (req, res) => {
+
+    const productId = Number(req.params.id);
+
+    await createItems(JSON.parse(req.body.items), productId);
+
+    res.status(200).send("Items created.");
+
   },
 
 };

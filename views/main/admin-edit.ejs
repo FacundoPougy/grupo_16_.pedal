@@ -16,7 +16,7 @@
 
   <h1 class="admin-title">Editar Producto</h1>
 
-  <form class="form-product" method="POST" action="/admin/<%= product.id %>/actualizar?_method=PUT"
+  <form class="form-product" method="POST" id="update-form" action="/admin/<%= product.id %>/actualizar?_method=PUT"
     enctype="multipart/form-data">
     <section class="form-crear">
       <div class="propiedades">
@@ -38,7 +38,7 @@
       </div>
 
       <div class="propiedades">
-        <input type="file" id="image" placeholder="seleccionar imagen" name="image" value="<%= product.image %>"
+        <input type="file" id="image" placeholder="seleccionar imagen" name="image-update" value="<%= product.image %>"
           class="input-form" />
         <label for="image" class="labels">Imagen:</label>
       </div>
@@ -48,8 +48,7 @@
         <select id="category" name="category" class="input-form" required>
           <% const categories = ['Bicicleta', 'Accesorio']; %>
           <% for (const category of categories) { %>
-          <option value="<%= category %>" <%= category === "<%= product.category %>" ? 'selected' : '' %>
-            ><%= category %></option>
+          <option <%= category === product.category ? 'selected' : '' %>><%= category %></option>
           <% } %>
         </select>
       </div>
@@ -58,7 +57,7 @@
 
     <div id="items-container" class="productos-existentes-container">
       <% items.forEach(item => { %>
-      <article class="productos-existentes">
+      <article class="productos-existentes" itemid="<%= item.id %>">
         <img class="img-producto" src="<%= item.image %>" alt="Bicicleta">
         <div class="productos-existentes-content">
           <p>Color: <%= item.color %></p>

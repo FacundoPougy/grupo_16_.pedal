@@ -47,6 +47,7 @@ window.onload = function () {
         // Agrega un controlador de evento clic a cada objeto delete
         button.addEventListener("click", async function (event) {
             event.preventDefault();
+            event.stopPropagation(); // Detiene la propagación del evento
             let items = document.querySelectorAll(".productos-existentes");
             const indiceClicado = Array.from(items).indexOf(article);
             article.remove();
@@ -173,6 +174,8 @@ window.onload = function () {
     //CREAR
     submitButton.addEventListener('click', async function (event) {
         event.preventDefault();
+        event.stopPropagation(); // Detiene la propagación del evento
+
         const name = document.getElementById('name').value;
         const image = document.getElementById('image').files[0];
         const description = document.getElementById('description').value;

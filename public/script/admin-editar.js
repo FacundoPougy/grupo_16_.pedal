@@ -47,6 +47,7 @@ window.onload = function () {
         // Agrega un controlador de evento clic a cada objeto delete
         button.addEventListener("click", async function (event) {
             event.preventDefault();
+            event.stopPropagation(); // Detiene la propagación del evento
             let items = document.querySelectorAll(".productos-existentes");
             const indiceClicado = Array.from(items).indexOf(article);
             article.remove();
@@ -85,8 +86,25 @@ window.onload = function () {
     const overlay = document.getElementById('overlay');
     const toggleButton = document.getElementById('toggle-button');
     const addButton = document.getElementById("add-item-button");
-    const submitButton = document.getElementById('crear-product');
+    const formulario = document.getElementById("update-form");
     let itemList = [];
+    let itemsDeleteList = [];
+    const deleteButtons = document.querySelectorAll(".delete-icon");
+
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", async function (event) {
+            event.preventDefault();
+            event.stopPropagation(); // Detiene la propagación del evento
+            const article = button.parentNode;
+            const itemId = article.getAttribute("itemid");
+            if (article && itemId) {
+                itemsDeleteList.push(Number(itemId));
+                article.remove();
+            } else {
+                console.error("Deleting not working.");
+            }
+        });
+    });
 
     //Toggle Show/hide form items
     toggleButton.addEventListener('click', () => {
@@ -171,58 +189,52 @@ window.onload = function () {
     });
 
     //GUARDAR
-    submitButton.addEventListener('click', async function (event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const image = document.getElementById('image').files[0];
-        const description = document.getElementById('description').value;
-        const category = document.getElementById('category').value;
-        const price = parseFloat(document.getElementById('price').value);
+    formulario.addEventListener("submit", async function () {
+        allowExit = true;
 
-        //VALIDACIONES:
-
-
-        //__________________________________________________________________________
-
-        const data = {
-            name: name,
-            description: description,
-            category: category,
-            price: price,
-        };
-
-        //Por cada item pushea la imagen al servidor guarda los paths en item list.
+        //Post items in itemlist and delete items in itemsDeleteList
         let itemsToPost = [];
+        if (itemList.length > 0) {
+            for (const item of itemList) {
+                const {
+                    image,
+                    stock,
+                    color
+                } = item;
+                const imagePathFinal = await uploadImage(image);
+                itemsToPost.push({
+                    image: imagePathFinal,
+                    stock,
+                    color
+                });
+            }
 
-        for (const item of itemList) {
-            const {
-                image,
-                stock,
-                color
-            } = item;
-            const imagePathFinal = await uploadImage(image);
-            itemsToPost.push({
-                image: imagePathFinal,
-                stock,
-                color
+            const formInfo = new FormData();
+            formInfo.append('items', JSON.stringify(itemsToPost));
+
+            await fetch(window.location.pathname.replace("editar", "items"), {
+                method: 'POST',
+                body: formInfo,
             });
         }
 
-        //Data para crear un nuevo producto junto con sus items.
-        const formData = new FormData();
-        formData.append('data', JSON.stringify(data));
-        formData.append('image', image);
-        formData.append('items', JSON.stringify(itemsToPost));
+        //Delete list
+        for (const id of itemsDeleteList) {
+            console.log(id);
+            /*
+            deleteItemAndRelated
 
-        // Perform a POST request using Fetch or another method
-        await fetch('/admin', {
-            method: 'POST',
-            body: formData,
-        })
 
-        allowExit = true;
+            // Eliminar los items
+            await Item.destroy({
+            where: {
+            product_id: id
+            }
+            });
+            
+            */
+        }
 
-        window.location.href = '/admin';
     });
 
 };

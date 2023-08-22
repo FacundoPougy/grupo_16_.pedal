@@ -28,7 +28,7 @@ router.get("/:id/editar", adminController.getAdminEditar);
 router.put("/:id/eliminar", adminController.adminDelete);
 
 // @PUT /:id/editarProducto
-router.put("/:id/actualizar", adminController.actualizar);
+router.put("/:id/actualizar", [upload.any('image-update')], adminController.actualizar);
 
 // @POST /
 router.post("/", [upload.any('image')], adminController.postAdminCrear);
@@ -36,5 +36,8 @@ router.post("/", [upload.any('image')], adminController.postAdminCrear);
 router.post("/image", [upload.any('image-item')], adminController.postImage);
 
 router.post("/deleteImage", [upload.none()], adminController.deleteImage);
+
+router.post("/:id/items", [upload.none()], adminController.postCrearItems);
+
 
 module.exports = router;
