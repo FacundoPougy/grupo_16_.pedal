@@ -189,7 +189,7 @@ window.onload = function () {
     });
 
     //GUARDAR
-    formulario.addEventListener("submit", async function () {
+    formulario.addEventListener("submit", async function (event) {
         allowExit = true;
 
         //Post items in itemlist and delete items in itemsDeleteList
@@ -218,21 +218,18 @@ window.onload = function () {
             });
         }
 
-        //Delete list
-        for (const id of itemsDeleteList) {
-            console.log(id);
-            /*
-            deleteItemAndRelated
+        //Delete the items of the delete list
+        const itemsToDelete = new FormData();
+        itemsToDelete.append('items', JSON.stringify(itemsDeleteList));
 
-
-            // Eliminar los items
-            await Item.destroy({
-            where: {
-            product_id: id
-            }
+        try {
+            await fetch('/admin/deleteItems', {
+                method: 'PUT',
+                body: itemsToDelete,
             });
-            
-            */
+
+        } catch (error) {
+            console.error(error);
         }
 
     });

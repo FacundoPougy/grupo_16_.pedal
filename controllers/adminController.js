@@ -7,7 +7,7 @@ const {
   ShoppingCart
 } = require('../database/models');
 
-async function deleteItemAndRelated(item) {
+async function deleteItemRelated(item) {
   try {
     await ShoppingCart.destroy({
       where: {
@@ -26,6 +26,7 @@ async function deleteItemAndRelated(item) {
     }
   } catch (error) {
     console.error('Error deleting item:', error);
+    throw error;
   }
 }
 
@@ -91,7 +92,7 @@ const controller = {
 
       // Iterar y eliminar items en el shopping cart y sus imágenes
       for (const item of itemsToDestroy) {
-        await deleteItemAndRelated(item);
+        await deleteItemRelated(item);
       }
 
       // Eliminar los items
@@ -120,6 +121,7 @@ const controller = {
         }
       } catch (error) {
         console.error('Error deleting product image:', error);
+        throw error;
       }
 
       // Eliminar el producto
@@ -170,6 +172,7 @@ const controller = {
           });
         } catch (unlinkErr) {
           console.error('Error deleting item image:', unlinkErr);
+          throw unlinkErr;
         }
       }
 
@@ -221,15 +224,35 @@ const controller = {
   },
 
   postCrearItems: async (req, res) => {
-
-    const productId = Number(req.params.id);
-
-    await createItems(JSON.parse(req.body.items), productId);
-
-    res.status(200).send("Items created.");
-
+    try {
+      const productId = Number(req.params.id);
+      await createItems(JSON.parse(req.body.items), productId);
+      res.status(200).send("Items created.");
+    } catch (error) {
+      console.error("An error occurred:", error);
+      res.status(500).send("Internal Server Error");
+    }
   },
 
+  deleteItems: async (req, res) => {
+    try {
+      let item;
+      for (const id of JSON.parse(req.body.items)) {
+        item = await Item.findByPk(id);
+        deleteItemRelated(item);
+        await Item.destroy({
+          where: {
+            id: id
+          }
+        });
+      }
+      res.status(200).send("Items Deleted from DB.");
+
+    } catch (error) {
+      console.error('Error deleting items');
+      res.status(500).send("An error occurred while deleting items.");
+    }
+  },
 };
 
 module.exports = controller;
