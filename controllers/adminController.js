@@ -18,7 +18,6 @@ async function deleteItemRelated(item) {
 
     if (item.image) {
       const itemImagePath = path.join(__dirname, '../public/', item.image);
-      console.log(itemImagePath);
       fs.unlink(itemImagePath, err => {
         if (err) {
           console.error('Error deleting item image:', err);

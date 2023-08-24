@@ -3,8 +3,36 @@ const path = require('path');
 const bcrypt = require("bcrypt");
 
 const {
-  User
+  User,
+  ShoppingCart
 } = require('../database/models');
+
+async function deleteUserRelated(user) {
+  try {
+    await ShoppingCart.destroy({
+      where: {
+        user_id: user.id
+      }
+    });
+
+    let userImagePath;
+    if (user.image) {
+      userImagePath = path.join(__dirname, '../public/', user.image);
+      console.log(userImagePath);
+      fs.unlink(userImagePath, err => {
+        if (err) {
+          console.error('Error deleting user image:', err);
+        }
+      });
+    }
+
+    console.log('related data deleted successfully', userImagePath);
+  } catch (error) {
+    console.error('Error deleting related data:', error);
+    throw error;
+  }
+}
+
 
 const controller = {
 
@@ -40,14 +68,75 @@ const controller = {
     });
   },
 
-  userAdminDelete: (req, res) => {
-    console.log(req.params.id);
-    res.send("Listo delete");
+  userAdminDelete: async (req, res) => {
+    try {
+      const id = Number(req.params.id);
+
+      const usuarioAEliminar = await User.findByPk(id);
+
+      if (!usuarioAEliminar) {
+        return res.send("Usuario no encontrado");
+      }
+
+      await deleteUserRelated(usuarioAEliminar);
+
+      await usuarioAEliminar.destroy({
+        where: {
+          id: usuarioAEliminar.id
+        }
+      });
+
+      res.status(200).redirect("/admin");
+    } catch (error) {
+      console.error("Ha ocurrido un error:", error);
+      res.status(500).send("Error en el servidor");
+    }
+
   },
 
-  actualizar: (req, res) => {
-    console.log(req.params.id);
-    res.send("Listo Actualizar");
+  actualizar: async (req, res) => {
+    try {
+      const id = Number(req.params.id);
+      const newInfo = req.body;
+      const newImage = req.files.length > 0 ? "/images/users/" + req.files[0].filename : null; // Tomar solo la primera imagen
+      const oldUser = await User.findByPk(id);
+
+      const updatedUserData = {
+        firstName: newInfo.firstName,
+        lastName: newInfo.lastName,
+        email: newInfo.email,
+        password: bcrypt.hashSync(newInfo.password, 12),
+        type: newInfo.type,
+        image: newImage || oldUser.image // Usar newImage si está definida, de lo contrario, mantener la imagen existente
+      };
+
+      await User.update(updatedUserData, {
+        where: {
+          id: id
+        }
+      });
+
+      // Borrar la imagen anterior
+      if (newImage && oldUser.image) {
+        try {
+          const entirePath = path.join(__dirname, '../public/', oldUser.image);
+          await fs.unlink(entirePath, err => {
+            if (err) {
+              console.error('Error deleting item image:', err);
+            }
+          });
+        } catch (unlinkErr) {
+          console.error('Error deleting item image:', unlinkErr);
+          throw unlinkErr;
+        }
+      }
+
+      res.redirect("/admin");
+    } catch (error) {
+      console.error('Error during user update:', error);
+      res.status(500).send('Error durante la actualización.');
+    }
+
   },
 
   postUserAdminCrear: async (req, res) => {
@@ -63,7 +152,8 @@ const controller = {
 
       await User.create(user);
 
-      res.status(200).send("Usuario creado con éxito."); //Agregar un admin reddirect con alguna query varaible para indicar que se vea usuario
+      //Agregar un admin reddirect con alguna query varaible para indicar que se vea usuario
+      res.status(200).redirect("/admin");
 
     } catch (error) {
       console.error(error);
