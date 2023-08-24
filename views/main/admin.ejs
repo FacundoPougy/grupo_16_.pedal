@@ -68,9 +68,9 @@
             <p class="correo"><%= usuario.email %></p>
             <p>Tipo: <%= usuario.type %> </p>
           </div>
-          <a class="edit-icon" href="admin/<%= usuario.id %>/editar"><i class="fa-solid fa-pen-to-square"></i></a>
+          <a class="edit-icon" href="admin-user/<%= usuario.id %>/editar"><i class="fa-solid fa-pen-to-square"></i></a>
           <% if (!usuario.deleted) { %>
-          <form class="delete-form" action="admin/<%= usuario.id %>/eliminar?_method=put" method="post">
+          <form class="delete-form" action="admin-user/<%= usuario.id %>/eliminar?_method=put" method="post">
             <button type="submit" class="delete-icon" onclick="return confirmacion()">
               <i class="fa-solid fa-trash-can"></i>
             </button>

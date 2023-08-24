@@ -6,7 +6,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './public/images/products/');
+        cb(null, './public/images/users/');
     },
     filename: (req, file, cb) => {
         console.log(path.extname(file.originalname))
@@ -17,6 +17,9 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage
 });
+
+
+//RUTA USADA --> /admin-user
 
 // @GET /crear
 router.get("/crear", userAdminController.getUserAdminCrear);
