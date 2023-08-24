@@ -6,7 +6,7 @@ const multer = require("multer");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public/images");
+    cb(null, "./public/images/users/");
   },
   filename: (req, file, cb) => {
     console.log(path.extname(file.originalname));
@@ -21,4 +21,4 @@ router.get("/", registerController.getRegister);
 module.exports = router;
 
 // @POST - /register
-router.post("/", upload.any("image"), registerController.registerUser);
+router.post("/", [upload.any("image")], registerController.registerUser);

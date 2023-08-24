@@ -29,7 +29,6 @@
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 6vh;
-  padding-bottom: 10vw;
 }
 
 .productos-existentes {
@@ -103,6 +102,10 @@
   font-size: 1vw;
 }
 
+#user-container,
+#productscontainer {
+  padding-bottom: 10vw;
+}
 
 @media (min-width: 768px) {
   .productos-existentes {

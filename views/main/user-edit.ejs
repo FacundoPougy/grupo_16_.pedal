@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/inputs.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="/css/admin-crear.css" />
+</head>
+
+<body>
+
+  <a href="javascript:history.back()" class="btn-back">
+    <i class="fas fa-arrow-left"></i>
+  </a>
+
+  <h1 class="admin-title">Editar Producto</h1>
+
+  <form class="form-product" method="POST" id="update-form" action="/admin/<%= product.id %>/actualizar?_method=PUT"
+    enctype="multipart/form-data">
+    <section class="form-crear">
+      <div class="propiedades">
+        <input type="text" id="name" name="name" class="input-form" value="<%= product.name %>" placeholder="Ejemplo"
+          required />
+        <label for="name" class="labels">Nombre del producto:</label>
+      </div>
+
+      <div class="propiedades">
+        <textarea id="description" name="description" class="input-form" placeholder="Ejemplo"
+          required><%= product.description %></textarea>
+        <label for="description" class="labels">Descripción:</label>
+      </div>
+
+      <div class="propiedades">
+        <input type="number" id="price" name="price" step="1" class="input-form" placeholder="Ejemplo"
+          value="<%= product.price %>" required />
+        <label for="price" class="labels">Precio:</label>
+      </div>
+
+      <div class="propiedades">
+        <input type="file" id="image" placeholder="seleccionar imagen" name="image-update" value="<%= product.image %>"
+          class="input-form" />
+        <label for="image" class="labels">Imagen:</label>
+      </div>
+
+      <div class="propiedades">
+        <label for="category" class="labels select">Categoría:</label>
+        <select id="category" name="category" class="input-form" required>
+          <% const categories = ['Bicicleta', 'Accesorio']; %>
+          <% for (const category of categories) { %>
+          <option <%= category === product.category ? 'selected' : '' %>><%= category %></option>
+          <% } %>
+        </select>
+      </div>
+
+    </section>
+
+    <div id="items-container" class="productos-existentes-container">
+      <% items.forEach(item => { %>
+      <article class="productos-existentes" itemid="<%= item.id %>">
+        <img class="img-producto" src="<%= item.image %>" alt="Bicicleta">
+        <div class="productos-existentes-content">
+          <p>Color: <%= item.color %></p>
+          <p>Stock: <%= item.stock %></p>
+        </div>
+        <button class="delete-icon"><i class="fa-solid fa-trash-can"></i></button>
+      </article>
+      <% }); %>
+    </div>
+
+    <div id="buttons">
+      <input type="submit" value="Guardar" class="button-form" id="crear-product" />
+    </div>
+  </form>
+
+
+  <!-- item part of the form -->
+  <div id="overlay" style="display: none;">
+    <div id="centered-box">
+      <form id="form-item" class="form-crear" method="POST" action="/admin/image" enctype="multipart/form-data">
+        <div class="propiedades">
+          <input type="file" id="image-item" placeholder="seleccionar imagen" name="image-item" class="input-form" />
+          <label for="image-item" class="labels">Imagen:</label>
+        </div>
+
+        <div class="propiedades">
+          <label for="color" class="labels select">Color:</label>
+          <select id="color" name="color" class="input-form" required>
+            <% const colors = ['Blanco', 'Negro', 'Rojo', 'Azul', 'Verde', 'Amarillo', 'Naranja', 'Morado', 'Gris', 'Marrón', 'Rosa']; %>
+            <% for (const color of colors) { %>
+            <option value="<%= color %>" <%= color === 'Negro' ? 'selected' : '' %>><%= color %></option>
+            <% } %>
+          </select>
+        </div>
+
+        <div class="propiedades">
+          <input type="number" id="stock" name="stock" step="1" class="input-form" placeholder="4" required />
+          <label for="stock" class="labels">Stock</label>
+        </div>
+
+        <div id="buttons">
+          <input type="submit" value="Agregar" class="button-form" id="add-item-button"></input>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="fixed-div add-item-div" id="toggle-button">
+    <a>Agregar un item</a>
+  </div>
+
+  <script src="/script/admin-editar.js"></script>
+
+</body>
+
+</html>

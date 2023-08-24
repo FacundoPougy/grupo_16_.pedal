@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/inputs.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="/css/admin-crear.css" />
+</head>
+
+<body>
+
+  <a href="javascript:history.back()" class="btn-back">
+    <i class="fas fa-arrow-left"></i>
+  </a>
+
+  <h1 class="admin-title">Crear Usuario</h1>
+
+  <form id="form-product" method="POST" action="/register" enctype="multipart/form-data">
+    <section class="form-crear">
+      <div class="propiedades">
+        <input type="text" id="firstName" name="firstName" class="input-form" placeholder="Juan Manuel" required />
+        <label for="firstName" class="labels">Nombre:</label>
+      </div>
+
+      <div class="propiedades">
+        <input type="text" id="lastName" name="lastName" class="input-form" placeholder="Fangio" required />
+        <label for="lastName" class="labels">Apellido:</label>
+      </div>
+
+      <div class="propiedades">
+        <input type="email" id="email" name="email" class="input-form" placeholder="correo@example.com" required />
+        <label for="email" class="labels">Correo electrónico:</label>
+      </div>
+
+      <div class="propiedades">
+        <input type="password" id="password" name="password" class="input-form" placeholder="Contraseña" required />
+        <label for="password" class="labels">Contraseña:</label>
+      </div>
+
+      <div class="propiedades">
+        <select id="type" name="type" class="input-form" required>
+          <option selected value="Usuario">Usuario</option>
+          <option value="Administrador">Administrador</option>
+        </select>
+        <label for="type" class="labels select">Tipo:</label>
+      </div>
+
+      <div class="propiedades">
+        <input type="file" id="image" name="image" class="input-form" accept="image/*" required />
+        <label for="image" class="labels select">Imagen:</label>
+      </div>
+    </section>
+
+    <div id="buttons">
+      <input type="submit" value="Registrar" class="button-form" id="registrar-usuario" />
+    </div>
+  </form>
+
+  <!-- <script src="/script/admin-crear.js"></script> -->
+
+</body>
+
+</html>

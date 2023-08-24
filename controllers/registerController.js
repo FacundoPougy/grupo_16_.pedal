@@ -10,12 +10,11 @@ const controller = {
 
   registerUser: async (req, res) => {
     const user = req.body;
-
     const newPassword = bcrypt.hashSync(user.password, 12);
 
     user.password = newPassword;
 
-    user.image = req.files.map((file) => "/images/" + file.filename)[0];
+    user.image = req.files.map((file) => "/images/users/" + file.filename)[0];
 
     user.type = "user";
 

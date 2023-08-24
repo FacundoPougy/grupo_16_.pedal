@@ -51,7 +51,7 @@ app.use(async (req, res, next) => {
         // return res.redirect(
         //   "/login?error=El mail o la contraseña son incorrectos"
         // );
-      console.error("Usuario no encontrado");
+        console.error("Usuario no encontrado");
 
       }
 
@@ -81,6 +81,7 @@ const loginRoutes = require("./routes/loginRoutes");
 const productoRoutes = require("./routes/productoRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const cartRoutes = require("./routes/cartRoutes")
+const userAdminRoutes = require("./routes/userAdminRoutes")
 
 //Uso de las rutas
 app.use(homeRoutes);
@@ -89,6 +90,7 @@ app.use("/login", loginRoutes);
 app.use("/productos", productoRoutes);
 app.use("/admin", adminRoutes);
 app.use("/cart", cartRoutes)
+app.use("/admin-user", userAdminRoutes)
 
 app.use((req, res) => {
   res.render('404');
