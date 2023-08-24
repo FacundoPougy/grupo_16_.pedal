@@ -4,6 +4,7 @@
 <head>
   <%- include('../partials/head') %>
   <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="/css/footer-admin.css" />
 </head>
 
 
@@ -26,11 +27,10 @@
           <i class="fa-solid fa-arrow-left"></i>
         </a>
       </div>
-      <h1 class="titulo">Tus productos</h1>
+      <h1 id="admin-titulo" class="titulo">Tus productos</h1>
     </header>
-
-    <button class="create-button"></button>
-    <div class="productos-existentes-container">
+    <br>
+    <div class="productos-existentes-container" id="products-container">
       <% bicis.forEach(function(bici) { %>
       <% if (bici.deleted) { %>
       <article class="productos-existentes" style="background-color: rgba(255, 0, 0, 0.5);">
@@ -55,10 +55,43 @@
         <% }) %>
     </div>
 
+    <div class="productos-existentes-container" style="display: none;" id="user-container">
+      <% usuarios.forEach(function(usuario) { %>
+      <% if (usuario.deleted) { %>
+      <article class="productos-existentes" style="background-color: rgba(255, 0, 0, 0.5);">
+        <% } else { %>
+        <article class="productos-existentes">
+          <% } %>
+          <img class="img-producto" src="<%= usuario.image %>" alt="Imagen de perfil" />
+          <div class="productos-existentes-content">
+            <h3 class="nombre-bicicleta"><%= usuario.firstName %> <%= usuario.lastName %></h3>
+            <p class="correo"><%= usuario.email %></p>
+            <p>Tipo: <%= usuario.type %> </p>
+          </div>
+          <a class="edit-icon" href="admin/<%= usuario.id %>/editar"><i class="fa-solid fa-pen-to-square"></i></a>
+          <% if (!usuario.deleted) { %>
+          <form class="delete-form" action="admin/<%= usuario.id %>/eliminar?_method=put" method="post">
+            <button type="submit" class="delete-icon" onclick="return confirmacion()">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </form>
+          <% } %>
+        </article>
+        <% }) %>
+
+    </div>
+
+
+
     <div class="fixed-div">
       <a href="admin/crear" class="add-product">+</a>
     </div>
+
+    <%- include('../partials/footer-admin') %>
   </main>
+
+  <script src="/script/admin.js"></script>
+
 </body>
 
 </html>

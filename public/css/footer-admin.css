@@ -1,0 +1,45 @@
+/*FOOTER ADMIN
+
+:root {
+  --blanquito: #f1f0ec;
+  --violeta-oscuro: #402054;
+  --violeta-claro: #782d44;
+  --marronsito: #b03a35;
+  --naranja: #e94726;
+  --texto: Comfortaa;
+  --titulos: Poppins;
+  --break-mobile:768;
+}
+
+*/
+
+.Admin-Navigation-footer {
+  height: 8vw;
+  padding: 2vw;
+  display: flex;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-evenly;
+  background-color: var(--blanquito);
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.Admin-Navigation-Action {
+  color: var(--violeta-oscuro);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blanquito);
+  width: 10vw;
+  font-size: 1vw;
+  cursor: pointer;
+  border: none;
+}
+
+.Admin-Navigation-Action-icon {
+  color: var(--violeta-oscuro);
+  font-size: 2vw;
+}

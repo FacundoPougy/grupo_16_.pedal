@@ -7,7 +7,7 @@
   left: 0;
   width: 100%;
   height: 8vh;
-  background-color: #f1f1f1;
+  background-color: var(--blanquito);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   padding-bottom: 2vh;
   padding-top: 2vh;
@@ -29,6 +29,7 @@
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 6vh;
+  padding-bottom: 10vw;
 }
 
 .productos-existentes {
@@ -48,6 +49,8 @@
   padding-left: 0px;
   justify-content: space-evenly;
   margin-left: 2vw;
+  width: 10vw;
+  word-wrap: break-word;
 }
 
 .productos-existentes img {
@@ -62,7 +65,7 @@
 
 .fixed-div {
   position: fixed;
-  bottom: 20px;
+  bottom: 10vw;
   right: 20px;
   background-color: var(--violeta-oscuro);
   border-radius: 50%;
@@ -89,10 +92,17 @@
 
 .delete-icon {
   background-color: transparent;
-  border: none; /* Elimina el borde del botón */
-  cursor: pointer; /* Cambia el cursor a la forma de un clic */
+  border: none;
+  /* Elimina el borde del botón */
+  cursor: pointer;
+  /* Cambia el cursor a la forma de un clic */
   color: red;
 }
+
+.correo {
+  font-size: 1vw;
+}
+
 
 @media (min-width: 768px) {
   .productos-existentes {

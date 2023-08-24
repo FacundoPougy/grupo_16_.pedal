@@ -4,7 +4,8 @@ const path = require('path');
 const {
   Product,
   Item,
-  ShoppingCart
+  ShoppingCart,
+  User
 } = require('../database/models');
 
 async function deleteItemRelated(item) {
@@ -41,10 +42,12 @@ const controller = {
   getAdmin: async (req, res) => {
 
     let bicisObj = await Product.findAll();
+    let usersObj = await User.findAll();
 
     res.render("admin.ejs", {
       title: "ADMIN",
       bicis: bicisObj,
+      usuarios: usersObj,
     });
   },
 
