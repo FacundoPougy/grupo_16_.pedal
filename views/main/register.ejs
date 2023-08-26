@@ -3,8 +3,8 @@
 
 <head>
   <%- include('../partials/head') %>
-  <link rel="stylesheet" href="/css/register.css" />
-  <link rel="stylesheet" href="/css/inputs.css" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="stylesheet" href="/css/inputs.css" />
 </head>
 
 <body>
@@ -22,54 +22,37 @@
   <main class="register-main">
     <h1 class="register-title">¿NO TIENES CUENTA? REGÍSTRATE</h1>
 
-    <form action="/register" method="post" class="register-form" enctype="multipart/form-data">
+    <form action="/register" method="post" id="form" class="register-form" enctype="multipart/form-data">
       <div class="propiedades-container">
         <h2 class="register-subtitle">INTRODUCE TUS DATOS DE REGISTRO</h2>
         <div class="propiedades">
           <input placeholder="Ejemplo" type="text" name="firstName" id="nombre" class="input-form" required />
           <label for="nombre" class="labels">Nombre</label>
+          <p class="error"></p>
         </div>
 
         <div class="propiedades">
           <input placeholder="Ejemplo" type="text" name="lastName" id="apellido" class="input-form" required />
           <label for="apellido" class="labels">Apellidos</label>
+          <p class="error"></p>
         </div>
 
         <div class="propiedades">
-          <input placeholder="Ejemplo" type="email" name="email" id="correo" class="input-form" required />
+          <input placeholder="Ejemplo" type="text" name="email" id="correo" class="input-form" required />
           <label for="correo" class="labels">Correo electrónico</label>
+          <p class="error"></p>
         </div>
 
         <div class="propiedades">
           <input placeholder="Ejemplo" type="password" name="password" id="password" class="input-form" required />
           <label for="password" class="labels">Contraseña</label>
+          <p class="error"></p>
         </div>
         <div class="propiedades">
           <input type="file" id="image" placeholder="seleccionar imagen" name="image" class="input-form" />
           <label for="image" class="labels">Imagen:</label>
+          <p class="error"></p>
         </div>
-
-        <!-- <div class="register-telefono">
-            <div class="propiedades">           
-              <select class="input-form" required>
-                <option value="+54">+54</option>
-                <option value="+57">+57</option>
-                <option value="+598">+598</option>
-              </select>
-            </div>
-
-            <div class="propiedades telefono">
-              <input
-                placeholder="Ejemplo"
-                type="number"
-                name="telefono"
-                id="telefono"
-                class="input-form"
-                required
-              />
-              <label for="telefono" class="labels">Teléfono</label>
-            </div>
-          </div> -->
       </div>
 
       <div class="opciones-container">
@@ -104,11 +87,12 @@
           </label>
         </div>
         <div class="center-button">
-          <button type="submit" class="register-button">CREAR CUENTA</button>
+          <button type="submit" disabled id="submitBtn" class="register-button">CREAR CUENTA</button>
         </div>
       </div>
     </form>
   </main>
+  <script src="/script/registerForm.js"></script>
 </body>
 
 </html>

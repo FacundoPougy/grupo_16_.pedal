@@ -1,245 +1,238 @@
 /*HEADER*/
 .register-header {
-    display: flex;
-    height: 30vw;
+  display: flex;
+  height: 30vw;
 }
 
 .center-img {
-    width: 60%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
+  width: 60%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .logo-header {
-    width: 100%;
+  width: 100%;
 }
 
 .center-img img {
-    width: 100%;
+  width: 100%;
 }
 
 .flecha {
-    font-size: 6vw;
-    padding: 1vw;
+  font-size: 6vw;
+  padding: 1vw;
 }
 
 .flecha-link {
-    margin: auto;
-    text-decoration: none;
+  margin: auto;
+  text-decoration: none;
 }
 
 /*End of HEADER*/
 
 /*Main*/
 .register-main {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: auto;
 }
 
 .register-title {
-    font-size: 5vw;
-    text-align: center;
+  font-size: 5vw;
+  text-align: center;
 }
 
 .register-subtitle {
-    font-size: 3vw;
+  font-size: 3vw;
 }
 
 /*Propiedades*/
 
 .propiedades-container {
-    display: flex;
-    flex-direction: column;
-    height: 90vw;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  height: 90vw;
+  justify-content: space-evenly;
 }
 
 .register-telefono {
-    display: flex;
+  display: flex;
 }
 
 .telefono {
-    padding-left: 2vw;
-    width: 100%;
+  padding-left: 2vw;
+  width: 100%;
 }
 
 .telefono .labels {
-    padding-left: 2vw;
+  padding-left: 2vw;
 }
 
-/* .prefix-line {
-    font-size: 3vw;
-    position: relative;
-    top: 1vw;
-    Nota: Para que funcione hay que darle un height al register-telefono y poner el labelsito chiquito arriba.
-} */
-
+.error {
+  color: red;
+  padding-top: 2px;
+  font-size: small;
+}
 
 .text {
-    font-size: 3.5vw;
-    width: 65%;
+  font-size: 3.5vw;
+  width: 65%;
 }
 
 .policy {
-    color: var(--naranja);
+  color: var(--naranja);
 }
 
 /*Opciones*/
 .opciones-container {
-    height: 85vw;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+  height: 85vw;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 16vw;
-    height: 9vw;
+  position: relative;
+  display: inline-block;
+  width: 16vw;
+  height: 9vw;
 }
 
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #bebebe;
-    -webkit-transition: .4s;
-    transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #bebebe;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider.round {
-    border-radius: 10vw;
+  border-radius: 10vw;
 }
 
 .slider.round:before {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .opciones {
-    display: flex;
-    justify-content: space-around;
-    height: 10vw;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  height: 10vw;
+  align-items: center;
 }
 
 .center-button {
-    display: flex;
-    height: 10%;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  height: 10%;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .register-button {
-    background-color: var(--violeta-oscuro);
-    color: var(--blanquito);
-    border: none;
-    height: 100%;
-    width: 60%;
-    border-radius: 1vw;
-    cursor: pointer;
+  background-color: var(--violeta-oscuro);
+  color: var(--blanquito);
+  border: none;
+  height: 100%;
+  width: 60%;
+  border-radius: 1vw;
+  cursor: pointer;
 }
 
 /*Efectos*/
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 80%;
-    width: 45%;
-    left: 10%;
-    bottom: 10%;
-    background-color: var(--blanquito);
-    -webkit-transition: .4s;
-    transition: .4s;
+  position: absolute;
+  content: "";
+  height: 80%;
+  width: 45%;
+  left: 10%;
+  bottom: 10%;
+  background-color: var(--blanquito);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-input:checked+.slider {
-    background-color: var(--violeta-oscuro);
+input:checked + .slider {
+  background-color: var(--violeta-oscuro);
 }
 
-input:focus+.slider {
-    box-shadow: 0 0 1px #402054;
+input:focus + .slider {
+  box-shadow: 0 0 1px #402054;
 }
 
-input:checked+.slider:before {
-    transform: translateX(75%);
+input:checked + .slider:before {
+  transform: translateX(75%);
 }
 
 /* MEDIA QUERIES */
 
 @media only screen and (min-width: 769px) {
+  .text {
+    font-size: 1.2vw;
+    width: 80%;
+  }
 
-    .text {
-        font-size: 1.2vw;
-        width: 80%;
-    }
+  .register-form {
+    display: flex;
+    flex-direction: row;
+    padding: 4vw;
+    justify-content: space-evenly;
+  }
 
-    .register-form {
-        display: flex;
-        flex-direction: row;
-        padding: 4vw;
-        justify-content: space-evenly;
-    }
+  .propiedades-container {
+    width: 40%;
+    height: 30vw;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
 
-    .propiedades-container {
-        width: 40%;
-        height: 30vw;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-    }
+  .opciones-container {
+    width: 40%;
+    height: 30vw;
+    justify-content: space-between;
+  }
 
-    .opciones-container {
-        width: 40%;
-        height: 30vw;
-        justify-content: space-between;
-    }
+  .register-title {
+    font-size: 2vw;
+    padding-top: 1vw;
+  }
 
-    .register-title {
-        font-size: 2vw;
-        padding-top: 1vw;
-    }
+  .register-subtitle {
+    font-size: 1.5vw;
+  }
 
-    .register-subtitle {
-        font-size: 1.5vw;
-    }
+  .register-button {
+    width: 100%;
+  }
 
-    .register-button {
-        width: 100%;
-    }
+  .register-header {
+    height: 8vw;
+  }
 
-    .register-header {
-        height: 8vw;
-    }
+  .flecha {
+    font-size: 4vw;
+  }
 
-    .flecha {
-        font-size: 4vw;
-    }
+  .switch {
+    width: 5.4vw;
+    height: 3vw;
+  }
 
-    .switch {
-        width: 5.4vw;
-        height: 3vw;
-    }
-
-    /* .prefix-line {
+  /* .prefix-line {
         font-size: 1.5vw;
     } */
-
 }
-
-
-
