@@ -110,22 +110,22 @@ form.addEventListener("submit", function (event) {
   if (nombre.value.length === 0) {
     event.preventDefault();
     console.log(
-      "se frenó la ejecucion del submit, debido a fallas en el campo de image"
+      "se frenó la ejecucion del submit, debido a fallas en el campo de nombre"
     );
   } else if (apellido.value.length === 0) {
     event.preventDefault();
     console.log(
-      "se frenó la ejecucion del submit, debido a fallas en el campo de image"
+      "se frenó la ejecucion del submit, debido a fallas en el campo de apellido"
     );
   } else if (email.value.length === 0) {
     event.preventDefault();
     console.log(
-      "se frenó la ejecucion del submit, debido a fallas en el campo de image"
+      "se frenó la ejecucion del submit, debido a fallas en el campo de email"
     );
   } else if (password.value.length === 0) {
     event.preventDefault();
     console.log(
-      "se frenó la ejecucion del submit, debido a fallas en el campo de image"
+      "se frenó la ejecucion del submit, debido a fallas en el campo de password"
     );
   }
 });
