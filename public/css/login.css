@@ -1,227 +1,225 @@
 /*HEADER*/
 .login-header {
-    display: flex;
-    height: 30vw;
+  display: flex;
+  height: 30vw;
 }
 
 .center-img {
-    width: 60%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
+  width: 60%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .logo-header {
-    width: 100%;
+  width: 100%;
 }
 
 .center-img img {
-    width: 100%;
+  width: 100%;
 }
 
 .equis {
-    font-size: 6vw;
-    padding: 1vw;
+  font-size: 6vw;
+  padding: 1vw;
 }
 
 .equis-link {
-    margin: auto;
-    text-decoration: none;
+  margin: auto;
+  text-decoration: none;
 }
 
 /*End of HEADER*/
 
 /*Main*/
 .login-main {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: auto;
 }
 
 .login-title {
-    font-size: 5vw;
-    text-align: center;
+  font-size: 5vw;
+  text-align: center;
 }
 
 .login-subtitle {
-    font-size: 3vw;
+  font-size: 3vw;
 }
 
 .check-login {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.error {
+  color: red;
 }
 
 .error-message {
-    color: red;
+  color: red;
 }
 
 .check-remind {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .check-remind input[type="checkbox"] {
-    margin-right: 3vh;
+  margin-right: 3vh;
 }
 
 .forgot-password {
-    font-size: 3vw;
-    margin-top: 3vh;
+  font-size: 3vw;
+  margin-top: 3vh;
 }
 
 .Log-In {
-    background-color: var(--violeta-oscuro);
-    color: var(--blanquito);
-    border: none;
-    height: 100%;
-    width: 80%;
-    border-radius: 1vw;
+  background-color: var(--violeta-oscuro);
+  color: var(--blanquito);
+  border: none;
+  height: 100%;
+  width: 80%;
+  border-radius: 1vw;
 }
-
 
 /*Propiedades*/
 
 .propiedades-container {
-    display: flex;
-    flex-direction: column;
-    height: 90vw;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  height: 90vw;
+  justify-content: space-evenly;
 }
 
 #my-Checkbox {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 5vw;
-    height: 5vw;
-    border-radius: 50%;
-    border: 1px solid var(--violeta-oscuro);
-    cursor: pointer;
-    background-color: var(--blanquito);
-    ;
-
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  border: 1px solid var(--violeta-oscuro);
+  cursor: pointer;
+  background-color: var(--blanquito);
 }
 
 #my-Checkbox:checked {
-    background-color: var(--violeta-oscuro);
+  background-color: var(--violeta-oscuro);
 }
 
 .center-button-login {
-    display: flex;
-    height: 10%;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  height: 10%;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .text {
-    font-size: 3.5vw;
-    width: 65%;
+  font-size: 3.5vw;
+  width: 65%;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* Opciones */
 
 .opciones-container {
-    height: 85vw;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+  height: 85vw;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 .opciones {
-    display: flex;
-    justify-content: space-around;
-    height: 3vw;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  height: 3vw;
+  align-items: center;
 }
 
 .center-button {
-    display: flex;
-    height: 10%;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  height: 10%;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .crear-cuenta {
-    background-color: var(--naranja);
-    color: var(--blanquito);
-    border: none;
-    height: 100%;
-    width: 80%;
-    border-radius: 1vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: var(--naranja);
+  color: var(--blanquito);
+  border: none;
+  height: 100%;
+  width: 80%;
+  border-radius: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 /* MEDIA QUERIES */
 
 @media only screen and (min-width: 769px) {
+  .text {
+    font-size: 1.2vw;
+    width: 80%;
+  }
 
-    .text {
-        font-size: 1.2vw;
-        width: 80%;
-    }
+  .login-form {
+    display: flex;
+    flex-direction: row;
+    padding: 4vw;
+    justify-content: space-evenly;
+  }
 
-    .login-form {
-        display: flex;
-        flex-direction: row;
-        padding: 4vw;
-        justify-content: space-evenly;
-    }
+  .propiedades-container {
+    width: 40%;
+    height: 30vw;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
 
-    .propiedades-container {
-        width: 40%;
-        height: 30vw;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-    }
+  .opciones-container {
+    width: 40%;
+    height: 30vw;
+    justify-content: space-between;
+  }
 
-    .opciones-container {
-        width: 40%;
-        height: 30vw;
-        justify-content: space-between;
-    }
+  .login-title {
+    font-size: 2vw;
+    padding-top: 1vw;
+  }
 
-    .login-title {
-        font-size: 2vw;
-        padding-top: 1vw;
-    }
+  .login-subtitle {
+    font-size: 1.5vw;
+  }
 
-    .login-subtitle {
-        font-size: 1.5vw;
-    }
+  #my-Checkbox {
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+  }
 
-    #my-Checkbox {
-        width: 2vw;
-        height: 2vw;
-        border-radius: 50%;
-    }
+  .login-button {
+    width: 100%;
+  }
 
-    .login-button {
-        width: 100%;
-    }
+  .login-header {
+    height: 8vw;
+  }
 
-    .login-header {
-        height: 8vw;
-    }
+  .forgot-password {
+    font-size: 0.9vw;
+    margin-top: 3vh;
+  }
 
-    .forgot-password {
-        font-size: 0.9vw;
-        margin-top: 3vh;
-    }
-
-    .equis {
-        font-size: 2vw;
-    }
-
+  .equis {
+    font-size: 2vw;
+  }
 }
