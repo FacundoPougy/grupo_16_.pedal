@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const { User } = require("../database/models");
+const { validationResult } = require("express-validator");
 
 const controller = {
   getRegister: (req, res) => {
@@ -9,23 +10,37 @@ const controller = {
   },
 
   registerUser: async (req, res) => {
-    const user = req.body;
-    const newPassword = bcrypt.hashSync(user.password, 12);
+    try {
+      const validationsValues = validationResult(req);
 
-    user.password = newPassword;
+      console.log(validationsValues.errors.length);
 
-    user.image = req.files.map((file) => "/images/users/" + file.filename)[0];
+      if (validationsValues.errors.length > 0) {
+        return res
+          .status(400)
+          .json(validationsValues.errors + validationsValues.errors.length);
+      }
+      const user = req.body;
+      const newPassword = bcrypt.hashSync(user.password, 12);
 
-    user.type = "user";
+      user.password = newPassword;
 
-    await User.create(user);
+      user.image = req.files.map((file) => "/images/users/" + file.filename)[0];
 
-    delete user.password;
-    delete user.id;
+      user.type = "user";
 
-    req.session.user = user;
+      await User.create(user);
 
-    res.redirect("/#menu");
+      delete user.password;
+      delete user.id;
+
+      req.session.user = user;
+
+      res.redirect("/#menu");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Hubo un error al crear el producto");
+    }
   },
 };
 
