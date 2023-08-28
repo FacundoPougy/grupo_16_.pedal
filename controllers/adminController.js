@@ -1,5 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const {
+  validationResult
+} = require('express-validator');
 
 const {
   Product,
@@ -187,15 +190,34 @@ const controller = {
 
   postAdminCrear: async (req, res) => {
     try {
-      let datos = JSON.parse(req.body.data);
+      const validationsValues = validationResult(req);
+
+      console.log(validationsValues.errors);
+
+      if (validationsValues.errors.length > 0) {
+        return res.status(400).json(validationsValues.errors);
+      }
+
+      let datos = req.body;
       datos.price = Number(datos.price);
-      datos.main_image = req.files.map((file) => "/images/products/" + file.filename)[0]; // Tomar solo la primer imagen
+
+      datos.main_image = "/images/products/" + req.files.find(file => file.fieldname === 'mainImage').filename;
 
       const createdProduct = await Product.create(datos);
 
       const productId = createdProduct.dataValues.id;
 
-      await createItems(JSON.parse(req.body.items), productId);
+      const itemsArray = JSON.parse(req.body.items);
+
+      const itemImgFilenames = req.files
+        .filter(file => file.fieldname === 'itemImg')
+        .map(file => '/images/products/' + file.filename);
+
+      for (let i = 0; i < itemsArray.length; i++) {
+        itemsArray[i].image = itemImgFilenames[i];
+      }
+
+      await createItems(itemsArray, productId);
 
       res.status(200).send("Producto cargado con éxito.");
 

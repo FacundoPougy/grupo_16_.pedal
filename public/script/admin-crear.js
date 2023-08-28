@@ -12,29 +12,30 @@ window.onload = function () {
         toggleButton.style.width = '12vw';
     }
 
-    function showItem(color, stock, imagenSrc) {
+    function showItem(color, stock, imagen) {
         // Obtén una referencia al contenedor de productos existentes
-        var productosContainer = document.getElementById("items-container");
+        let productosContainer = document.getElementById("items-container");
 
         // Crea el artículo de productos existentes
-        var article = document.createElement("article");
+        let article = document.createElement("article");
         article.className = "productos-existentes";
 
         // Crea la imagen del producto
-        var img = document.createElement("img");
+        const imageUrl = URL.createObjectURL(imagen);
+        let img = document.createElement("img");
         img.id = "img-n" + itemList.length;
         img.className = "img-producto";
-        img.src = imagenSrc;
+        img.src = imageUrl;
         img.alt = "Bicicleta";
 
         // Crea el contenedor de contenido de productos existentes
-        var contentDiv = document.createElement("div");
+        let contentDiv = document.createElement("div");
         contentDiv.className = "productos-existentes-content";
 
         // Crea los elementos de párrafo para color y stock
-        var colorParagraph = document.createElement("p");
+        let colorParagraph = document.createElement("p");
         colorParagraph.textContent = "Color: " + color;
-        var stockParagraph = document.createElement("p");
+        let stockParagraph = document.createElement("p");
         stockParagraph.textContent = "Stock: " + stock;
 
         // Agrega los párrafos al contenedor de contenido
@@ -42,7 +43,7 @@ window.onload = function () {
         contentDiv.appendChild(stockParagraph);
 
         // Crea el botón de eliminar
-        var button = document.createElement("button");
+        let button = document.createElement("button");
         button.className = "delete-icon";
         // Agrega un controlador de evento clic a cada objeto delete
         button.addEventListener("click", async function (event) {
@@ -54,7 +55,7 @@ window.onload = function () {
             itemList.splice(indiceClicado, 1);
         });
 
-        var icon = document.createElement("i");
+        let icon = document.createElement("i");
         icon.className = "fa-solid fa-trash-can";
         button.appendChild(icon);
 
@@ -66,20 +67,6 @@ window.onload = function () {
         // Agrega el artículo al contenedor de productos existentes
         productosContainer.appendChild(article);
 
-    }
-
-    function delay(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    async function uploadImage(formData) {
-
-        const response = await fetch('/admin/image', {
-            method: 'POST',
-            body: formData
-        })
-
-        return await response.text();
     }
 
     let allowExit = false;
@@ -103,21 +90,20 @@ window.onload = function () {
         if (!allowExit) event.returnValue = "???";
     });
 
-    //AGREGAR ITEM
+    //_______________________________________AGREGAR ITEM________________________________________________________________________
     addButton.addEventListener("click", async function (event) {
 
         const imageInput = document.getElementById("image-item");
         const colorInput = document.getElementById("color");
         const stockInput = document.getElementById("stock");
 
-        const imageValue = imageInput.value;
         const colorValue = colorInput.value;
         const stockValue = stockInput.value;
 
         const image = imageInput.files[0];
 
         //VALIDACIONES
-        if (!imageValue || !colorValue || !stockValue || !image) {
+        if (!colorValue || !stockValue || !image) {
             alert("Por favor, complete todos los campos.");
             return;
         }
@@ -127,42 +113,22 @@ window.onload = function () {
 
         //Limpiar los campos del formulario
         imageInput.value = "";
-        colorInput.value = "";
+        colorInput.value = "Negro";
         stockInput.value = "";
 
         try {
-            // Subo la imagen preview al servidor
-            const formData = new FormData();
-            formData.append('image', image);
-            const imagePath = await uploadImage(formData);
-
-            //itemImages.push(formData);
 
             itemList.push({
-                image: formData,
+                image: image,
                 stock: stockValue,
                 color: colorValue
             })
 
             //Agregar el item para que se vea.
-            showItem(colorValue, stockValue, imagePath);
+            showItem(colorValue, stockValue, image);
 
             //Ocultar formulario
             hideItemsForm(overlay, toggleButton);
-
-            // Esperar a que la imagen se cargue completamente
-            await delay(1000); // Espera 1 segundo
-
-            //Elimino la imagen preview del servidor.
-            const formInfo = new FormData();
-            formInfo.append('items', JSON.stringify([{
-                image: imagePath
-            }]));
-
-            await fetch('/admin/deleteImage', {
-                method: 'POST',
-                body: formInfo,
-            });
 
         } catch (err) {
             alert("Error cargando el item.");
@@ -171,7 +137,7 @@ window.onload = function () {
 
     });
 
-    //CREAR
+    //_______________________________________CREAR________________________________________________________________________
     submitButton.addEventListener('click', async function (event) {
         event.preventDefault();
         event.stopPropagation(); // Detiene la propagación del evento
@@ -183,48 +149,44 @@ window.onload = function () {
         const price = parseFloat(document.getElementById('price').value);
 
         //VALIDACIONES:
+        //Validar que no se intente cargar un producto sin items.
 
 
         //__________________________________________________________________________
 
-        const data = {
-            name: name,
-            description: description,
-            category: category,
-            price: price,
-        };
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('description', description);
+        formData.append('category', category);
+        formData.append('price', price);
+        formData.append('mainImage', image);
 
-        //Por cada item pushea la imagen al servidor guarda los paths en item list.
-        let itemsToPost = [];
-
+        // Agregar las imágenes del itemList al FormData
         for (const item of itemList) {
-            const {
-                image,
-                stock,
-                color
-            } = item;
-            const imagePathFinal = await uploadImage(image);
-            itemsToPost.push({
-                image: imagePathFinal,
-                stock,
-                color
-            });
+            formData.append('itemImg', item.image);
+            delete item.image;
         }
 
-        //Data para crear un nuevo producto junto con sus items.
-        const formData = new FormData();
-        formData.append('data', JSON.stringify(data));
-        formData.append('image', image);
-        formData.append('items', JSON.stringify(itemsToPost));
+        formData.append('items', JSON.stringify(itemList));
 
-        // Perform a POST request using Fetch or another method
-        await fetch('/admin', {
+        const response = await fetch('/admin', {
             method: 'POST',
             body: formData,
-        })
+        });
+
+        if (!response.ok) {
+            const responseData = await response.json();
+            responseData.forEach(error => {
+                const errorElement = document.getElementById(`${error.path}-error`);
+                console.log(errorElement);
+                if (errorElement) {
+                    errorElement.textContent = error.msg;
+                }
+            });
+            return;
+        }
 
         allowExit = true;
-
         window.location.href = '/admin';
     });
 
