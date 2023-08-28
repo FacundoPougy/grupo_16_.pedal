@@ -23,38 +23,42 @@
     <main class="login-main">
         <h1 class="login-title">INICIA SESIÓN O CREA TU CUENTA</h1>
 
-        <form action="/login" method="post" class="login-form">
+        <form action="/login" method="post" id="form" class="login-form">
 
             <div class="propiedades-container">
                 <h2 class="login-subtitle">¿YA TIENES UNA CUENTA? INICIA SESIÓN</h2>
 
                 <div class="propiedades">
-                    <input type="email" placeholder="Ejemplo" name="email" id="correo" class="input-form" required>
+                    <input type="text" placeholder="Ejemplo" name="email" id="correo" class="input-form">
+                    <p class="error"></p>
                     <label class="labels" for="correo">Ingresa tu correo electrónico</label>
                 </div>
 
                 <div class="propiedades">
-                    <input type="password" placeholder="Ejemplo" name="password" id="contraseña" class="input-form" required>
+                    <input type="password" placeholder="Ejemplo" name="password" id="contraseña" class="input-form">
+                    <p class="error"></p>
                     <label class="labels" for="contraseña">Contraseña</label>
                 </div>
 
                 <% if (error) { %>
-                    <p class="error-message"><%= error %></p>
-                <% } %>
+                    <p class="error-message">
+                        <%= error %>
+                    </p>
+                    <% } %>
 
-                <div class="check-login">
-                    <div class="check-remind">
-                        <input type="checkbox" name="remember" id="my-Checkbox">
-                        <span>Recuérdame</span>
-                    </div>
-                    <div class="forgot-password">
-                        <span>¿Has olvidado la contraseña?</span>
-                    </div>
-                </div>
+                        <div class="check-login">
+                            <div class="check-remind">
+                                <input type="checkbox" name="remember" id="my-Checkbox">
+                                <span>Recuérdame</span>
+                            </div>
+                            <div class="forgot-password">
+                                <span>¿Has olvidado la contraseña?</span>
+                            </div>
+                        </div>
 
-                <div class="center-button-login">
-                    <button type="submit" class="Log-In" >INICIAR SESIÓN</button>
-                </div>
+                        <div class="center-button-login">
+                            <button type="submit" class="Log-In" id="submitBtn">INICIAR SESIÓN</button>
+                        </div>
 
             </div>
 
@@ -86,7 +90,7 @@
 
     </main>
 
-
+    <script src="/script/loginForm.js"></script>
 </body>
 
 </html>
