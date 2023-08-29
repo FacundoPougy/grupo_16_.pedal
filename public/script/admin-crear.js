@@ -164,10 +164,14 @@ window.onload = function () {
         // Agregar las imágenes del itemList al FormData
         for (const item of itemList) {
             formData.append('itemImg', item.image);
-            delete item.image;
         }
 
-        formData.append('items', JSON.stringify(itemList));
+        const itemsToSend = itemList.map(item => ({
+            color: item.color,
+            stock: item.stock
+        }));
+
+        formData.append('items', JSON.stringify(itemsToSend));
 
         const response = await fetch('/admin', {
             method: 'POST',
