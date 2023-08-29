@@ -19,19 +19,20 @@
   <form id="form-product" method="POST" action="/admin" enctype="multipart/form-data">
     <section class="form-crear">
       <div class="propiedades">
-        <input type="text" id="name" name="name" class="input-form" placeholder="Ejemplo" required />
+        <input type="text" id="name" name="name" class="input-form" placeholder="Mountain Bike BTB" required />
         <label for="name" class="labels">Nombre del producto:</label>
         <span id="name-error" class="error-message"></span>
       </div>
 
       <div class="propiedades">
-        <textarea id="description" name="description" class="input-form" placeholder="Ejemplo" required></textarea>
+        <textarea id="description" name="description" class="input-form"
+          placeholder="Bicicleta de ciudad, ideal para ambientes urbanossss." required></textarea>
         <label for="description" class="labels">Descripción:</label>
         <span id="description-error" class="error-message"></span>
       </div>
 
       <div class="propiedades">
-        <input type="number" id="price" name="price" step="1" class="input-form" placeholder="Ejemplo" required />
+        <input type="number" id="price" name="price" step="1" class="input-form" placeholder="237520.50" required />
         <label for="price" class="labels">Precio:</label>
         <span id="price-error" class="error-message"></span>
       </div>
@@ -72,10 +73,11 @@
   <!-- item part of the form -->
   <div id="overlay" style="display: none;">
     <div id="centered-box">
-      <form id="form-item" class="form-crear" method="POST" action="/admin/image" enctype="multipart/form-data">
+      <form id="form-item" class="form-crear">
         <div class="propiedades">
           <input type="file" id="image-item" placeholder="seleccionar imagen" name="image-item" class="input-form" />
           <label for="image-item" class="labels">Imagen:</label>
+          <span id="itemImage-error" class="error-message"></span>
         </div>
 
         <div class="propiedades">
@@ -86,11 +88,13 @@
             <option value="<%= color %>" <%= color === 'Negro' ? 'selected' : '' %>><%= color %></option>
             <% } %>
           </select>
+          <span id="color-error" class="error-message"></span>
         </div>
 
         <div class="propiedades">
           <input type="number" id="stock" name="stock" step="1" class="input-form" placeholder="4" required />
           <label for="stock" class="labels">Stock</label>
+          <span id="stock-error" class="error-message"></span>
         </div>
 
         <div id="buttons">

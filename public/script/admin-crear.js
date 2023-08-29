@@ -10,6 +10,8 @@ window.onload = function () {
         overlay.style.display = 'block';
         toggleButton.innerText = "Cancelar";
         toggleButton.style.width = '12vw';
+        const itemsErrorElement = document.getElementById("items-error");
+        itemsErrorElement.textContent = "";
     }
 
     function showItem(color, stock, imagen) {
@@ -71,6 +73,7 @@ window.onload = function () {
 
     // Función para borrar el contenido de un span
     function clearErrorMessage(spanElement) {
+        if (!spanElement) return;
         spanElement.textContent = "";
     }
 
@@ -80,6 +83,10 @@ window.onload = function () {
     const addButton = document.getElementById("add-item-button");
     const submitButton = document.getElementById('crear-product');
     let itemList = [];
+    const allowedCategories = ['Bicicleta', 'Accesorio'];
+    const acceptedColors = ['Blanco', 'Negro', 'Rojo', 'Azul', 'Verde', 'Amarillo', 'Naranja', 'Morado', 'Gris', 'Marrón', 'Rosa'];
+    const acceptedExtensions = ['.jpg', '.jpeg', '.png'];
+
 
     //Toggle Show/hide form items
     toggleButton.addEventListener('click', () => {
@@ -112,6 +119,8 @@ window.onload = function () {
 
     //_______________________________________AGREGAR ITEM________________________________________________________________________
     addButton.addEventListener("click", async function (event) {
+        event.preventDefault();
+        event.stopPropagation(); // Detiene la propagación del evento
 
         const imageInput = document.getElementById("image-item");
         const colorInput = document.getElementById("color");
@@ -123,25 +132,48 @@ window.onload = function () {
         const image = imageInput.files[0];
 
         //VALIDACIONES
-        if (!colorValue || !stockValue || !image) {
-            alert("Por favor, complete todos los campos.");
-            return;
+        let errorsFlag = false;
+
+        //Chequear si stockValue es un numero positivo. 
+        const stockErrorElement = document.getElementById("stock-error");
+        if (isNaN(stockValue) || stockValue <= 0) {
+            stockErrorElement.textContent = "El stock debe ser un número y positivo.";
+            errorsFlag = true;
+        } else {
+            stockErrorElement.textContent = "";
         }
 
-        //Chequear si stockValue no es un numero positivo, si la imagen no tiene cierta extension y si el color no es uno dentro de los validos.
-        if (!colorValue || !stockValue || !image) {
-            alert("Por favor, complete todos los campos.");
-            return;
+        //Chequear si el color es uno dentro de los validos.
+        const colorErrorElement = document.getElementById("color-error");
+        if (!colorValue || !acceptedColors.includes(colorValue)) {
+            colorErrorElement.textContent = "Debe elegir un color y debe ser uno de los aceptados.";
+            errorsFlag = true;
+        } else {
+            colorErrorElement.textContent = "";
         }
 
+        //Chequear si la imagen existe y si existe es de la extensión correcta.
+        const itemImageErrorElement = document.getElementById("itemImage-error");
+        if (!image) {
+            itemImageErrorElement.textContent = "Debe seleccionar una imagen.";
+            errorsFlag = true;
+        } else {
+            const fileExtension = image.name.substring(image.name.lastIndexOf('.')).toLowerCase();
+            if (!acceptedExtensions.includes(fileExtension)) {
+                itemImageErrorElement.textContent = `La extensión ${fileExtension} no está permitida.`;
+                errorsFlag = true;
+            } else {
+                itemImageErrorElement.textContent = "";
+            }
+        }
 
+        if (errorsFlag) return;
 
         //___________________________________________________________________________________________________________
-
         //Limpiar los campos del formulario
         imageInput.value = "";
         colorInput.value = "Negro";
-        stockInput.value = "";
+        stockInput.value = 0;
 
         try {
 
@@ -176,13 +208,55 @@ window.onload = function () {
         const price = parseFloat(document.getElementById('price').value);
 
         //VALIDACIONES:
-
+        let errorsFlag = false;
         //Validar que no se intente cargar un producto sin items.
-        if (itemList.length === 0) {
-            return;
+        const itemsErrorElement = document.getElementById("items-error");
+        if (!itemList || itemList.length === 0) {
+            errorsFlag = true;
+            itemsErrorElement.textContent = "- El producto debe tener al menos un item.";
+        } else {
+            itemsErrorElement.textContent = "";
         }
 
+        const descriptionErrorElement = document.getElementById("description-error");
+        if (!description || description.length < 15) {
+            errorsFlag = true;
+            descriptionErrorElement.textContent = "Debes ingresar una descripción de al menos 15 caracteres.";
+        } else {
+            descriptionErrorElement.textContent = "";
+        }
 
+        const priceErrorElement = document.getElementById("price-error");
+        if (!price || price <= 0) {
+            errorsFlag = true;
+            priceErrorElement.textContent = "El precio debe ser un número positivo.";
+        } else {
+            priceErrorElement.textContent = "";
+        }
+
+        const nameErrorElement = document.getElementById("name-error");
+        if (!name || name.length < 10) {
+            errorsFlag = true;
+            nameErrorElement.textContent = "Debe ingresar un nombre de al menos 10 caracteres.";
+        } else {
+            nameErrorElement.textContent = "";
+        }
+
+        const mainImageErrorElement = document.getElementById("mainImage-error");
+        if (!image) {
+            errorsFlag = true;
+            mainImageErrorElement.textContent = "Un producto debe tener una imagen.";
+        } else {
+            const fileExtension = image.name.substring(image.name.lastIndexOf('.')).toLowerCase();
+            if (!acceptedExtensions.includes(fileExtension)) {
+                mainImageErrorElement.textContent = `- La extensión ${fileExtension} no está permitida.`;
+                errorsFlag = true;
+            } else {
+                mainImageErrorElement.textContent = "";
+            }
+        }
+
+        if (errorsFlag) return;
         //__________________________________________________________________________
 
         const formData = new FormData();
