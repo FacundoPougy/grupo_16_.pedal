@@ -1,6 +1,8 @@
 const { body } = require("express-validator");
 const { User } = require("../../database/models");
 
+const acceptedExtensions = [".jpg", ".jpeg", ".png"];
+
 const registerValidations = {
   registerCheck: [
     body("firstName")
@@ -47,24 +49,20 @@ const registerValidations = {
       .isLength({ min: 8 })
       .withMessage("la contraseña debe tener al menos 8 caracteres"),
 
-    body("image")
-      .optional()
-      .custom((value, { req }) => {
-        const file = req.file;
+    body("image").custom((value, { req }) => {
+      const uploadedFiles = req.files;
 
-        if (!file) {
-          return true;
+      uploadedFiles.forEach((file) => {
+        const fileExtension = file.originalname
+          .substring(file.originalname.lastIndexOf("."))
+          .toLowerCase();
+        if (!acceptedExtensions.includes(fileExtension)) {
+          throw new Error(`La extensión ${fileExtension} no está permitida.`);
         }
+      });
 
-        const allowedExtensions = ["jpg", "jpeg", "png", "gif"];
-        const fileExtension = file.originalname.split(".").pop().toLowerCase();
-
-        if (allowedExtensions.includes(fileExtension)) {
-          return true;
-        }
-
-        throw new Error("La imagen debe ser un archivo jpg, jpeg, png o gif");
-      }),
+      return true;
+    }),
   ],
 };
 

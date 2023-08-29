@@ -13,19 +13,21 @@ const controller = {
     try {
       const validationsValues = validationResult(req);
 
-      console.log(validationsValues.errors.length);
-
       if (validationsValues.errors.length > 0) {
-        return res
-          .status(400)
-          .json(validationsValues.errors + validationsValues.errors.length);
+        return res.status(400);
       }
       const user = req.body;
       const newPassword = bcrypt.hashSync(user.password, 12);
 
       user.password = newPassword;
 
-      user.image = req.files.map((file) => "/images/users/" + file.filename)[0];
+      if (req.files[0]) {
+        user.image = req.files.map(
+          (file) => "/images/users/" + file.filename
+        )[0];
+      } else {
+        user.image = "/images/no-user.jpg";
+      }
 
       user.type = "user";
 
@@ -38,8 +40,7 @@ const controller = {
 
       res.redirect("/#menu");
     } catch (error) {
-      console.error(error);
-      res.status(500).send("Hubo un error al crear el producto");
+      res.status(500).send("Hubo un error al registrarse");
     }
   },
 };
