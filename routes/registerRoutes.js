@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const registerController = require("../controllers/registerController.js");
+const registerValidations = require("../middlewares/Validations/registerValidations.js");
 const router = express.Router();
 const multer = require("multer");
 
@@ -15,7 +16,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({
-  storage
+  storage,
 });
 
 router.get("/", registerController.getRegister);
@@ -23,4 +24,9 @@ router.get("/", registerController.getRegister);
 module.exports = router;
 
 // @POST - /register
-router.post("/", [upload.any("image")], registerController.registerUser);
+router.post(
+  "/",
+  [upload.any("image")],
+  [registerValidations.registerCheck],
+  registerController.registerUser
+);
