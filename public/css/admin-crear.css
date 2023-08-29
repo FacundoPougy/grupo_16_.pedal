@@ -87,3 +87,11 @@
   position: fixed;
   top: 0.5vw;
 }
+
+.center-low-errors {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

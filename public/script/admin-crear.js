@@ -69,6 +69,11 @@ window.onload = function () {
 
     }
 
+    // Función para borrar el contenido de un span
+    function clearErrorMessage(spanElement) {
+        spanElement.textContent = "";
+    }
+
     let allowExit = false;
     const overlay = document.getElementById('overlay');
     const toggleButton = document.getElementById('toggle-button');
@@ -90,6 +95,21 @@ window.onload = function () {
         if (!allowExit) event.returnValue = "???";
     });
 
+    let propiedadesElements = document.querySelectorAll(".propiedades");
+
+    propiedadesElements.forEach(function (propiedadesElement) {
+        let inputElement = propiedadesElement.querySelector("input, textarea");
+        let spanElement = propiedadesElement.querySelector(".error-message");
+
+        if (inputElement) {
+            inputElement.addEventListener("change", function () {
+                clearErrorMessage(spanElement);
+            });
+        }
+
+    });
+
+
     //_______________________________________AGREGAR ITEM________________________________________________________________________
     addButton.addEventListener("click", async function (event) {
 
@@ -107,6 +127,13 @@ window.onload = function () {
             alert("Por favor, complete todos los campos.");
             return;
         }
+
+        //Chequear si stockValue no es un numero positivo, si la imagen no tiene cierta extension y si el color no es uno dentro de los validos.
+        if (!colorValue || !stockValue || !image) {
+            alert("Por favor, complete todos los campos.");
+            return;
+        }
+
 
 
         //___________________________________________________________________________________________________________
@@ -149,7 +176,11 @@ window.onload = function () {
         const price = parseFloat(document.getElementById('price').value);
 
         //VALIDACIONES:
+
         //Validar que no se intente cargar un producto sin items.
+        if (itemList.length === 0) {
+            return;
+        }
 
 
         //__________________________________________________________________________

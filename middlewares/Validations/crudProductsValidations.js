@@ -41,45 +41,68 @@ const productValidations = {
         }),
 
         // Checking the files
-        body().custom((value, {
+        body('mainImage').custom((value, {
             req
         }) => {
-            const itemsLength = JSON.parse(value.items).length;
+
             const uploadedFiles = req.files;
 
-            // Check extension and count
-            if (uploadedFiles.length !== itemsLength + 1) {
-                throw new Error('El numero de imagenes subido no es suficiente.');
-            }
+            const mainImage = uploadedFiles.find(file => file.fieldname === 'mainImage');
 
-            uploadedFiles.forEach(file => {
-                const fileExtension = file.originalname.substring(file.originalname.lastIndexOf('.')).toLowerCase();
-                if (!acceptedExtensions.includes(fileExtension)) {
-                    throw new Error(`La extensión ${fileExtension} no está permitida.`);
-                }
-            });
+            if (!mainImage) throw new Error('Producto debe tener imagen.');
+
+            const fileExtension = mainImage.originalname.substring(mainImage.originalname.lastIndexOf('.')).toLowerCase();
+            if (!acceptedExtensions.includes(fileExtension)) throw new Error(`La extensión ${fileExtension} no está permitida.`);
 
             return true;
         }),
 
         body('items').custom((value) => {
             const items = JSON.parse(value);
+            const itemsLength = items.length;
 
-            if (items.length === 0) {
-                throw new Error("El producto debe tener al menos un item.");
+            if (itemsLength === 0) {
+                throw new Error("- El producto debe tener al menos un item.");
             }
 
             for (const item of items) {
                 const stock = parseInt(item.stock);
 
                 if (isNaN(stock) || stock <= 0) {
-                    throw new Error("El stock debe ser un número entero mayor a 0.");
+                    throw new Error("- El stock debe ser un número entero mayor a 0.");
                 }
 
                 if (!acceptedColors.includes(item.color)) {
-                    throw new Error("Color no válido.");
+                    throw new Error("- Color no válido.");
                 }
+
             }
+
+            return true;
+        }),
+
+
+        body().custom((value, {
+            req
+        }) => {
+            const items = JSON.parse(value.items);
+            const uploadedFiles = req.files;
+            const itemsLength = Number(items.length);
+
+            // Check extension and count
+            uploadedFiles.forEach(file => {
+                if (file.fieldname != "itemImg") return;
+                const fileExtension = file.originalname.substring(file.originalname.lastIndexOf('.')).toLowerCase();
+                if (!acceptedExtensions.includes(fileExtension)) {
+                    throw new Error(`- La extensión ${fileExtension} no está permitida.`);
+                }
+            });
+
+            if (uploadedFiles.length !== (itemsLength + 1)) {
+                throw new Error('- El numero de imagenes subido no es suficiente.');
+            }
+
+
 
             return true;
         }),

@@ -191,17 +191,31 @@ const controller = {
   postAdminCrear: async (req, res) => {
     try {
       const validationsValues = validationResult(req);
-
-      console.log(validationsValues.errors);
+      const newImages = req.files;
+      //console.log(validationsValues.errors);
 
       if (validationsValues.errors.length > 0) {
+        const imagesFolderPath = path.join(__dirname, '../public/images/products/');
+
+        newImages.forEach(image => {
+          const imagePathToDelete = path.join(imagesFolderPath, image.filename);
+
+          fs.unlink(imagePathToDelete, err => {
+            if (err) {
+              console.error('Error deleting image:', err);
+            } else {
+              console.log('Image deleted successfully:', imagePathToDelete);
+            }
+          });
+        });
+
         return res.status(400).json(validationsValues.errors);
       }
 
       let datos = req.body;
       datos.price = Number(datos.price);
 
-      datos.main_image = "/images/products/" + req.files.find(file => file.fieldname === 'mainImage').filename;
+      datos.main_image = "/images/products/" + newImages.find(file => file.fieldname === 'mainImage').filename;
 
       const createdProduct = await Product.create(datos);
 
@@ -209,7 +223,7 @@ const controller = {
 
       const itemsArray = JSON.parse(req.body.items);
 
-      const itemImgFilenames = req.files
+      const itemImgFilenames = newImages
         .filter(file => file.fieldname === 'itemImg')
         .map(file => '/images/products/' + file.filename);
 
