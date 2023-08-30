@@ -41,6 +41,19 @@ const registerValidations = {
           throw new Error("Ese e-mail ya se encuentra en la base de datos");
         }
         return true;
+      })
+      .bail()
+      .custom((value, { req }) => {
+        let email = req.body.email;
+        const regexEmail =
+          /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+
+        let emailOk = regexEmail.test(email);
+
+        if (!emailOk) {
+          throw new Error("El e-mail es inválido");
+        }
+        return true;
       }),
     body("password")
       .notEmpty()

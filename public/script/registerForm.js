@@ -60,14 +60,19 @@ apellido.onchange = (e) => {
 email.onchange = (e) => {
   const label = e.target.nextElementSibling;
   const length = e.target.value.length;
-  const emailCorrect =
-    e.target.value.includes("@") && e.target.value.includes(".");
+  const emailValue = e.target.value;
 
-  if (!emailCorrect || length < 6) {
+  const regexEmail =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+
+  let emailTest = regexEmail.test(emailValue);
+
+  if (!emailTest || length < 6) {
     label.nextElementSibling.innerHTML = "El email es invalido";
   } else {
     label.nextElementSibling.innerHTML = "";
   }
+
   checkErrors();
 };
 
@@ -76,13 +81,24 @@ email.onchange = (e) => {
 password.oninput = (e) => {
   const label = e.target.nextElementSibling;
   const length = e.target.value.length;
+  const pwValue = e.target.value;
+
+  const regexPw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
+
+  const pwCorrect = regexPw.test(pwValue);
+
+  if (!pwCorrect) {
+    label.nextElementSibling.innerHTML =
+      "La contraseña debe tener al menos una mayúscula y un número";
+  } else {
+    label.nextElementSibling.innerHTML = "";
+  }
 
   if (length < 8) {
     label.nextElementSibling.innerHTML =
       "La contraseña debe tener al menos 8 caracteres";
-  } else {
-    label.nextElementSibling.innerHTML = "";
   }
+
   checkErrors();
 };
 
