@@ -1,11 +1,8 @@
 const path = require("path");
 const bcrypt = require("bcrypt");
-const {
-  User
-} = require("../database/models");
-const {
-  log
-} = require("console");
+const { User } = require("../database/models");
+const { log } = require("console");
+const { validationResult } = require("express-validator");
 
 const controller = {
   getLogin: (req, res) => {
@@ -18,9 +15,16 @@ const controller = {
 
   loginUser: async (req, res) => {
     try {
+      const validationsValues = validationResult(req);
+
+      console.log(validationsValues.errors);
+
+      if (validationsValues.errors.length > 0) {
+        return res.status(400);
+      }
       const searchedUser = await User.findOne({
         where: {
-          email: req.body.email
+          email: req.body.email,
         },
       });
       if (!searchedUser) {
