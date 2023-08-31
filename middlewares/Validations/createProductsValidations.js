@@ -40,7 +40,7 @@ const productValidations = {
             return true;
         }),
 
-        // Checking the files
+        // Checking the MainImage
         body('mainImage').custom((value, {
             req
         }) => {
@@ -81,32 +81,31 @@ const productValidations = {
             return true;
         }),
 
-
+        //VALIDO Las imagenes de los ITEMS
         body().custom((value, {
             req
         }) => {
-            const items = JSON.parse(value.items);
-            const uploadedFiles = req.files;
-            const itemsLength = Number(items.length);
+            const itemsLength = JSON.parse(value.items).length;
+            const uploadedItemFiles = req.files.filter(file => {
+                return file.fieldname === "itemImg";
+            });
+
+            if (uploadedItemFiles.length == 0) throw new Error('- El numero de imagenes de items subido no es correcto.');
 
             // Check extension and count
-            uploadedFiles.forEach(file => {
-                if (file.fieldname != "itemImg") return;
+            uploadedItemFiles.forEach(file => {
                 const fileExtension = file.originalname.substring(file.originalname.lastIndexOf('.')).toLowerCase();
                 if (!acceptedExtensions.includes(fileExtension)) {
                     throw new Error(`- La extensión ${fileExtension} no está permitida.`);
                 }
             });
 
-            if (uploadedFiles.length !== (itemsLength + 1)) {
-                throw new Error('- El numero de imagenes subido no es suficiente.');
+            if (uploadedItemFiles.length !== itemsLength) {
+                throw new Error('- El numero de imagenes de items subido no es correcto.');
             }
-
-
 
             return true;
         }),
-
 
     ]
 };

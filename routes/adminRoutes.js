@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const path = require('path');
-const adminController = require("../controllers/adminController.js");
 const multer = require('multer');
-const productValidations = require('../middlewares/Validations/crudProductsValidations');
+const adminController = require("../controllers/adminController.js");
+const createValidations = require('../middlewares/Validations/createProductsValidations');
+const updateValidations = require('../middlewares/Validations/updateProductsValidations');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -32,13 +33,13 @@ router.get("/:id/editar", adminController.getAdminEditar);
 router.put("/:id/eliminar", adminController.adminDelete);
 
 // @PUT /:id/actualizar
-router.put("/:id/actualizar", [upload.any('image-update')], adminController.actualizar);
+router.put("/:id/actualizar", [upload.any('image-update'), updateValidations.productChecks], adminController.actualizar);
 
 // @PUT /deleteItems
 router.put("/deleteItems", [upload.none()], adminController.deleteItems);
 
 // @POST /
-router.post("/", [upload.any('image'), productValidations.productChecks], adminController.postAdminCrear);
+router.post("/", [upload.any('image'), createValidations.productChecks], adminController.postAdminCrear);
 
 // @POST /image
 router.post("/image", [upload.any('image-item')], adminController.postImage);

@@ -23,24 +23,28 @@
         <input type="text" id="name" name="name" class="input-form" value="<%= product.name %>" placeholder="Ejemplo"
           required />
         <label for="name" class="labels">Nombre del producto:</label>
+        <span id="name-error" class="error-message"></span>
       </div>
 
       <div class="propiedades">
         <textarea id="description" name="description" class="input-form" placeholder="Ejemplo"
           required><%= product.description %></textarea>
         <label for="description" class="labels">Descripción:</label>
+        <span id="description-error" class="error-message"></span>
       </div>
 
       <div class="propiedades">
         <input type="number" id="price" name="price" step="1" class="input-form" placeholder="Ejemplo"
           value="<%= product.price %>" required />
         <label for="price" class="labels">Precio:</label>
+        <span id="price-error" class="error-message"></span>
       </div>
 
       <div class="propiedades">
-        <input type="file" id="image" placeholder="seleccionar imagen" name="image-update" value="<%= product.image %>"
+        <input type="file" id="image" placeholder="seleccionar imagen" name="image" value="<%= product.image %>"
           class="input-form" />
         <label for="image" class="labels">Imagen:</label>
+        <span id="updatedImage-error" class="error-message"></span>
       </div>
 
       <div class="propiedades">
@@ -50,6 +54,7 @@
           <% for (const category of categories) { %>
           <option <%= category === product.category ? 'selected' : '' %>><%= category %></option>
           <% } %>
+          <span id="category-error" class="error-message"></span>
         </select>
       </div>
 
@@ -68,19 +73,25 @@
       <% }); %>
     </div>
 
+    <div class="center-low-errors">
+      <span id="items-error" class="error-message"></span>
+      <br></br>
+      <span id="-error" class="error-message"></span>
+    </div>
+
     <div id="buttons">
       <input type="submit" value="Guardar" class="button-form" id="crear-product" />
     </div>
   </form>
 
-
   <!-- item part of the form -->
   <div id="overlay" style="display: none;">
     <div id="centered-box">
-      <form id="form-item" class="form-crear" method="POST" action="/admin/image" enctype="multipart/form-data">
+      <form id="form-item" class="form-crear">
         <div class="propiedades">
           <input type="file" id="image-item" placeholder="seleccionar imagen" name="image-item" class="input-form" />
           <label for="image-item" class="labels">Imagen:</label>
+          <span id="itemImage-error" class="error-message"></span>
         </div>
 
         <div class="propiedades">
@@ -91,11 +102,13 @@
             <option value="<%= color %>" <%= color === 'Negro' ? 'selected' : '' %>><%= color %></option>
             <% } %>
           </select>
+          <span id="color-error" class="error-message"></span>
         </div>
 
         <div class="propiedades">
           <input type="number" id="stock" name="stock" step="1" class="input-form" placeholder="4" required />
           <label for="stock" class="labels">Stock</label>
+          <span id="stock-error" class="error-message"></span>
         </div>
 
         <div id="buttons">

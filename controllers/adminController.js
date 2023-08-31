@@ -40,6 +40,20 @@ async function createItems(itemList, productId) {
   }
 }
 
+function deleteAllFiles(newImages, imagesFolderPath) {
+  newImages.forEach(image => {
+    const imagePathToDelete = path.join(imagesFolderPath, image.filename);
+
+    fs.unlink(imagePathToDelete, err => {
+      if (err) {
+        console.error('Error deleting image:', err);
+      } else {
+        console.log('Image deleted successfully:', imagePathToDelete);
+      }
+    });
+  });
+}
+
 const controller = {
   getAdmin: async (req, res) => {
 
@@ -147,9 +161,28 @@ const controller = {
 
   actualizar: async (req, res) => {
     try {
+
+      const validationsValues = validationResult(req);
+      const newImages = req.files;
+
+      console.log("validationsValues", validationsValues.errors);
+      //console.log("Body", req.body);
+      //console.log("newImages", newImages);
+
+      //DEBO CHEQUEAR SI EL NUMERO DE ITEMS NO QUEDA EN 0 o NEGATIVO. 
+
+      if (validationsValues.errors.length > 0) {
+        const imagesFolderPath = path.join(__dirname, '../public/images/products/');
+        deleteAllFiles(newImages, imagesFolderPath);
+        return res.status(400).json(validationsValues.errors);
+      }
+
+      return res.status(200).send("");
+
       const id = Number(req.params.id);
       const newInfo = req.body;
-      const newImage = req.files.length > 0 ? "/images/products/" + req.files[0].filename : null; // Tomar solo la primera imagen
+      const updatedImage = newImages.find(file => file.fieldname === 'updatedImage');
+      const updatedImagePath = updatedImage ? "/images/products/" + updatedImage.filename : null;
       const oldProduct = await Product.findByPk(id);
 
       const updatedProductData = {
@@ -157,7 +190,7 @@ const controller = {
         description: newInfo.description,
         category: newInfo.category,
         price: Number(newInfo.price),
-        main_image: newImage || oldProduct.main_image // Usar newImage si está definida, de lo contrario, mantener la imagen existente
+        main_image: updatedImagePath || oldProduct.main_image // Usar newImage si está definida, de lo contrario, mantener la imagen existente
       };
 
       await Product.update(updatedProductData, {
@@ -181,6 +214,22 @@ const controller = {
         }
       }
 
+      //deleteItems
+      try {
+        let item;
+        for (const id of JSON.parse(req.body.deleteItems)) {
+          item = await Item.findByPk(id);
+          deleteItemRelated(item);
+          await Item.destroy({
+            where: {
+              id: id
+            }
+          });
+        }
+      } catch (error) {
+        console.error('Error deleting item');
+      }
+
       res.redirect("/admin");
     } catch (error) {
       console.error('Error during product update:', error);
@@ -192,23 +241,10 @@ const controller = {
     try {
       const validationsValues = validationResult(req);
       const newImages = req.files;
-      //console.log(validationsValues.errors);
 
       if (validationsValues.errors.length > 0) {
         const imagesFolderPath = path.join(__dirname, '../public/images/products/');
-
-        newImages.forEach(image => {
-          const imagePathToDelete = path.join(imagesFolderPath, image.filename);
-
-          fs.unlink(imagePathToDelete, err => {
-            if (err) {
-              console.error('Error deleting image:', err);
-            } else {
-              console.log('Image deleted successfully:', imagePathToDelete);
-            }
-          });
-        });
-
+        deleteAllFiles(newImages, imagesFolderPath);
         return res.status(400).json(validationsValues.errors);
       }
 
