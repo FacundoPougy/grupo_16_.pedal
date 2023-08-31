@@ -27,6 +27,6 @@ module.exports = router;
 router.post(
   "/",
   [upload.any("image")],
-  [userValidation.registerValidation],
+  [userValidation.registerValidation] /* cambió el nombre del middleware */,
   registerController.registerUser
 );

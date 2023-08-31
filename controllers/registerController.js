@@ -26,6 +26,7 @@ const controller = {
           (file) => "/images/users/" + file.filename
         )[0];
       } else {
+        /* arreglando ruta */
         user.image = "/images/users/1692915094304-no-user.jpg";
       }
 
