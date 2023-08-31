@@ -57,6 +57,8 @@
 
 .error {
   color: red;
+  padding-top: 2px;
+  font-size: small;
 }
 
 .error-message {

@@ -14,7 +14,7 @@
 */
 
 .Admin-Navigation-footer {
-  height: 8vw;
+  height: 5vw;
   padding: 2vw;
   display: flex;
   width: 100vw;
@@ -24,7 +24,6 @@
   background-color: var(--blanquito);
   box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3);
 }
-
 
 .Admin-Navigation-Action {
   color: var(--violeta-oscuro);

@@ -3,9 +3,9 @@
 
 <head>
   <%- include('../partials/head') %>
-  <link rel="stylesheet" href="/css/inputs.css" />
-  <link rel="stylesheet" href="/css/admin.css" />
-  <link rel="stylesheet" href="/css/admin-crear.css" />
+    <link rel="stylesheet" href="/css/inputs.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/admin-crear.css" />
 </head>
 
 <body>
@@ -19,27 +19,31 @@
   <form id="form-product" method="POST" action="/admin-user" enctype="multipart/form-data">
     <section class="form-crear">
       <div class="propiedades">
-        <input type="text" id="firstName" name="firstName" class="input-form" placeholder="Juan Manuel" required />
+        <input type="text" id="firstName" name="firstName" class="input-form" placeholder="Juan Manuel" />
+        <p class="error"></p>
         <label for="firstName" class="labels">Nombre:</label>
       </div>
 
       <div class="propiedades">
-        <input type="text" id="lastName" name="lastName" class="input-form" placeholder="Fangio" required />
+        <input type="text" id="lastName" name="lastName" class="input-form" placeholder="Fangio" />
+        <p class="error"></p>
         <label for="lastName" class="labels">Apellido:</label>
       </div>
 
       <div class="propiedades">
-        <input type="email" id="email" name="email" class="input-form" placeholder="correo@example.com" required />
+        <input type="email" id="email" name="email" class="input-form" placeholder="correo@example.com" />
+        <p class="error"></p>
         <label for="email" class="labels">Correo electrónico:</label>
       </div>
 
       <div class="propiedades">
-        <input type="password" id="password" name="password" class="input-form" placeholder="Contraseña" required />
+        <input type="password" id="password" name="password" class="input-form" placeholder="Contraseña" />
+        <p class="error"></p>
         <label for="password" class="labels">Contraseña:</label>
       </div>
 
       <div class="propiedades">
-        <select id="type" name="type" class="input-form" required>
+        <select id="type" name="type" class="input-form">
           <option selected value="Usuario">Usuario</option>
           <option value="Administrador">Administrador</option>
         </select>
@@ -47,7 +51,8 @@
       </div>
 
       <div class="propiedades">
-        <input type="file" id="image" name="image" class="input-form" accept="image/*" required />
+        <input type="file" id="image" name="image" class="input-form" accept="image/*" />
+        <p class="error"></p>
         <label for="image" class="labels select">Imagen:</label>
       </div>
     </section>
@@ -57,7 +62,7 @@
     </div>
   </form>
 
-  <!-- <script src="/script/admin-crear.js"></script> -->
+  <script src="/script/admin-users-crear.js"></script>
 
 </body>
 
