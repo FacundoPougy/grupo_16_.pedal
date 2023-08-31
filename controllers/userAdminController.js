@@ -100,12 +100,14 @@ const controller = {
       const newImage =
         req.files.length > 0 ? "/images/users/" + req.files[0].filename : null; // Tomar solo la primera imagen
       const oldUser = await User.findByPk(id);
+      const pw = req.body.password;
+      const newPw = !pw ? oldUser.password : bcrypt.hashSync(pw, 12);
 
       const updatedUserData = {
         firstName: newInfo.firstName,
         lastName: newInfo.lastName,
         email: newInfo.email,
-        password: bcrypt.hashSync(newInfo.password, 12),
+        password: newPw,
         type: newInfo.type,
         image: newImage || oldUser.image, // Usar newImage si está definida, de lo contrario, mantener la imagen existente
       };

@@ -100,18 +100,10 @@ const registerValidations = {
 
     body("password").custom(async (value, { req }) => {
       let pw = req.body.password.trim();
-      const user = await User.findOne({
-        id: Number(req.params.id),
-      });
 
-      const oldPw = user.password;
-
-      if (!pw) {
-        pw = oldPw.password;
-      } else if (pw.length <= 8) {
-        throw new Error("La contraseña debe tener al menos 8 caracteres.");
+      if (pw.length >= 1 && pw.length <= 8) {
+        throw new Error("La contraseña debe tener 8 caracteres");
       }
-      return true;
     }),
 
     body("image").custom((value, { req }) => {
