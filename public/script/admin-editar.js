@@ -122,11 +122,7 @@ window.onload = function () {
         const image = imageInput.files[0];
 
         //VALIDACIONES
-
-        if (!image || !colorValue || !stockValue) {
-            alert("Por favor, complete todos los campos.");
-            return;
-        }
+        let errorsFlag = false;
 
 
         //___________________________________________________________________________________________________________

@@ -81,7 +81,7 @@ const productValidations = {
             return true;
         }),
 
-        //Chequeo que esten bien los items.
+        //Chequeo que esten bien los items nuevos.
         body('items').custom((value) => {
             const items = JSON.parse(value);
 
@@ -95,7 +95,16 @@ const productValidations = {
                 if (!acceptedColors.includes(item.color)) {
                     throw new Error("- Color no válido.");
                 }
+            }
 
+            return true;
+        }),
+
+        body('deleteItems').custom((value) => {
+            const deletedList = JSON.parse(value);
+
+            for (const deletedId of deletedList) {
+                if (isNaN(deletedId)) throw new Error("ID no válido!");
             }
 
             return true;
