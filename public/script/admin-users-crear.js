@@ -4,7 +4,7 @@ const apellido = document.querySelector("#lastName");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const image = document.querySelector("#image");
-const submitBtn = document.querySelector("#submitBtn");
+const submitBtn = document.querySelector("#registrar-usuario");
 
 const checkErrors = () => {
   let errorWarning = Array.from(document.querySelectorAll(".error"));

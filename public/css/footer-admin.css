@@ -17,6 +17,7 @@
   height: 5vw;
   padding: 2vw;
   display: flex;
+  flex-direction: row-reverse;
   width: 100vw;
   position: fixed;
   bottom: 0;

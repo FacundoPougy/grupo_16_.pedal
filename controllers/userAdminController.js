@@ -92,7 +92,7 @@ const controller = {
       const validationsValues = validationResult(req);
 
       if (validationsValues.errors.length > 0) {
-        return res.status(400).json(validationsValues.errors);
+        return res.status(400);
       }
 
       const id = Number(req.params.id);
@@ -143,7 +143,7 @@ const controller = {
       const validationsValues = validationResult(req);
 
       if (validationsValues.errors.length > 0) {
-        return res.status(400).json(validationsValues.errors);
+        return res.status(400);
       }
 
       let user = {
