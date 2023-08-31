@@ -287,7 +287,6 @@ window.onload = function () {
             const responseData = await response.json();
             responseData.forEach(error => {
                 const errorElement = document.getElementById(`${error.path}-error`);
-                console.log(errorElement);
                 if (errorElement) {
                     errorElement.textContent = error.msg;
                 }

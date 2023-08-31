@@ -147,6 +147,34 @@ const controller = {
 
   actualizar: async (req, res) => {
     try {
+
+      const validationsValues = validationResult(req);
+      const newImages = req.files;
+      
+      console.log("validationsValues",validationsValues.errors);
+      console.log("Body",req.body);
+      console.log("newImages",newImages);
+
+      if (validationsValues.errors.length > 0) {
+        const imagesFolderPath = path.join(__dirname, '../public/images/products/');
+
+        newImages.forEach(image => {
+          const imagePathToDelete = path.join(imagesFolderPath, image.filename);
+
+          fs.unlink(imagePathToDelete, err => {
+            if (err) {
+              console.error('Error deleting image:', err);
+            } else {
+              console.log('Image deleted successfully:', imagePathToDelete);
+            }
+          });
+        });
+
+        return res.status(400).json(validationsValues.errors);
+      }
+
+      return res.status(200).send("");
+
       const id = Number(req.params.id);
       const newInfo = req.body;
       const newImage = req.files.length > 0 ? "/images/products/" + req.files[0].filename : null; // Tomar solo la primera imagen
@@ -192,7 +220,6 @@ const controller = {
     try {
       const validationsValues = validationResult(req);
       const newImages = req.files;
-      //console.log(validationsValues.errors);
 
       if (validationsValues.errors.length > 0) {
         const imagesFolderPath = path.join(__dirname, '../public/images/products/');

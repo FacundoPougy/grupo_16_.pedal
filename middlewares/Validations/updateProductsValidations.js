@@ -40,30 +40,50 @@ const productValidations = {
             return true;
         }),
 
-        // Checking the files
-        body('mainImage').custom((value, {
+        //VALIDO Las imagenes de los ITEMS.
+        body().custom((value, {
+            req
+        }) => {
+            const itemsLength = JSON.parse(value.items).length;
+            const uploadedItemFiles = req.files.filter(file => {
+                return file.fieldname === "itemImg";
+            });
+
+            // Check extension and count
+            uploadedItemFiles.forEach(file => {
+                const fileExtension = file.originalname.substring(file.originalname.lastIndexOf('.')).toLowerCase();
+                if (!acceptedExtensions.includes(fileExtension)) {
+                    throw new Error(`- La extensión ${fileExtension} no está permitida.`);
+                }
+            });
+
+            if (uploadedItemFiles.length !== itemsLength) {
+                throw new Error('- El numero de imagenes de items subido no es correcto.');
+            }
+
+            return true;
+        }),
+
+        // Checking the updatedImage
+        body('updatedImage').custom((value, {
             req
         }) => {
 
             const uploadedFiles = req.files;
 
-            const mainImage = uploadedFiles.find(file => file.fieldname === 'mainImage');
+            const updatedImage = uploadedFiles.find(file => file.fieldname === 'updatedImage');
 
-            if (!mainImage) throw new Error('Producto debe tener imagen.');
+            if (!updatedImage) return true;
 
-            const fileExtension = mainImage.originalname.substring(mainImage.originalname.lastIndexOf('.')).toLowerCase();
+            const fileExtension = updatedImage.originalname.substring(updatedImage.originalname.lastIndexOf('.')).toLowerCase();
             if (!acceptedExtensions.includes(fileExtension)) throw new Error(`La extensión ${fileExtension} no está permitida.`);
 
             return true;
         }),
 
+        //Chequeo que esten bien los items.
         body('items').custom((value) => {
             const items = JSON.parse(value);
-            const itemsLength = items.length;
-
-            if (itemsLength === 0) {
-                throw new Error("- El producto debe tener al menos un item.");
-            }
 
             for (const item of items) {
                 const stock = parseInt(item.stock);
@@ -77,32 +97,6 @@ const productValidations = {
                 }
 
             }
-
-            return true;
-        }),
-
-
-        body().custom((value, {
-            req
-        }) => {
-            const items = JSON.parse(value.items);
-            const uploadedFiles = req.files;
-            const itemsLength = Number(items.length);
-
-            // Check extension and count
-            uploadedFiles.forEach(file => {
-                if (file.fieldname != "itemImg") return;
-                const fileExtension = file.originalname.substring(file.originalname.lastIndexOf('.')).toLowerCase();
-                if (!acceptedExtensions.includes(fileExtension)) {
-                    throw new Error(`- La extensión ${fileExtension} no está permitida.`);
-                }
-            });
-
-            if (uploadedFiles.length !== (itemsLength + 1)) {
-                throw new Error('- El numero de imagenes subido no es suficiente.');
-            }
-
-
 
             return true;
         }),
