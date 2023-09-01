@@ -189,10 +189,6 @@ const controller = {
       const deleteItems = JSON.parse(req.body.deleteItems);
       const newItems = JSON.parse(req.body.items);
 
-      //CHEQUEAR SI EL NUMERO DE ITEMS NO QUEDA EN 0 o NEGATIVO. 
-      //console.log("count", newItems.length + currentItems - deleteItems.length);
-      console.log(newItems);
-
       if ((newItems.length + currentItems - deleteItems.length) <= 0) {
         validationsValues.errors.push({
           msg: 'Debe haber al menos un item.',

@@ -83,7 +83,6 @@ window.onload = function () {
     const addButton = document.getElementById("add-item-button");
     const submitButton = document.getElementById('crear-product');
     let itemList = [];
-    const allowedCategories = ['Bicicleta', 'Accesorio'];
     const acceptedColors = ['Blanco', 'Negro', 'Rojo', 'Azul', 'Verde', 'Amarillo', 'Naranja', 'Morado', 'Gris', 'Marrón', 'Rosa'];
     const acceptedExtensions = ['.jpg', '.jpeg', '.png'];
 

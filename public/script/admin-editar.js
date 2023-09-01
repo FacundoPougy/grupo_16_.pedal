@@ -10,6 +10,8 @@ window.onload = function () {
         overlay.style.display = 'block';
         toggleButton.innerText = "Cancelar";
         toggleButton.style.width = '12vw';
+        const itemsErrorElement = document.getElementById("items-error");
+        itemsErrorElement.textContent = "";
     }
 
     function showItem(color, stock, imagen) {
@@ -69,12 +71,20 @@ window.onload = function () {
 
     }
 
+    // Función para borrar el contenido de un span
+    function clearErrorMessage(spanElement) {
+        if (!spanElement) return;
+        spanElement.textContent = "";
+    }
+
     let allowExit = false;
     const overlay = document.getElementById('overlay');
     const toggleButton = document.getElementById('toggle-button');
     const addButton = document.getElementById("add-item-button");
     const formulario = document.getElementById("update-form");
     const deleteButtons = document.querySelectorAll(".delete-icon");
+    const acceptedColors = ['Blanco', 'Negro', 'Rojo', 'Azul', 'Verde', 'Amarillo', 'Naranja', 'Morado', 'Gris', 'Marrón', 'Rosa'];
+    const acceptedExtensions = ['.jpg', '.jpeg', '.png'];
     let itemList = [];
     let itemsDeleteList = [];
 
@@ -107,6 +117,20 @@ window.onload = function () {
         if (!allowExit) event.returnValue = "???";
     });
 
+    let propiedadesElements = document.querySelectorAll(".propiedades");
+
+    propiedadesElements.forEach(function (propiedadesElement) {
+        let inputElement = propiedadesElement.querySelector("input, textarea");
+        let spanElement = propiedadesElement.querySelector(".error-message");
+
+        if (inputElement) {
+            inputElement.addEventListener("change", function () {
+                clearErrorMessage(spanElement);
+            });
+        }
+
+    });
+
     //_______________________________________AGREGAR ITEM________________________________________________________________________
     addButton.addEventListener("click", async function (event) {
         event.preventDefault();
@@ -124,7 +148,40 @@ window.onload = function () {
         //VALIDACIONES
         let errorsFlag = false;
 
+        //Chequear si stockValue es un numero positivo. 
+        const stockErrorElement = document.getElementById("stock-error");
+        if (isNaN(stockValue) || stockValue <= 0) {
+            stockErrorElement.textContent = "El stock debe ser un número y positivo.";
+            errorsFlag = true;
+        } else {
+            stockErrorElement.textContent = "";
+        }
 
+        //Chequear si el color es uno dentro de los validos.
+        const colorErrorElement = document.getElementById("color-error");
+        if (!colorValue || !acceptedColors.includes(colorValue)) {
+            colorErrorElement.textContent = "Debe elegir un color y debe ser uno de los aceptados.";
+            errorsFlag = true;
+        } else {
+            colorErrorElement.textContent = "";
+        }
+
+        //Chequear si la imagen existe y si existe es de la extensión correcta.
+        const itemImageErrorElement = document.getElementById("itemImage-error");
+        if (!image) {
+            itemImageErrorElement.textContent = "Debe seleccionar una imagen.";
+            errorsFlag = true;
+        } else {
+            const fileExtension = image.name.substring(image.name.lastIndexOf('.')).toLowerCase();
+            if (!acceptedExtensions.includes(fileExtension)) {
+                itemImageErrorElement.textContent = `La extensión ${fileExtension} no está permitida.`;
+                errorsFlag = true;
+            } else {
+                itemImageErrorElement.textContent = "";
+            }
+        }
+
+        if (errorsFlag) return;
         //___________________________________________________________________________________________________________
 
         //Limpiar los campos del formulario
@@ -167,14 +224,52 @@ window.onload = function () {
         //VALIDACIONES:
         let errorsFlag = false;
 
+        //Validar que no se intente cargar un producto sin items.
+        const itemsErrorElement = document.getElementById("items-error");
+        const itemsLoaded = document.querySelectorAll('.productos-existentes');
+        if (!itemsLoaded || itemsLoaded.length <= 0) {
+            errorsFlag = true;
+            itemsErrorElement.textContent = "- El producto debe tener al menos un item.";
+        } else {
+            itemsErrorElement.textContent = "";
+        }
 
+        const descriptionErrorElement = document.getElementById("description-error");
+        if (!description || description.length < 15) {
+            errorsFlag = true;
+            descriptionErrorElement.textContent = "Debes ingresar una descripción de al menos 15 caracteres.";
+        } else {
+            descriptionErrorElement.textContent = "";
+        }
 
+        const priceErrorElement = document.getElementById("price-error");
+        if (!price || price <= 0) {
+            errorsFlag = true;
+            priceErrorElement.textContent = "El precio debe ser un número positivo.";
+        } else {
+            priceErrorElement.textContent = "";
+        }
 
+        const nameErrorElement = document.getElementById("name-error");
+        if (!name || name.length < 10) {
+            errorsFlag = true;
+            nameErrorElement.textContent = "Debe ingresar un nombre de al menos 10 caracteres.";
+        } else {
+            nameErrorElement.textContent = "";
+        }
 
+        const mainImageErrorElement = document.getElementById("mainImage-error");
+        if (image) {
+            const fileExtension = image.name.substring(image.name.lastIndexOf('.')).toLowerCase();
+            if (!acceptedExtensions.includes(fileExtension)) {
+                mainImageErrorElement.textContent = `-La extensión ${fileExtension} no está permitida.`;
+                errorsFlag = true;
+            } else {
+                mainImageErrorElement.textContent = "";
+            }
+        }
 
-
-
-
+        if (errorsFlag) return;
         //___________________________________________________________________________________
 
         const formData = new FormData();
