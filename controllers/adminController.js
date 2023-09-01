@@ -54,6 +54,23 @@ function deleteAllFiles(newImages, imagesFolderPath) {
   });
 }
 
+function assignImagesToItems(itemsArray, newImages) {
+
+  const itemImgFilenames = newImages
+    .filter(file => file.fieldname === 'itemImg')
+    .map(file => '/images/products/' + file.filename);
+
+
+  if (itemsArray.length !== itemImgFilenames.length) {
+    throw new Error('The length of itemsArray and itemImgFilenames must be the same.');
+  }
+
+  itemsArray.forEach((item, index) => {
+    item.image = itemImgFilenames[index];
+  });
+}
+
+
 const controller = {
   getAdmin: async (req, res) => {
 
@@ -161,15 +178,27 @@ const controller = {
 
   actualizar: async (req, res) => {
     try {
-
+      const id = Number(req.params.id);
       const validationsValues = validationResult(req);
+      const currentItems = await Item.count({
+        where: {
+          product_id: id
+        }
+      });
       const newImages = req.files;
+      const deleteItems = JSON.parse(req.body.deleteItems);
+      const newItems = JSON.parse(req.body.items);
 
-      console.log("validationsValues", validationsValues.errors);
-      //console.log("Body", req.body);
-      //console.log("newImages", newImages);
+      //CHEQUEAR SI EL NUMERO DE ITEMS NO QUEDA EN 0 o NEGATIVO. 
+      //console.log("count", newItems.length + currentItems - deleteItems.length);
+      console.log(newItems);
 
-      //DEBO CHEQUEAR SI EL NUMERO DE ITEMS NO QUEDA EN 0 o NEGATIVO. 
+      if ((newItems.length + currentItems - deleteItems.length) <= 0) {
+        validationsValues.errors.push({
+          msg: 'Debe haber al menos un item.',
+          path: 'items',
+        });
+      }
 
       if (validationsValues.errors.length > 0) {
         const imagesFolderPath = path.join(__dirname, '../public/images/products/');
@@ -177,9 +206,6 @@ const controller = {
         return res.status(400).json(validationsValues.errors);
       }
 
-      return res.status(200).send("");
-
-      const id = Number(req.params.id);
       const newInfo = req.body;
       const updatedImage = newImages.find(file => file.fieldname === 'updatedImage');
       const updatedImagePath = updatedImage ? "/images/products/" + updatedImage.filename : null;
@@ -190,7 +216,7 @@ const controller = {
         description: newInfo.description,
         category: newInfo.category,
         price: Number(newInfo.price),
-        main_image: updatedImagePath || oldProduct.main_image // Usar newImage si está definida, de lo contrario, mantener la imagen existente
+        main_image: updatedImagePath || oldProduct.main_image // Usar updatedImagePath si está definida, de lo contrario, mantener la imagen existente
       };
 
       await Product.update(updatedProductData, {
@@ -200,7 +226,7 @@ const controller = {
       });
 
       // Borrar la imagen anterior
-      if (newImage && oldProduct.main_image) {
+      if (updatedImage && oldProduct.main_image) {
         try {
           const entirePath = path.join(__dirname, '../public/', oldProduct.main_image);
           await fs.unlink(entirePath, err => {
@@ -214,11 +240,10 @@ const controller = {
         }
       }
 
-      //deleteItems
+      //Delete Items
       try {
-        let item;
-        for (const id of JSON.parse(req.body.deleteItems)) {
-          item = await Item.findByPk(id);
+        for (const id of deleteItems) {
+          const item = await Item.findByPk(id);
           deleteItemRelated(item);
           await Item.destroy({
             where: {
@@ -228,9 +253,21 @@ const controller = {
         }
       } catch (error) {
         console.error('Error deleting item');
+        throw error;
+      }
+
+      assignImagesToItems(newItems, newImages);
+
+      //Crear nuevos items
+      try {
+        await createItems(newItems, id);
+      } catch (error) {
+        console.error("An error occurred creating items:", error);
+        throw error;
       }
 
       res.redirect("/admin");
+
     } catch (error) {
       console.error('Error during product update:', error);
       res.status(500).send('Error durante la actualización.');
@@ -259,13 +296,7 @@ const controller = {
 
       const itemsArray = JSON.parse(req.body.items);
 
-      const itemImgFilenames = newImages
-        .filter(file => file.fieldname === 'itemImg')
-        .map(file => '/images/products/' + file.filename);
-
-      for (let i = 0; i < itemsArray.length; i++) {
-        itemsArray[i].image = itemImgFilenames[i];
-      }
+      assignImagesToItems(itemsArray, newImages);
 
       await createItems(itemsArray, productId);
 
