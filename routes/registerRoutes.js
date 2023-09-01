@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const registerController = require("../controllers/registerController.js");
-const registerValidations = require("../middlewares/Validations/registerValidations.js");
+const userValidation = require("../middlewares/Validations/userValidations.js");
 const router = express.Router();
 const multer = require("multer");
 
@@ -27,6 +27,6 @@ module.exports = router;
 router.post(
   "/",
   [upload.any("image")],
-  [registerValidations.registerCheck],
+  [userValidation.registerValidation] /* cambió el nombre del middleware */,
   registerController.registerUser
 );

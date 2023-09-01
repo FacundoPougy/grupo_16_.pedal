@@ -3,9 +3,9 @@
 
 <head>
   <%- include('../partials/head') %>
-  <link rel="stylesheet" href="/css/inputs.css" />
-  <link rel="stylesheet" href="/css/admin.css" />
-  <link rel="stylesheet" href="/css/admin-crear.css" />
+    <link rel="stylesheet" href="/css/inputs.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/admin-crear.css" />
 </head>
 
 <body>
@@ -22,39 +22,39 @@
     <section class="form-crear">
       <div class="propiedades">
         <input type="text" id="firstName" name="firstName" class="input-form" placeholder="Juan Manuel"
-          value="<%= usuario.firstName %>" required />
+          value="<%= usuario.firstName %>" />
+        <p class="error"></p>
         <label for="firstName" class="labels">Nombre:</label>
       </div>
 
       <div class="propiedades">
         <input type="text" id="lastName" name="lastName" class="input-form" placeholder="Fangio"
-          value="<%= usuario.lastName %>" required />
+          value="<%= usuario.lastName %>" />
+        <p class="error"></p>
         <label for="lastName" class="labels">Apellido:</label>
       </div>
 
       <div class="propiedades">
-        <input type="email" id="email" name="email" class="input-form" placeholder="correo@example.com"
-          value="<%= usuario.email %>" required />
-        <label for="email" class="labels">Correo electrónico:</label>
-      </div>
-
-      <div class="propiedades">
-        <input type="password" id="password" name="password" class="input-form" placeholder="Contraseña" required />
+        <input type="password" id="password" name="password" class="input-form" placeholder="Contraseña" />
+        <p class="error"></p>
         <label for="password" class="labels">Contraseña:</label>
       </div>
 
       <div class="propiedades">
-        <select id="type" name="type" class="input-form" required>
-          <% const types = ['Usuario', 'Administrador']; %>
-          <% for (const type of types) { %>
-          <option <%= type === usuario.type ? 'selected' : '' %> value="<%= type %>"><%= type %></option>
-          <% } %>
+        <select id="type" name="type" class="input-form">
+          <% const types=['Usuario', 'Administrador' ]; %>
+            <% for (const type of types) { %>
+              <option <%=type===usuario.type ? 'selected' : '' %> value="<%= type %>"><%= type %>
+              </option>
+              <% } %>
         </select>
+        <p class="error"></p>
         <label for="type" class="labels select">Tipo:</label>
       </div>
 
       <div class="propiedades">
-        <input type="file" id="image" name="image" class="input-form" accept="image/*" required />
+        <input type="file" id="image" name="image" class="input-form" accept="image/*" />
+        <p class="error"></p>
         <label for="image" class="labels select">Imagen:</label>
       </div>
     </section>
@@ -64,7 +64,7 @@
     </div>
   </form>
 
-  <!-- <script src="/script/admin-editar.js"></script> -->
+  <script src="/script/admin-users-editar.js"></script>
 
 </body>
 
