@@ -120,21 +120,28 @@ image.onchange = (e) => {
 form.addEventListener("submit", function (event) {
   if (nombre.value.length === 0) {
     event.preventDefault();
+    nombre.nextElementSibling.innerHTML = "El nombre es requerido";
     console.log(
       "se frenó la ejecucion del submit, debido a fallas en el campo de nombre"
     );
-  } else if (apellido.value.length === 0) {
+  }
+  if (apellido.value.length === 0) {
     event.preventDefault();
+    apellido.nextElementSibling.innerHTML = "El apellido es requerido";
     console.log(
       "se frenó la ejecucion del submit, debido a fallas en el campo de apellido"
     );
-  } else if (email.value.length === 0) {
+  }
+  if (email.value.length === 0) {
     event.preventDefault();
+    email.nextElementSibling.innerHTML = "El email es requerido";
     console.log(
       "se frenó la ejecucion del submit, debido a fallas en el campo de email"
     );
-  } else if (password.value.length === 0) {
+  }
+  if (password.value.length === 0) {
     event.preventDefault();
+    password.nextElementSibling.innerHTML = "El password es requerido";
     console.log(
       "se frenó la ejecucion del submit, debido a fallas en el campo de password"
     );
