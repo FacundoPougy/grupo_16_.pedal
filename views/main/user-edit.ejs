@@ -3,9 +3,9 @@
 
 <head>
   <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/inputs.css" />
-    <link rel="stylesheet" href="/css/admin.css" />
-    <link rel="stylesheet" href="/css/admin-crear.css" />
+  <link rel="stylesheet" href="/css/inputs.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="/css/admin-crear.css" />
 </head>
 
 <body>
@@ -22,14 +22,14 @@
     <section class="form-crear">
       <div class="propiedades">
         <input type="text" id="firstName" name="firstName" class="input-form" placeholder="Juan Manuel"
-          value="<%= usuario.firstName %>" />
+          value="<%= usuario.firstName %>" required/>
         <p class="error"></p>
         <label for="firstName" class="labels">Nombre:</label>
       </div>
 
       <div class="propiedades">
         <input type="text" id="lastName" name="lastName" class="input-form" placeholder="Fangio"
-          value="<%= usuario.lastName %>" />
+          value="<%= usuario.lastName %>" required/>
         <p class="error"></p>
         <label for="lastName" class="labels">Apellido:</label>
       </div>
@@ -43,10 +43,10 @@
       <div class="propiedades">
         <select id="type" name="type" class="input-form">
           <% const types=['Usuario', 'Administrador' ]; %>
-            <% for (const type of types) { %>
-              <option <%=type===usuario.type ? 'selected' : '' %> value="<%= type %>"><%= type %>
-              </option>
-              <% } %>
+          <% for (const type of types) { %>
+          <option <%=type===usuario.type ? 'selected' : '' %> value="<%= type %>"><%= type %>
+          </option>
+          <% } %>
         </select>
         <p class="error"></p>
         <label for="type" class="labels select">Tipo:</label>
