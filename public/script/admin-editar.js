@@ -258,7 +258,7 @@ window.onload = function () {
             nameErrorElement.textContent = "";
         }
 
-        const mainImageErrorElement = document.getElementById("mainImage-error");
+        const mainImageErrorElement = document.getElementById("updatedImage-error");
         if (image) {
             const fileExtension = image.name.substring(image.name.lastIndexOf('.')).toLowerCase();
             if (!acceptedExtensions.includes(fileExtension)) {

@@ -5,6 +5,8 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
+const cors = require('cors');
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -27,6 +29,9 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
 app.use(cookieParser());
+
+// el middleware CORS para permitir solicitudes entre dominios.
+app.use(cors());
 
 // Configuración del middleware de sesión
 app.use(expressSession({
@@ -83,6 +88,11 @@ const adminRoutes = require("./routes/adminRoutes");
 const cartRoutes = require("./routes/cartRoutes")
 const userAdminRoutes = require("./routes/userAdminRoutes")
 
+/* --- API Routers --- */
+const userApiRoutes = require("./routes/api/userApiRoutes")
+const productoApiRoutes = require("./routes/api/productoApiRoutes")
+
+
 //Uso de las rutas
 app.use(homeRoutes);
 app.use("/register", registerRoutes);
@@ -91,6 +101,11 @@ app.use("/productos", productoRoutes);
 app.use("/admin", adminRoutes);
 app.use("/cart", cartRoutes)
 app.use("/admin-user", userAdminRoutes)
+
+//REST API ENDPOINTS
+app.use('/api/products', productoApiRoutes);
+app.use('/api/users', userApiRoutes);
+
 
 app.use((req, res) => {
   res.render('404');
