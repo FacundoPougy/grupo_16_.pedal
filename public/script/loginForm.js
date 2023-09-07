@@ -5,7 +5,6 @@ window.onload = function () {
   const error = document.querySelectorAll(".error");
   const submitBtn = document.getElementById("submitBtn");
   form.addEventListener("submit", (e) => {
-    console.log("hola");
 
     let errors = [];
 
