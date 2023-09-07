@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../static/css/TotalsPanel.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faShoppingCart, faFolder } from '@fortawesome/free-solid-svg-icons';
 
-
-const TotalPanel = ({ label, total }) => (
-  <div className="total-panel">
+const TotalPanel = ({ label, total, icon }) => (
+  <div className="total">
     <h3>{label}</h3>
-    <span>{total}</span>
+    <div className="number-icon">
+      <FontAwesomeIcon icon={icon} />
+      <span className='numero'>{total}</span>
+    </div>
+
   </div>
 );
 
@@ -45,12 +50,14 @@ const TotalsPanel = () => {
   }, []);
 
   return (
-    <div className="app">
-      <h1>Totales</h1>
-      <div className="total-panels">
-        <TotalPanel label="Total de productos: " total={totalProducts} />
-        <TotalPanel label="Total de categorías de productos: " total={totalCategories} />
-        <TotalPanel label="Total de usuarios: " total={totalUsers} />
+    <div className="totals-panel-container">
+      <div className="totals-panel-container inner">
+        <h1 className="title-totals">Totales</h1>
+        <div className="total-panels-each">
+          <TotalPanel label="Productos: " total={totalProducts} icon={faShoppingCart}/>
+          <TotalPanel label="N° de Categorías: " total={totalCategories} icon={faFolder} />
+          <TotalPanel label="Usuarios: " total={totalUsers} icon={faUser}/>
+        </div>
       </div>
     </div>
   );
