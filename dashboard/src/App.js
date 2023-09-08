@@ -5,6 +5,7 @@ import TotalsPanel from "./components/TotalsPanel";
 import Header from "./components/Header";
 import WrapperComponent from "./components/WrapperComponent";
 import NotFound from "./components/NotFound";
+import LastPanel from "./components/lastUserProduct";
 
 function App() {
   return (
@@ -13,7 +14,11 @@ function App() {
         <Header logoImage="./Logo.jpg" />
         <WrapperComponent>
           <Switch>
-            <Route exact path="/" component={TotalsPanel} />
+            <Route exact path="/">
+              <TotalsPanel />
+              <LastPanel />
+            </Route>
+            <Route exact path="/" component={LastPanel} />
             <Route exact path="/about" component={Header} />
             <Route exact path="/contact" component={WrapperComponent} />
             <Route component={NotFound} />

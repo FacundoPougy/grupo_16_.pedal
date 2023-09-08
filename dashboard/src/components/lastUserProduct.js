@@ -1,4 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
+import "../static/css/LastPanel.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser,
+  faShoppingCart,
+  faFolder,
+} from "@fortawesome/free-solid-svg-icons";
 
 const LastPanel = () => {
   const [lastProducts, setLastProducts] = useState(0);
@@ -27,14 +34,12 @@ const LastPanel = () => {
           const lastProduct = data.products.find(
             (product) => product.id === maxId
           );
-          console.log(dataUser);
+
           dataUser.users.forEach((user) => {
             idsUser.push(user.id);
           });
           const maxIdUser = Math.max(...idsUser);
           const lastUser = dataUser.users.find((user) => user.id === maxIdUser);
-
-          console.log(lastUser);
 
           setLastProducts(lastProduct);
           setlastUser(lastUser);
@@ -43,7 +48,6 @@ const LastPanel = () => {
         console.error("Error al obtener datos:", error);
       }
     }
-    console.log(lastUsers.image);
 
     fetchData();
 
@@ -53,39 +57,64 @@ const LastPanel = () => {
   }, []);
 
   return (
-    <div className="app">
-      <div className="app">
-        <h1>Estadísticas del último producto creado</h1>
-        <div className="total-panels">
+    <div className="biggest-panel">
+      <div>
+        <h2 className="title-last-panel">Ultimo registro</h2>
+        <div className="last-created">
           {lastProducts && (
-            <div>
-              <h3>Último Producto:</h3>
-              <p>Nombre: {lastProducts.name}</p>
-              <p>Descripción: {lastProducts.description}</p>
-              <p>Precio: {lastProducts.price}</p>
-              <h4>Items:</h4>
-              {lastProducts.items.map((item) => (
-                <React.Fragment key={item.color}>
-                  <p>Color:{item.color}</p>
-                  <p>Stock:{item.stock}</p>
-                  <img
-                    src={item.main_image}
-                    alt={`Imagen de ${lastProducts.category}`}
+            <div className="last-product-container">
+              <div className="last-product">
+                <h3 className="last-title">
+                  <FontAwesomeIcon
+                    icon={faShoppingCart}
+                    className="cart-icon"
                   />
-                </React.Fragment>
-              ))}
+                  Producto:
+                </h3>
+                <div className="info">
+                  <h4>Nombre:</h4>
+                  <p className="info-new">{lastProducts.name}</p>
+                </div>
+                <div className="info">
+                  <h4>Descripcion:</h4>
+                  <p className="info-new">{lastProducts.description}</p>
+                </div>
+                <div className="info">
+                  <h4>Precio:</h4>
+                  <p className="info-new">${lastProducts.price}</p>
+                </div>
+
+                {lastProducts.items.map((item) => (
+                  <div className="info expand">
+                    <h4>Color:</h4>
+                    <p className="info-new" key={item.color}>
+                      {item.color}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
-          <h3>Último Producto:</h3>
-          <p>
-            Nombre completo: {lastUsers.name} {lastUsers.lastName}
-          </p>
-          <p>E-mail: {lastUsers.email}</p>
-          <p>Tipo: {lastUsers.type}</p>
-          <img
-            src={lastUsers.image}
-            alt={`Imagen de ${lastProducts.category}`}
-          />
+          {lastUsers && (
+            <div className="last-user-container">
+              <div className="last-user">
+                <h3 className="last-title">
+                  <FontAwesomeIcon icon={faUser} className="user-icon" />
+                  Usuario:
+                </h3>
+                <div className="info">
+                  <h4>Nombre:</h4>
+                  <p className="info-new">
+                    {lastUsers.name} {lastUsers.lastName}
+                  </p>
+                </div>
+                <div className="info infoUser">
+                  <h4 className="info-email-title">Email:</h4>
+                  <p className="info-new">{lastUsers.email}</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
