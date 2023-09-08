@@ -4,8 +4,9 @@ import "./App.css";
 import TotalsPanel from "./components/TotalsPanel";
 import Header from "./components/Header";
 import WrapperComponent from "./components/WrapperComponent";
-import NotFound from "./components/NotFound";
 import LastPanel from "./components/lastUserProduct";
+import NotFound from "./components/NotFound";
+import Products from "./components/Products";
 
 function App() {
   return (
@@ -18,9 +19,8 @@ function App() {
               <TotalsPanel />
               <LastPanel />
             </Route>
-            <Route exact path="/" component={LastPanel} />
-            <Route exact path="/about" component={Header} />
-            <Route exact path="/contact" component={WrapperComponent} />
+            <Route exact path="/products" component={Products} />
+            <Route exact path="/users" component={Products} />
             <Route component={NotFound} />
           </Switch>
         </WrapperComponent>
