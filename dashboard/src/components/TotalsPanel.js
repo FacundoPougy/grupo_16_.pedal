@@ -22,17 +22,16 @@ const TotalsPanel = () => {
   const isMounted = useRef(true);
 
   useEffect(() => {
-    isMounted.current = true;
-
+    
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:3000/api/products');
-        const responseUsers = await fetch('http://localhost:3000/api/users');
-        
-        const data = await response.json();
-        const dataUsers = await responseUsers.json();
-
         if (isMounted.current) {
+          const response = await fetch('http://localhost:3000/api/products');
+          const responseUsers = await fetch('http://localhost:3000/api/users');
+        
+          const data = await response.json();
+          const dataUsers = await responseUsers.json();
+
           setTotalProducts(data.count);
           setTotalCategories(Object.keys(data.countByCategory).length);
           setTotalUsers(dataUsers.count);

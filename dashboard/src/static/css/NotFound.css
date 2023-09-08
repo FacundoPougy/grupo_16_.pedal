@@ -1,0 +1,13 @@
+.NotFound {
+    width: 70%;
+    height: 40%;
+    background-color: var(--blanquito);
+    font-size: 5vw;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+    margin: 10%;
+    color: var(--violeta-claro);
+}

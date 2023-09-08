@@ -1,12 +1,12 @@
 import React from 'react';
-import '../static/css/WrapperComponent.css'
+import '../static/css/NotFound.css'
 
-const WrapperComponent = (props) => {
+const NotFound = (props) => {
   return (
-    <div className="wrapper">
-      {props.children}
+    <div className="NotFound">
+      <p>404</p>
     </div>
   );
 };
 
-export default WrapperComponent;
+export default NotFound;
