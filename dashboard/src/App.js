@@ -8,6 +8,7 @@ import LastPanel from "./components/lastUserProduct";
 import NotFound from "./components/NotFound";
 import Products from "./components/Products";
 import Users from "./components/Users";
+import Categorias from "./components/Categorias";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route exact path="/">
               <TotalsPanel />
               <LastPanel />
+              <Categorias />
             </Route>
             <Route exact path="/products" component={Products} />
             <Route exact path="/users" component={Users} />

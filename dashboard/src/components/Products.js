@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../static/css/Products.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDown,faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 
 const SingleItem = ({item}) => {
@@ -83,7 +83,7 @@ const Products = () => {
 
   return (
     <section className='products-section'>
-      <h2>Productos</h2>
+      <h2> <FontAwesomeIcon icon={faShoppingCart} /> Productos</h2>
     <div className="products-container">
         {products.map((product) => (
           <SingleProduct key={product.id} product={product}></SingleProduct>
