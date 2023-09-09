@@ -1,20 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import '../static/css/Products.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 
 const SingleItem = ({item}) => {
   return (
   <div className='item-single'>
     <img src={"http://localhost:3000/"+item.image} alt={"Item_"+item.id} />
+    <div className='info-item'>
+      <p>{"Stock: " + item.stock}</p>
+      <p>{"Color: " + item.color}</p>
+    </div>
   </div>
   );
 }
 
 const SingleProduct = ({product}) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleContainer = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
     <article className='product-single'>
 
       <div className='titles'>
+        <FontAwesomeIcon className='arrow-icon' icon={isVisible ? faArrowUp : faArrowDown} onClick={toggleContainer}/>
+        
         <div className='product-title'>
           <h3>{product.name}</h3>
           <p>{product.description}</p>
@@ -22,10 +36,11 @@ const SingleProduct = ({product}) => {
 
         <div className='item-title'>
           <h3>Items</h3>
-          <p>Stock total: </p>
+          <p>Stock total:{product.items.reduce((itemAccumulator, item) => itemAccumulator + item.stock,0)}</p>
         </div>
       </div>
 
+      {isVisible && (
       <div className='togle-container'>
         <div className='product-complete'>
           <img src={"http://localhost:3000/"+product.main_image} alt={"Image_"+product.name} />
@@ -37,6 +52,7 @@ const SingleProduct = ({product}) => {
           ))}
         </div>
       </div>
+      )}
 
     </article>
   );

@@ -7,6 +7,7 @@ import WrapperComponent from "./components/WrapperComponent";
 import LastPanel from "./components/lastUserProduct";
 import NotFound from "./components/NotFound";
 import Products from "./components/Products";
+import Users from "./components/Users";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
               <LastPanel />
             </Route>
             <Route exact path="/products" component={Products} />
-            <Route exact path="/users" component={Products} />
+            <Route exact path="/users" component={Users} />
             <Route component={NotFound} />
           </Switch>
         </WrapperComponent>

@@ -51,26 +51,35 @@
   flex-direction: column;
 }
 
-h2{
+h2 {
   text-align: center;
 }
 
-.titles{
+.titles {
   display: flex;
   justify-content: space-around;
 }
 
-.item-title{
+.item-title {
   width: 50%;
   text-align: center;
 }
 
-.product-title{
-  width: 50%;
+.product-title {
+  width: 45%;
   text-align: center;
 }
 
-.togle-container{
+.togle-container {
   display: flex;
   justify-content: space-between;
+}
+
+.info-item {
+  margin: auto;
+  color: var(--naranja);
+}
+
+.arrow-icon{
+  font-size: 3vw;
 }
