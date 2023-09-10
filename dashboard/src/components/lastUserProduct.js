@@ -108,9 +108,13 @@ const LastPanel = () => {
                     {lastUsers.name} {lastUsers.lastName}
                   </p>
                 </div>
-                <div className="info infoUser">
-                  <h4 className="info-email-title">Email:</h4>
+                <div className="info">
+                  <h4>Email:</h4>
                   <p className="info-new">{lastUsers.email}</p>
+                </div>
+                <div className="info infoUser">
+                  <h4>Tipo:</h4>
+                  <p className="info-new">{lastUsers.type}</p>
                 </div>
               </div>
             </div>
