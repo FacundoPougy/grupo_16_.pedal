@@ -56,6 +56,23 @@
         <% }) %>
       </div>
     </div>
+    <div class="carrusel-articulos">
+      <div class="carrusel-articulos-titulo">Bicicletas</div>
+      <div class="productos-en-tienda">
+        <% productos.forEach(function(bici) { %>
+        <% if (bici.category === 'Bicicleta') { %>
+        <div class="productos-en-tienda-element">
+          <a href="productos/<%= bici.id %>/detalle"><img src="<%= bici.main_image %>" alt="Bicicleta" />
+            <div class="contenedor-precio-descripcion">
+              <p>$<%= bici.price %></p>
+              <p class="descripcion"><%= bici.name %></p>
+            </div>
+        </div>
+        </a>
+        <% } %>
+        <% }) %>
+      </div>
+    </div>
     <!-- <div class="carrusel-articulos">
       <div class="carrusel-articulos-titulo">Accesorios</div>
       <div class="productos-en-tienda">

@@ -1,9 +1,14 @@
 const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcrypt");
-const { validationResult } = require("express-validator");
+const {
+  validationResult
+} = require("express-validator");
 
-const { User, ShoppingCart } = require("../database/models");
+const {
+  User,
+  ShoppingCart
+} = require("../database/models");
 
 async function deleteUserRelated(user) {
   try {
@@ -14,7 +19,7 @@ async function deleteUserRelated(user) {
     });
 
     let userImagePath;
-    if (user.image) {
+    if (user.image && user.image != '/images/no-user.jpg') {
       userImagePath = path.join(__dirname, "../public/", user.image);
       console.log(userImagePath);
       fs.unlink(userImagePath, (err) => {
@@ -122,7 +127,7 @@ const controller = {
       });
 
       // Borrar la imagen anterior
-      if (newImage && oldUser.image) {
+      if (newImage && oldUser.image != '/images/no-user.jpg') {
         try {
           const entirePath = path.join(__dirname, "../public/", oldUser.image);
           await fs.unlink(entirePath, (err) => {
@@ -167,9 +172,8 @@ const controller = {
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 12),
         type: req.body.type,
-        image: req.files[0]
-          ? req.files.map((file) => "/images/users/" + file.filename)[0]
-          : "/images/users/1692915094304-no-user.jpg",
+        image: req.files[0] ?
+          req.files.map((file) => "/images/users/" + file.filename)[0] : "/images/no-user.jpg",
       };
 
       await User.create(user);

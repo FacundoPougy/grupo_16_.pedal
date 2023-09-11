@@ -1,6 +1,6 @@
 .productos-en-tienda {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   overflow-x: scroll;
   margin-bottom: 3vh;
 }
