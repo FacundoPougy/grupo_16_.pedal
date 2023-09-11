@@ -1,0 +1,46 @@
+.categoria-container {
+    width: 100%;
+    color: var(--blanquito);
+    padding: 2.5%;
+    margin: 5%;
+    background-color: var(--violeta-oscuro);
+    border-radius: 10px;
+    padding-bottom: 0;
+}
+
+.title-categoria {
+    font-size: 1.5vw;
+}
+
+.bar-label {
+    color: var(--violeta-oscuro);
+    font: 15px var(--texto);
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.bar-suffix {
+    display: inline-block;
+    color: var(--naranja);
+    font: 15px var(--texto);
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.bar-contain {
+    width: 100%;
+    padding: 0;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.bar-expand {
+    display: inline-block;
+    border-radius: 3px 0 0 3px;
+}
