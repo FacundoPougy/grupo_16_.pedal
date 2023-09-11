@@ -57,8 +57,11 @@ const controller = {
   },
 
   getUserAdminCrear: (req, res) => {
+    const error = req.query.error;
+
     res.render("user-crear.ejs", {
       title: "Crear usuario",
+      error: error,
     });
   },
 
@@ -142,6 +145,16 @@ const controller = {
 
   postUserAdminCrear: async (req, res) => {
     try {
+      const searchedUser = await User.findOne({
+        where: {
+          email: req.body.email,
+        },
+      });
+      if (searchedUser) {
+        return res.redirect(
+          "/admin-user/crear?error=El email ya esta registrado"
+        );
+      }
       const validationsValues = validationResult(req);
 
       if (validationsValues.errors.length > 0) {

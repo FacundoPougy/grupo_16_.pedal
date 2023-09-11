@@ -4,18 +4,30 @@ const { validationResult } = require("express-validator");
 
 const controller = {
   getRegister: (req, res) => {
+    const error = req.query.error;
+
     res.render("register", {
       title: "Register",
+      error: error,
     });
   },
 
   registerUser: async (req, res) => {
     try {
+      const searchedUser = await User.findOne({
+        where: {
+          email: req.body.email,
+        },
+      });
+      if (searchedUser) {
+        return res.redirect("/register?error=El email ya esta registrado");
+      }
       const validationsValues = validationResult(req);
 
       if (validationsValues.errors.length > 0) {
         return res.status(400);
       }
+
       const user = req.body;
       const newPassword = bcrypt.hashSync(user.password, 12);
 

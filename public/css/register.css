@@ -76,7 +76,9 @@
   padding-top: 2px;
   font-size: small;
 }
-
+.error-message {
+  color: red;
+}
 .text {
   font-size: 3.5vw;
   width: 65%;

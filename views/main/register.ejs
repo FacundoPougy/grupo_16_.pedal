@@ -26,25 +26,30 @@
       <div class="propiedades-container">
         <h2 class="register-subtitle">INTRODUCE TUS DATOS DE REGISTRO</h2>
         <div class="propiedades">
-          <input placeholder="Ejemplo" type="text" name="firstName" id="nombre" class="input-form" />
+          <input placeholder="Juan Manuel" type="text" name="firstName" id="nombre" class="input-form" required />
           <label for="nombre" class="labels">Nombre</label>
           <p class="error"></p>
         </div>
 
         <div class="propiedades">
-          <input placeholder="Ejemplo" type="text" name="lastName" id="apellido" class="input-form" />
+          <input placeholder="Fangio" type="text" name="lastName" id="apellido" class="input-form" required />
           <label for="apellido" class="labels">Apellidos</label>
           <p class="error"></p>
         </div>
 
         <div class="propiedades">
-          <input placeholder="Ejemplo" type="text" name="email" id="correo" class="input-form" />
+          <input placeholder="correo@example.com" type="text" name="email" id="correo" class="input-form" required />
           <label for="correo" class="labels">Correo electrónico</label>
           <p class="error"></p>
+          <% if (error) { %>
+            <p class="error-message">
+              <%= error %>
+            </p>
+            <% } %>
         </div>
 
         <div class="propiedades">
-          <input placeholder="Ejemplo" type="password" name="password" id="password" class="input-form" />
+          <input placeholder="Contraseña" type="password" name="password" id="password" class="input-form" required />
           <label for="password" class="labels">Contraseña</label>
           <p class="error"></p>
         </div>

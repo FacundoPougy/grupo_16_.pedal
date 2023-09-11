@@ -19,25 +19,30 @@
   <form id="form-product" method="POST" action="/admin-user" enctype="multipart/form-data">
     <section class="form-crear">
       <div class="propiedades">
-        <input type="text" id="firstName" name="firstName" class="input-form" placeholder="Juan Manuel" required/>
+        <input type="text" id="firstName" name="firstName" class="input-form" placeholder="Juan Manuel" required />
         <p class="error"></p>
         <label for="firstName" class="labels">Nombre:</label>
       </div>
 
       <div class="propiedades">
-        <input type="text" id="lastName" name="lastName" class="input-form" placeholder="Fangio" required/>
+        <input type="text" id="lastName" name="lastName" class="input-form" placeholder="Fangio" required />
         <p class="error"></p>
         <label for="lastName" class="labels">Apellido:</label>
       </div>
 
       <div class="propiedades">
-        <input type="text" id="email" name="email" class="input-form" placeholder="correo@example.com" required/>
+        <input type="text" id="email" name="email" class="input-form" placeholder="correo@example.com" required />
         <p class="error"></p>
         <label for="email" class="labels">Correo electrónico:</label>
+        <% if (error) { %>
+          <p class="error-message">
+            <%= error %>
+          </p>
+          <% } %>
       </div>
 
       <div class="propiedades">
-        <input type="password" id="password" name="password" class="input-form" placeholder="Contraseña" required/>
+        <input type="password" id="password" name="password" class="input-form" placeholder="Contraseña" required />
         <p class="error"></p>
         <label for="password" class="labels">Contraseña:</label>
       </div>
