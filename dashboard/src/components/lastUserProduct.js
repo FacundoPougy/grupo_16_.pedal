@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../static/css/LastPanel.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faShoppingCart,
-} from "@fortawesome/free-solid-svg-icons";
+import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const LastPanel = () => {
   const [lastProducts, setLastProducts] = useState(0);
@@ -83,12 +80,10 @@ const LastPanel = () => {
                   <p className="info-new">${lastProducts.price}</p>
                 </div>
 
-                {lastProducts.items.map((item) => (
-                  <div className="info expand">
+                {lastProducts.items.map((item, i) => (
+                  <div className="info expand" key={i}>
                     <h4>Color:</h4>
-                    <p className="info-new" key={item.color}>
-                      {item.color}
-                    </p>
+                    <p className="info-new">{item.color}</p>
                   </div>
                 ))}
               </div>
