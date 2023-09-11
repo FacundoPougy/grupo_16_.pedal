@@ -80,12 +80,12 @@ const LastPanel = () => {
                   <p className="info-new">${lastProducts.price}</p>
                 </div>
 
-                {lastProducts.items.map((item, i) => (
+                {/* {lastProducts.items.map((item, i) => (
                   <div className="info expand" key={i}>
                     <h4>Color:</h4>
                     <p className="info-new">{item.color}</p>
                   </div>
-                ))}
+                ))} */}
               </div>
             </div>
           )}
