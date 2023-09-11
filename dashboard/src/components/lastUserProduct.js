@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
   faShoppingCart,
-  faFolder,
 } from "@fortawesome/free-solid-svg-icons";
 
 const LastPanel = () => {

@@ -1,6 +1,10 @@
 const path = require("path");
-const { Product } = require("../database/models");
-const { Op } = require("sequelize");
+const {
+  Product
+} = require("../database/models");
+const {
+  Op
+} = require("sequelize");
 
 const controller = {
   getIndex: (req, res) => {
@@ -12,20 +16,45 @@ const controller = {
     });
   },
   getSearch: async (req, res) => {
-    /* Obtenemos el nombre del producto */
     const query = req.query.search;
+    let userData = req.session.user;
 
-    /* Comparamos el nombre requerido por el cliente, con los de nuestra base de datos */
-    let searchedProduct = await Product.findOne({
-      where: {
-        name: { [Op.like]: query },
-      },
-    });
+    try {
+      const productos = await Product.findAll({
+        where: {
+          [Op.or]: [{
+              name: {
+                [Op.like]: `%${query}%`
+              },
+            },
+            {
+              description: {
+                [Op.like]: `%${query}%`
+              },
+            },
+          ],
+        },
+      });
 
-    if (searchedProduct) {
-      return res.redirect(`/productos/${searchedProduct.id}/detalle`);
+      if (productos.length > 0) {
+        return res.render("products", {
+          title: "Tienda",
+          productos,
+          user: userData,
+        });
+      } else {
+        return res.render("products", {
+          title: "Sin resultados",
+          productos,
+          user: userData,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      return res.status(500).send("Error en la búsqueda");
     }
   },
+
 };
 
 module.exports = controller;
