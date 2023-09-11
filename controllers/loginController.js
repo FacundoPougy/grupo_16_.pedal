@@ -47,6 +47,7 @@ const controller = {
         delete searchedUser.id;
 
         req.session.user = searchedUser;
+        req.session.user.type = searchedUser.type;
 
         res.redirect("/#menu");
       } else {

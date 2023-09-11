@@ -5,6 +5,7 @@ const multer = require('multer');
 const adminController = require("../controllers/adminController.js");
 const createValidations = require('../middlewares/Validations/createProductsValidations');
 const updateValidations = require('../middlewares/Validations/updateProductsValidations');
+const middlewares = require("../middlewares/authMiddlewares");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -21,13 +22,13 @@ const upload = multer({
 });
 
 // @GET /
-router.get("/", adminController.getAdmin);
+router.get("/", middlewares.allowAdmin, adminController.getAdmin);
 
 // @GET /crear
-router.get("/crear", adminController.getAdminCrear);
+router.get("/crear", middlewares.allowAdmin, adminController.getAdminCrear);
 
 // @GET /editar
-router.get("/:id/editar", adminController.getAdminEditar);
+router.get("/:id/editar", middlewares.allowAdmin, adminController.getAdminEditar);
 
 // @PUT /:id/eliminar
 router.put("/:id/eliminar", adminController.adminDelete);

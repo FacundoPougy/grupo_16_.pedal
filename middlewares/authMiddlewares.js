@@ -1,6 +1,6 @@
 const middlewares = {
     allowUnsignedIn: (req, res, next) => {
-        if(!req.session.user){
+        if (!req.session.user) {
             next();
         } else {
             res.redirect('/#menu');
@@ -8,7 +8,7 @@ const middlewares = {
     },
 
     allowSignedIn: (req, res, next) => {
-        if(req.session.user){
+        if (req.session.user) {
             next();
         } else {
             res.redirect('/users/login');
@@ -16,12 +16,16 @@ const middlewares = {
     },
 
     allowAdmin: (req, res, next) => {
-        if(req.session.user.type === 'admin'){
+        if (!req.session.user) {
+            res.redirect('/');
+        }
+
+        if (req.session.user.type === 'Administrador') {
             next();
         } else {
             res.redirect('/');
         }
-    }  
+    }
 }
 
 module.exports = middlewares;
