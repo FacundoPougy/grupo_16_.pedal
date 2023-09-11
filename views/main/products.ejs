@@ -43,6 +43,7 @@
       <div class="carrusel-articulos-titulo">Accesorios</div>
       <div class="productos-en-tienda">
         <% productos.forEach(function(bici) { %>
+        <% if (bici.category === 'Accesorio') { %>
         <div class="productos-en-tienda-element">
           <a href="productos/<%= bici.id %>/detalle"><img src="<%= bici.main_image %>" alt="Bicicleta" />
             <div class="contenedor-precio-descripcion">
@@ -51,6 +52,7 @@
             </div>
         </div>
         </a>
+        <% } %>
         <% }) %>
       </div>
     </div>

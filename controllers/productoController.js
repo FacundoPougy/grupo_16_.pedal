@@ -8,7 +8,7 @@ const controller = {
   // @GET /products
   getProductos: async (req, res) => {
     const productos = await Product.findAll();
-    console.log(productos);
+    //console.log(productos);
     let userData = req.session.user;
 
     res.render("products", {
