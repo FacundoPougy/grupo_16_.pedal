@@ -12,6 +12,9 @@
   padding-bottom: 2vh;
   padding-top: 2vh;
 }
+body {
+  overflow-x: hidden;
+}
 
 .arrow {
   position: absolute;

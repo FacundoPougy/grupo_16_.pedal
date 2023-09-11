@@ -3,14 +3,22 @@
 
 <head>
   <%- include('../partials/head') %>
-  <link rel="stylesheet" href="/css/admin.css" />
-  <link rel="stylesheet" href="/css/footer-admin.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/footer-admin.css" />
 </head>
 
 
 <script>
   function confirmacion() {
     let respuesta = confirm("¿Desea eliminar el producto?");
+    if (respuesta == true) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  function confirmacionUser() {
+    let respuesta = confirm("¿Desea eliminar el usuario?");
     if (respuesta == true) {
       return true;
     } else {
@@ -32,52 +40,63 @@
     <br>
     <div class="productos-existentes-container" id="products-container">
       <% bicis.forEach(function(bici) { %>
-      <% if (bici.deleted) { %>
-      <article class="productos-existentes" style="background-color: rgba(255, 0, 0, 0.5);">
-        <% } else { %>
-        <article class="productos-existentes">
-          <% } %>
-          <img class="img-producto" src="<%= bici.main_image %>" alt="Bicicleta" />
-          <div class="productos-existentes-content">
-            <h3 class="nombre-bicicleta"><%= bici.name %></h3>
-            <p class="precio">$<%= bici.price %></p>
-            <p>Categoría: <%= bici.category %> </p>
-          </div>
-          <a class="edit-icon" href="admin/<%= bici.id %>/editar"><i class="fa-solid fa-pen-to-square"></i></a>
-          <% if (!bici.deleted) { %>
-          <form class="delete-form" action="admin/<%= bici.id %>/eliminar?_method=put" method="post">
-            <button type="submit" class="delete-icon" onclick="return confirmacion()">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
-          </form>
-          <% } %>
-        </article>
-        <% }) %>
+        <% if (bici.deleted) { %>
+          <article class="productos-existentes" style="background-color: rgba(255, 0, 0, 0.5);">
+            <% } else { %>
+              <article class="productos-existentes">
+                <% } %>
+                  <img class="img-producto" src="<%= bici.main_image %>" alt="Bicicleta" />
+                  <div class="productos-existentes-content">
+                    <h3 class="nombre-bicicleta">
+                      <%= bici.name %>
+                    </h3>
+                    <p class="precio">$<%= bici.price %>
+                    </p>
+                    <p>Categoría: <%= bici.category %>
+                    </p>
+                  </div>
+                  <a class="edit-icon" href="admin/<%= bici.id %>/editar"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <% if (!bici.deleted) { %>
+                    <form class="delete-form" action="admin/<%= bici.id %>/eliminar?_method=put" method="post">
+                      <button type="submit" class="delete-icon" onclick="return confirmacion()">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </form>
+                    <% } %>
+              </article>
+              <% }) %>
     </div>
 
     <div class="productos-existentes-container" style="display: none;" id="user-container">
       <% usuarios.forEach(function(usuario) { %>
-      <% if (usuario.deleted) { %>
-      <article class="productos-existentes" style="background-color: rgba(255, 0, 0, 0.5);">
-        <% } else { %>
-        <article class="productos-existentes">
-          <% } %>
-          <img class="img-producto" src="<%= usuario.image %>" alt="Imagen de perfil" />
-          <div class="productos-existentes-content">
-            <h3 class="nombre-bicicleta"><%= usuario.firstName %> <%= usuario.lastName %></h3>
-            <p class="correo"><%= usuario.email %></p>
-            <p>Tipo: <%= usuario.type %> </p>
-          </div>
-          <a class="edit-icon" href="admin-user/<%= usuario.id %>/editar"><i class="fa-solid fa-pen-to-square"></i></a>
-          <% if (!usuario.deleted) { %>
-          <form class="delete-form" action="admin-user/<%= usuario.id %>/eliminar?_method=put" method="post">
-            <button type="submit" class="delete-icon" onclick="return confirmacion()">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
-          </form>
-          <% } %>
-        </article>
-        <% }) %>
+        <% if (usuario.deleted) { %>
+          <article class="productos-existentes" style="background-color: rgba(255, 0, 0, 0.5);">
+            <% } else { %>
+              <article class="productos-existentes">
+                <% } %>
+                  <img class="img-producto" src="<%= usuario.image %>" alt="Imagen de perfil" />
+                  <div class="productos-existentes-content">
+                    <h3 class="nombre-bicicleta">
+                      <%= usuario.firstName %>
+                        <%= usuario.lastName %>
+                    </h3>
+                    <p class="correo">
+                      <%= usuario.email %>
+                    </p>
+                    <p>Tipo: <%= usuario.type %>
+                    </p>
+                  </div>
+                  <a class="edit-icon" href="admin-user/<%= usuario.id %>/editar"><i
+                      class="fa-solid fa-pen-to-square"></i></a>
+                  <% if (!usuario.deleted) { %>
+                    <form class="delete-form" action="admin-user/<%= usuario.id %>/eliminar?_method=put" method="post">
+                      <button type="submit" class="delete-icon" onclick="return confirmacionUser()">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </form>
+                    <% } %>
+              </article>
+              <% }) %>
     </div>
 
 
